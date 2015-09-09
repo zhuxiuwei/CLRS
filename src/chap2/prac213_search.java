@@ -1,6 +1,6 @@
 package chap2;
 
-public class prac212_search {
+public class prac213_search {
 
 	/**
 	 * p12 查找问题
@@ -22,10 +22,10 @@ public class prac212_search {
 		int b[] = {};
 		int t1 = 3;
 		int t2 = 100;
-		System.out.println(prac212_search.search(a, t1));
-		System.out.println(prac212_search.search(a, t2));
-		System.out.println(prac212_search.search(b, t1));
-		System.out.println(prac212_search.search(b, t2));
+		System.out.println(prac213_search.search(a, t1));
+		System.out.println(prac213_search.search(a, t2));
+		System.out.println(prac213_search.search(b, t1));
+		System.out.println(prac213_search.search(b, t2));
 	}
 
 }

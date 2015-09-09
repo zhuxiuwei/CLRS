@@ -7,7 +7,7 @@ import java.util.Arrays;
  * @author xiuzhu
  *
  */
-public class prac211_InsertSortDesc {
+public class prac212_InsertSortDesc {
 
 	public static void insertSortDesc(int[] source){
 		for(int i = 1; i < source.length; i ++){
@@ -24,13 +24,13 @@ public class prac211_InsertSortDesc {
 	
 	public static void main(String[] args) {
 		int a[] = {6,1,2,3,4,4,5};
-		prac211_InsertSortDesc.insertSortDesc(a);
+		prac212_InsertSortDesc.insertSortDesc(a);
 		
 		int b[] = {};
-		prac211_InsertSortDesc.insertSortDesc(b);
+		prac212_InsertSortDesc.insertSortDesc(b);
 		
 		int c[] = {1};
-		prac211_InsertSortDesc.insertSortDesc(c);
+		prac212_InsertSortDesc.insertSortDesc(c);
 	}
 
 }
