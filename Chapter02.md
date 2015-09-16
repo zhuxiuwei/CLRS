@@ -1,7 +1,7 @@
 第二章习题答案
 =
-###习题2.2-2 写出选择算法的代码，循环不定式，为什么只对前n-1个元素而不是前n个元素运行，用θ表示最好和最坏运行时间  
-1. 代码见https://github.com/zhuxiuwei/CLRS/blob/master/src/chap2/prac222_SelectionSort.java  
+#####习题2.2-2 写出选择算法的代码，循环不定式，为什么只对前n-1个元素而不是前n个元素运行，用θ表示最好和最坏运行时间  
+1. 代码见[prac222_SelectionSort](https://github.com/zhuxiuwei/CLRS/blob/master/src/chap2/prac222_SelectionSort.java)  
 2. 代码中，i=0开始第一次循环，i表示无序区中第一个元素，依次循环过后这个元素称为有序曲最后一个元素，则：  
 	初始化： 当i=0时，有序区还没有元素，没有元素自然也可以认为是有序的，循环不变式成立；  
 	保持： 假设数组A[1...j]当前是有序的，那么A[1...j]中的元素一定比数组中剩下的元素都小（不大于），下次迭代将会使A[j+1]交换到剩下元素中最小的元素，那么a[1...j+1]还是有序的，循环不定式成立  
@@ -10,35 +10,37 @@
 4. 不论最坏情况还是最好情况：  
 	都需要进行n-1轮元素比较，每轮比较的次数为： n, n-1, ..., 2，总的比较次数为(n-1)*(n+2)/2，最好最坏都是：θ(n^2)  
   
-###习题2.2-3 线性查找相关（代码见https://github.com/zhuxiuwei/CLRS/blob/master/src/chap2/prac213_linearSearch.java）  
-假设要查找的元素等可能地为数组中的元素，则：
-1. 平均查找多少个元素？  -- (1 + 2 + ... + n)/n = (n+1)/2个。
-2. 最坏呢？   -- n个
-3. 都是θ(n)
+#####习题2.2-3 线性查找相关  
+代码见[prac213_linearSearch](https://github.com/zhuxiuwei/CLRS/blob/master/src/chap2/prac213_linearSearch.java）  
+假设要查找的元素等可能地为数组中的元素，则:  
+1. 平均查找多少个元素？  -- (1 + 2 + ... + n)/n = (n+1)/2个。  
+2. 最坏呢？   -- n个  
+3. 都是θ(n)  
 
-习题 2.2.4 应该如何修改任意一个算法，才能使之具有良好的最好情况运行时间？ 
-不太明白习题的意思。
+#####习题 2.2.4 应该如何修改任意一个算法，才能使之具有良好的最好情况运行时间？  
+不太明白习题的意思。  
 英文答案：Modify the algorithm so it tests whether the input satisﬁes some special-case condition and, if it does, output a pre-computed answer. 
 The best-case running time is generally not a good measure of an algorithm.
-
-习题2.3-2 不适用哨兵的merge，见Text2_3_MergeSort.java之new_merge()方法
-
-习题2.3-3  用数学归纳法证明等式成立。
-1. 当k=1时， n=2^k=2，等式成立。
-2. 假设k=i时，
-	T(n)=T(2^i) = 2T(2^i/2) + 2^i = 2^i*lg2^i   成立
-3. 则k=i+1时
+  
+#####习题2.3-2 不使用哨兵的merge  
+见[Text2_3_MergeSort.java之new_merge()方法](https://github.com/zhuxiuwei/CLRS/blob/master/src/chap2/Text2_3_MergeSort.java)  
+  
+#####习题2.3-3  用数学归纳法证明等式成立。  
+1. 当k=1时， n=2^k=2，等式成立。  
+2. 假设k=i时，  
+	T(n)=T(2^i) = 2T(2^i/2) + 2^i = 2^i*lg2^i   成立  
+3. 则k=i+1时  
 	T(n)=T(2^(i+1))=2*T(2^(i+1)/2) + 2^(i+1)
 		=2*T(2^i) + 2^i*2		//把等式2 T(2^i0 = 2^i*lg2^i代入
 		=2*2^i*lg2^i + 2^i*2
 		=2^(i+1)*(lg2^i + 1)
 		= 2^(i+1)*(lg2^i + lg2)
 		=2^(i+1)*log2^(i+1)
-	证毕。
+	证毕。  
 	
-习题2.3-4 插入排序最坏情况的递归式
-1. 插入排序递归写法见 "prac234_InsertSort_Recursive.java"
-2. 递归式：
+#####习题2.3-4 插入排序最坏情况的递归式  
+1. 插入排序递归写法见 "prac234_InsertSort_Recursive.java"  
+2. 递归式：  
 	1. n=1, 为常量c*1；
 	2. n>1时，我们把递归过程分为分解、处理、合并三部分。
 		其中分解、合并部分都是n的线性函数，记为c1*n, c2*n, 可以合并为 c*n
@@ -51,21 +53,21 @@ The best-case running time is generally not a good measure of an algorithm.
 	T(n) = c  					(n=1)
 		   (n-1)(n-2)/2 + c*n    (n>1)
 		   
-
-习题2.3-6 （答案不确定） 插入排序的while顺序查找部分改成二分查找时，性能能否提高到O(nlgn)？
-	相当于处理部分从(n-1)(n-2)/2 + cn 变为 lg1+lg2+...+lg(n-1) +c*n，忽略c*n
-	即证明 lg1+lg2+...+lg(n-1) 是否等于nlgn
-	nlgn可以写成lgn + lgn + lgn
-	而lg1<lgn, lg2<lgn...
-	故能收敛到O(nlgn)
+  
+#####习题2.3-6 （答案不确定） 插入排序的while顺序查找部分改成二分查找时，性能能否提高到O(nlgn)？  
+	相当于处理部分从(n-1)(n-2)/2 + cn 变为 lg1+lg2+...+lg(n-1) +c*n，忽略c*n  
+	即证明 lg1+lg2+...+lg(n-1) 是否等于nlgn  
+	nlgn可以写成lgn + lgn + lgn  
+	而lg1<lgn, lg2<lgn...  
+	故能收敛到O(nlgn)  
+	  
+#####习题2.3-7  
+	可以。  
+	思想：  
+	先用O(nlgn)算法对集合排序。  
+	然后调用二分查找。  
 	
-习题2.3-7
-	可以。
-	思想：
-	先用O(nlgn)算法对集合排序。
-	然后调用二分查找。
 	
-	
--------- 思考题 ----------
+###-------- 思考题 ----------
 
 
