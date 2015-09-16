@@ -8,6 +8,17 @@
 4. 不论最坏情况还是最好情况：
 	都需要进行n-1轮元素比较，每轮比较的次数为： n, n-1, ..., 2，总的比较次数为(n-1)*(n+2)/2，最好最坏都是：θ(n^2)
 
+习题2.2-3 线性查找相关（代码见prac213_linearSearch.java）
+假设要查找的元素等可能地为数组中的元素，则：
+1. 平均查找多少个元素？  -- (1 + 2 + ... + n)/n = (n+1)/2个。
+2. 最坏呢？   -- n个
+3. 都是θ(n)
+
+习题 2.2.4 应该如何修改任意一个算法，才能使之具有良好的最好情况运行时间？ 
+不太明白习题的意思。
+英文答案：Modify the algorithm so it tests whether the input satisﬁes some special-case condition and, if it does, output a pre-computed answer. 
+The best-case running time is generally not a good measure of an algorithm.
+
 习题2.3-2 不适用哨兵的merge，见Text2_3_MergeSort.java之new_merge()方法
 
 习题2.3-3  用数学归纳法证明等式成立。
@@ -51,3 +62,8 @@
 	思想：
 	先用O(nlgn)算法对集合排序。
 	然后调用二分查找。
+	
+	
+-------- 思考题 ----------
+
+

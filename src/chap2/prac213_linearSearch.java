@@ -1,9 +1,9 @@
 package chap2;
 
-public class prac213_search {
+public class prac213_linearSearch {
 
 	/**
-	 * p12 查找问题
+	 * p12 线性查找问题
 	 * @param src  源数组
 	 * @param target  查找这个数字
 	 * @return  下标result使得 target=src[result]，找不到返回Null
@@ -22,10 +22,10 @@ public class prac213_search {
 		int b[] = {};
 		int t1 = 3;
 		int t2 = 100;
-		System.out.println(prac213_search.search(a, t1));
-		System.out.println(prac213_search.search(a, t2));
-		System.out.println(prac213_search.search(b, t1));
-		System.out.println(prac213_search.search(b, t2));
+		System.out.println(prac213_linearSearch.search(a, t1));
+		System.out.println(prac213_linearSearch.search(a, t2));
+		System.out.println(prac213_linearSearch.search(b, t1));
+		System.out.println(prac213_linearSearch.search(b, t2));
 	}
 
 }
