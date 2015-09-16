@@ -11,7 +11,7 @@
 	都需要进行n-1轮元素比较，每轮比较的次数为： n, n-1, ..., 2，总的比较次数为(n-1)*(n+2)/2，最好最坏都是：θ(n^2)  
   
 #####习题2.2-3 线性查找相关  
-代码见[prac213_linearSearch](https://github.com/zhuxiuwei/CLRS/blob/master/src/chap2/prac213_linearSearch.java）  
+代码见[prac213_linearSearch](https://github.com/zhuxiuwei/CLRS/blob/master/src/chap2/prac213_linearSearch.java)  
 假设要查找的元素等可能地为数组中的元素，则:  
 1. 平均查找多少个元素？  -- (1 + 2 + ... + n)/n = (n+1)/2个。  
 2. 最坏呢？   -- n个  
@@ -30,13 +30,13 @@ The best-case running time is generally not a good measure of an algorithm.
 2. 假设k=i时，  
 	T(n)=T(2^i) = 2T(2^i/2) + 2^i = 2^i*lg2^i   成立  
 3. 则k=i+1时  
-	T(n)=T(2^(i+1))=2*T(2^(i+1)/2) + 2^(i+1)
-		=2*T(2^i) + 2^i*2		//把等式2 T(2^i0 = 2^i*lg2^i代入
-		=2*2^i*lg2^i + 2^i*2
-		=2^(i+1)*(lg2^i + 1)
-		= 2^(i+1)*(lg2^i + lg2)
-		=2^(i+1)*log2^(i+1)
-	证毕。  
+	T(n)=T(2^(i+1))=2*T(2^(i+1)/2) + 2^(i+1)  
+		=2*T(2^i) + 2^i*2		//把等式2 T(2^i0 = 2^i*lg2^i代入  
+		=2*2^i*lg2^i + 2^i*2  
+		=2^(i+1)*(lg2^i + 1)  
+		= 2^(i+1)*(lg2^i + lg2)  
+		=2^(i+1)*log2^(i+1)  
+	证毕。    
 	
 #####习题2.3-4 插入排序最坏情况的递归式  
 1. 插入排序递归写法见 "prac234_InsertSort_Recursive.java"  
