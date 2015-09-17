@@ -31,7 +31,7 @@ The best-case running time is generally not a good measure of an algorithm.
 		T(n)=T(2^i) = 2T(2^i/2) + 2^i = 2^i x lg2^i   成立  
 3. 则k=i+1时  
 		T(n)=T(2^(i+1))=2xT(2^(i+1)/2) + 2^(i+1)  
-			=2xT(2^i) + 2^i*2		//把等式2 T(2^i0 = 2^i x lg2^i代入  
+			=2 x T(2^i) + 2^i x 2		//把等式2 T(2^i0 = 2^i x lg2^i代入  
 			=2 x 2^i x lg2^i  +  2^i x 2  
 			=2^(i+1) x (lg2^i + 1)  
 			= 2^(i+1) x (lg2^i + lg2)  
@@ -55,7 +55,7 @@ The best-case running time is generally not a good measure of an algorithm.
 		   
   
 #####习题2.3-6 （答案不确定） 插入排序的while顺序查找部分改成二分查找时，性能能否提高到O(nlgn)？  
-相当于处理部分从(n-1)(n-2)/2 + cn 变为 lg1+lg2+...+lg(n-1) +c*n，忽略c*n  
+相当于处理部分从(n-1)(n-2)/2 + cn 变为 lg1+lg2+...+lg(n-1) +c\*n，忽略c\*n  
 即证明 lg1+lg2+...+lg(n-1) 是否等于nlgn  
 nlgn可以写成lgn + lgn + lgn  
 而lg1<lgn, lg2<lgn...  
