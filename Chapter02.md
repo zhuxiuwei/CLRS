@@ -49,9 +49,9 @@ The best-case running time is generally not a good measure of an algorithm.
 		比较次数		0	1	2 ... n-1
 		故全部比较次数为 0 + 1 + 2 + ... + n-1 = (n-1)(n-2)/2
 	         可以记为(n-1)(n-2)/2 + c\*n
-	 综上，递归式为：
-	T(n) = c (n=1)
-	       (n-1)(n-2)/2 + c\*n    (n>1)
+	 综上，递归式为：  
+	T(n) = c (n=1)  
+	T(n) = (n-1)(n-2)/2 + c\*n    (n>1)  
 		   
   
 #####习题2.3-6 （答案不确定） 插入排序的while顺序查找部分改成二分查找时，性能能否提高到O(nlgn)？  
