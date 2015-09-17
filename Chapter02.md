@@ -39,7 +39,7 @@ The best-case running time is generally not a good measure of an algorithm.
 	证毕。    
 	
 #####习题2.3-4 插入排序最坏情况的递归式  
-1. 插入排序递归写法见 "prac234_InsertSort_Recursive.java"  
+1. 插入排序递归写法见 [prac234_InsertSort_Recursive](https://github.com/zhuxiuwei/CLRS/blob/master/src/chap2/prac234_InsertSort_Recursive.java)  
 2. 递归式：  
 	1. n=1, 为常量c\*1；
 	2. n>1时，我们把递归过程分为分解、处理、合并三部分。
