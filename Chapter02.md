@@ -72,5 +72,6 @@ nlgn可以写成lgn + lgn + lgn
 代码： [prac237_FindTwoElementsSum](https://github.com/zhuxiuwei/CLRS/blob/master/src/chap2/prac237_FindTwoElementsSum.java)
 	
 ###-------- 思考题 ----------
-
+#####思考题2.4 逆序对
+代码：  [Thinks24_Inversion_NiXuDui](https://github.com/zhuxiuwei/CLRS/blob/master/src/chap2/Thinks24_Inversion_NiXuDui.java)
 
