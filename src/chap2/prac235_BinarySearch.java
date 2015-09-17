@@ -20,7 +20,7 @@ public class prac235_BinarySearch {
 	 * @param begin
 	 * @param end
 	 */
-	public void bSearch(int a[], int target, int begin, int end){
+	public boolean bSearch(int a[], int target, int begin, int end){
 		boolean found = false;
 		int mid = (begin + end)/2;
 		int i = a[mid];
@@ -44,10 +44,7 @@ public class prac235_BinarySearch {
 				i = a[mid];
 			}
 		}
-		if(found)
-			System.out.println("Found " + target);
-		else
-			System.out.println("Not Found " + target);
+		return found;
 	}
 	
 	/**
@@ -87,12 +84,12 @@ public class prac235_BinarySearch {
 		int t6 = 20;
 		
 		System.out.println("---- 非递归算法---- ");
-		p.bSearch(a, t1, 0, a.length - 1);
-		p.bSearch(a, t2, 0, a.length - 1);
-		p.bSearch(a, t3, 0, a.length - 1);
-		p.bSearch(a, t4, 0, a.length - 1);
-		p.bSearch(a, t5, 0, a.length - 1);
-		p.bSearch(a, t6, 0, a.length - 1);
+		System.out.println(p.bSearch(a, t1, 0, a.length - 1));
+		System.out.println(p.bSearch(a, t2, 0, a.length - 1));
+		System.out.println(p.bSearch(a, t3, 0, a.length - 1));
+		System.out.println(p.bSearch(a, t4, 0, a.length - 1));
+		System.out.println(p.bSearch(a, t5, 0, a.length - 1));
+		System.out.println(p.bSearch(a, t6, 0, a.length - 1));
 		
 		System.out.println("\r\n---- 递归算法---- ");
 		System.out.println(p.bSearch_recursive(a, t1, 0, a.length - 1));
