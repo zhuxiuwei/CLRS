@@ -17,9 +17,9 @@ public class Thinks24_Inversion_NiXuDui {
 	 *@return: 逆序对的个数
 	 */
 	public int calculate(int a[], int begin, int end){
-		if(begin == 0 && end == a.length - 1){	//注意点2 - 递归开始	
-			count = 0;
-		}
+		if(begin == 0 && end == a.length - 1)	//注意点2 - 递归开始	
+			count = 0;	//递归开始的时候重置count值。
+		
 		int mid = (begin + end)/2;
 		if(begin < mid)
 			 calculate(a, begin, mid);
@@ -29,7 +29,7 @@ public class Thinks24_Inversion_NiXuDui {
 		count(a, begin, mid, end);
 		if(begin == 0 && end == a.length - 1){	//注意点2 - 递归结束
 			System.out.println(count);
-			return count;	//递归结束的return才是有意义的结果
+			return count;	//递归结束的打印和return最终有意义的count值
 		}
 		return 0;	//随便return个东西， 不影响最终结果。
 	}
