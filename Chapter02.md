@@ -52,8 +52,10 @@ The best-case running time is generally not a good measure of an algorithm.
 	 综上，递归式为：  
 	T(n) = c (n=1)  
 	T(n) = (n-1)(n-2)/2 + c\*n    (n>1)  
-		   
-  
+	
+#####习题2.3-5 二分查找 	   
+ 代码见：[prac235_BinarySearch](https://github.com/zhuxiuwei/CLRS/blob/master/src/chap2/prac235_BinarySearch.java)  
+ 
 #####习题2.3-6 （答案不确定） 插入排序的while顺序查找部分改成二分查找时，性能能否提高到O(nlgn)？  
 相当于处理部分从(n-1)(n-2)/2 + cn 变为 lg1+lg2+...+lg(n-1) +c\*n，忽略c\*n  
 即证明 lg1+lg2+...+lg(n-1) 是否等于nlgn  
@@ -66,7 +68,8 @@ nlgn可以写成lgn + lgn + lgn
 思想：  
 先用O(nlgn)算法对集合排序。  
 然后调用二分查找。  
-	
+（当然用HashSet辅助的话，更快。）  
+代码： [prac237_FindTwoElementsSum](https://github.com/zhuxiuwei/CLRS/blob/master/src/chap2/prac237_FindTwoElementsSum.java)
 	
 ###-------- 思考题 ----------
 
