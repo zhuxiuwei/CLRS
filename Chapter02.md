@@ -43,7 +43,7 @@ The best-case running time is generally not a good measure of an algorithm.
 2. 递归式：  
 	1. n=1, 为常量c*1；
 	2. n>1时，我们把递归过程分为分解、处理、合并三部分。
-		其中分解、合并部分都是n的线性函数，记为c1*n, c2*n, 可以合并为 c*n
+		其中分解、合并部分都是n的线性函数，记为c1\*n, c2\*n, 可以合并为 c\*n
 		处理部分，假设规模为n,当i=1...n时，最坏情况下的比较次数分别为
 		i  			1	2	3  。。。n
 		比较次数		0	1	2 ... n-1
@@ -51,7 +51,7 @@ The best-case running time is generally not a good measure of an algorithm.
 	         可以记为(n-1)(n-2)/2 + c*n
 	 综上，递归式为：
 	T(n) = c  					(n=1)
-		   (n-1)(n-2)/2 + c*n    (n>1)
+		   (n-1)(n-2)/2 + c\*n    (n>1)
 		   
   
 #####习题2.3-6 （答案不确定） 插入排序的while顺序查找部分改成二分查找时，性能能否提高到O(nlgn)？  
