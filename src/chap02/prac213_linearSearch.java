@@ -1,4 +1,4 @@
-package chap2;
+package chap02;
 
 public class prac213_linearSearch {
 
