@@ -9,6 +9,12 @@ public class MaxSubArrayBean {
 	public int endIndex;
 	public int sumValue;
 	
+	public MaxSubArrayBean(int startIndex, int endIndex, int sumValue){
+		this.startIndex = startIndex;
+		this.endIndex = endIndex;
+		this.sumValue = sumValue;
+	}
+	
 	public String toString(){
 		return "startIndex: " + startIndex + ", endIndex: " + endIndex + ", sumValue: " + sumValue;
 	}

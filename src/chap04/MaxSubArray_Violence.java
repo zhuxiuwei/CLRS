@@ -1,13 +1,13 @@
 package chap04;
 /**
- * 最大子数组暴力解法。Θ(n^2)
+ * 习题4.1-2： 最大子数组暴力解法。Θ(n^2)
  * @author xiuzhu
  *
  */
 public class MaxSubArray_Violence {
 
 	public MaxSubArrayBean findMaxSubbArray(int[] src){
-		MaxSubArrayBean rest = new MaxSubArrayBean();
+		MaxSubArrayBean rest = new MaxSubArrayBean(-1,-1,-1);
 		
 		if(src.length < 2){
 			System.out.println("Error: Array length must be >= 2!");
