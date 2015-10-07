@@ -16,11 +16,12 @@ public class TestData {
 		res.add(new int[]{13,-3, -25, 20, -3, -16, -23, 18, 20, -7, 12, -5, -22, 15, -4, 7});
 		res.add(new int[]{-5, -3, -1, -1, -1});
 		res.add(new int[]{-1, -2, -3});
-		res.add(new int[]{13,-3, -25, 20, -3, -16, -23, 18, 20, -7, 12, -5, -22, 15, -4, 7, 100});
-		res.add(new int[]{5, -3, 2, -3, 1, 2, -1, 100, -1, 2});
-		res.add(new int[]{5, -3, 2, -3, 1, 2, -1, 100});
-		res.add(new int[]{5, -3, 2, -3, 1, 2, -10, 100});
-		res.add(new int[]{5, -3, 2, -3, 1, 2, -10, 100, -1});
+		//below for MaxSubArray_Lineary Bug.
+		res.add(new int[]{13,-3, -25, 20, -3, -16, -23, 18, 20, -7, 12, -5, -22, 15, -4, 7, 100});		//Bug 1
+		res.add(new int[]{5, -3, 2, -3, 1, 2, -1, 100, -1, 2});	//Bug 2
+		res.add(new int[]{5, -3, 2, -3, 1, 2, -1, 100});	//Bug 2'
+		res.add(new int[]{5, -3, 2, -3, 1, 2, -10, 100});	//Bug 1, 2， 2'
+		res.add(new int[]{5, -3, 2, -3, 1, 2, -10, 100, -1});	//Bug 2, 2'
 		return res;
 	}
 }

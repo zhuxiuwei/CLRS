@@ -5,12 +5,13 @@ import java.util.Arrays;
 /**
  * 习题4.1-5： 非递归的、线性时间的最大子数组算法。 151006
  * @author xiuzhu
- * 注意点： 思路不清晰，写了差不多1小时才运行正确。如果手写的话一定有问题！！！！！  
+ * 注意点： 逻辑总是搞不清楚，花费了大半天时间。。。如果手写的话一定有问题！！！！！  
  * 【经验】：
  * 	1. Test case很重要！比如bug1和bug2就是新的test case发现的。
  *	2. 很多时候写算法不要想的太简单想当然，在纸上简单画画（bug2）
  * 【Bug1】: 到达src数组的边界值后，没有清算winPoint和losePoint，导致最大子数组出现在尾巴的时候出现问题。
  * 【Bug2】: 得到了老sum、一轮损失值一轮挽回值后，计算新sum的算法之前想的太简单。
+ * 【Bug2'】: 如果有多轮损失值和挽回值，也比较复杂，这块时间非的最长。
  *
  */
 public class MaxSubArray_Lineary {
@@ -43,7 +44,6 @@ public class MaxSubArray_Lineary {
 				setWinPointStartIndex = true;
 				if(winPoint > 0){	//各计算了一轮“损失值”和“挽回值”，遇到新的一轮“损失值”时，开始“清算”上一轮的战果
 					//【---BUG2 FIX---】清算老sum，结合损失值和挽回值计算新sum的算法的fix。
-					
 					if(sum + winPoint + losePoint >=0 ){
 						total = sum + losePoint + winPoint;
 						end = i - 1;
@@ -65,8 +65,6 @@ public class MaxSubArray_Lineary {
 						}
 						
 					}else{	//sum小于losePoint，则当前losePoint一定不可用了。
-//						if(sum > winPoint)
-//							bean = new MaxSubArrayBean(start, end, sum);	//归档旧的sum
 						//从当前winpoint作为最大子数组的开始，开始新的记数 
 						sum = winPoint;
 						losePoint = src[i];
