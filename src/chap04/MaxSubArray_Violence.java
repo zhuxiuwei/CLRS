@@ -1,4 +1,7 @@
 package chap04;
+
+import java.util.Arrays;
+
 /**
  * 习题4.1-2： 最大子数组暴力解法。Θ(n^2)
  * @author xiuzhu
@@ -32,20 +35,11 @@ public class MaxSubArray_Violence {
 	}
 	
 	public static void main(String[] args) {
-		int[] a1 = {};
-		int[] a2 = {1};
-		int[] a3 = {1, -4, 3, -4};
-		int[] a4 = {13,-3, -25, 20, -3, -16, -23, 18, 20, -7, 12, -5, -22, 15, -4, 7};
-		int[] a5 = {-5, -3, -1, -1, -1};
-		int[] a6 = {-1, -2, -3};
-		
 		MaxSubArray_Violence m = new MaxSubArray_Violence();
-		m.findMaxSubbArray(a1);
-		m.findMaxSubbArray(a2);
-		m.findMaxSubbArray(a3);
-		m.findMaxSubbArray(a4);
-		m.findMaxSubbArray(a5);
-		m.findMaxSubbArray(a6);
+		for(int[] testData: TestData.MaxSubArrayTestData()){
+			System.out.println("Test: " + Arrays.toString(testData));
+			m.findMaxSubbArray(testData);
+		}
 	}
 
 }
