@@ -24,4 +24,20 @@ public class TestData {
 		res.add(new int[]{5, -3, 2, -3, 1, 2, -10, 100, -1});	//Bug 2, 2'
 		return res;
 	}
+	
+	//Test data for MaxSubArray algorithms. Every two arrays is a combined input of a MatrixMultiple method.
+	public static List<int[][]> MatrixMultipleTestData(){
+		List<int[][]> res = new ArrayList<int[][]>();
+		res.add(new int[][]{{1}});	//invalid input
+		res.add(new int[][]{{1},{2}});
+		res.add(new int[][]{});	//0
+		res.add(new int[][]{});
+		res.add(new int[][]{{1}});	//2
+		res.add(new int[][]{{2}});
+		res.add(new int[][]{{0,1},{-2,2}});	//-36
+		res.add(new int[][]{{3,3},{-4,-4}});
+		res.add(new int[][]{{1,-1,1},{2,3,4},{1,2,3}});	//76
+		res.add(new int[][]{{2,1,2},{-1,1,2},{2,1,3}});
+		return res;
+	}
 }
