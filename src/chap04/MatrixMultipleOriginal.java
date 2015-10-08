@@ -7,7 +7,7 @@ import java.util.List;
  * 矩阵乘法的原始算法。
  * @author xiuzhu  151008
  * BUG: 加和公式写错了，导致结果不对，花费1小时时间。写的太慢！
- * 【教训】应该在纸上先列下式子，在写代码。代码上来就写导致出错。
+ * 【教训】应该在纸上先列下式子，再写代码。代码上来就写导致出错。
  */
 
 public class MatrixMultipleOriginal extends MatrixMultipleParamChecker{
@@ -25,7 +25,7 @@ public class MatrixMultipleOriginal extends MatrixMultipleParamChecker{
 		for (int i = 0; i < a.length; i++) {
 			for (int j = 0; j < b.length; j++) {
 				for (int k = 0; k < a.length; k++) {
-					res[i][j] += a[i][k] * b[k][j];		//【BUG】
+					res[i][j] += a[i][k] * b[k][j];	//【---BUG FIX---】加和公式要仔细想想再写。
 				}
 			}
 		}
@@ -36,7 +36,8 @@ public class MatrixMultipleOriginal extends MatrixMultipleParamChecker{
 		MatrixMultipleOriginal m = new MatrixMultipleOriginal();
 		List<int[][]> data = TestData.MatrixMultipleTestData();
 		for(int i = 0; i < data.size(); i ++){
-			System.out.println("a: " + Arrays.deepToString(data.get(i)) + ", b: " + Arrays.deepToString(data.get(i + 1)));
+			System.out.println("a: " + Arrays.deepToString(data.get(i)) + 
+					", b: " + Arrays.deepToString(data.get(i + 1)));
 			if(i % 2 == 0){
 				System.out.println(Arrays.deepToString(m.matrixMultiple(data.get(i), data.get(++i))));
 			}
@@ -53,23 +54,19 @@ class MatrixMultipleParamChecker{
 	 * @return
 	 */
 	public boolean checkParam(int[][] a, int[][] b){
-		boolean result = true;
-		int sizeA = a.length;
-		int sizeB = b.length;
+		int sizeA = a.length, sizeB = b.length;
 		if(sizeA != sizeB)
 			return false;
 		else{
 			for(int[] in: a){
-				int sizeIn = in.length;
-				if(sizeIn != sizeA)
+				if(in.length != sizeA)
 					return false;
 			}
 			for(int[] in: a){
-				int sizeIn = in.length;
-				if(sizeIn != sizeA)
+				if(in.length != sizeA)
 					return false;
 			}
 		}
-		return result;
+		return true;
 	}
 }
