@@ -34,8 +34,8 @@ public class TestData {
 		res.add(new int[][]{});
 		res.add(new int[][]{{1}});	//2
 		res.add(new int[][]{{2}});
-		res.add(new int[][]{{0,1},{-2,2}});	//-36
-		res.add(new int[][]{{3,3},{-4,-4}});
+		res.add(new int[][]{{1,2},{3,4}});	//-36
+		res.add(new int[][]{{2,3},{4,5}});
 		res.add(new int[][]{{1,-1,1},{2,3,4},{1,2,3}});	//76
 		res.add(new int[][]{{2,1,2},{-1,1,2},{2,1,3}});
 		return res;

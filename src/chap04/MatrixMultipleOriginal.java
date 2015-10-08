@@ -6,29 +6,30 @@ import java.util.List;
 /**
  * 矩阵乘法的原始算法。
  * @author xiuzhu  151008
- *
+ * BUG: 加和公式写错了，导致结果不对，花费1小时时间。写的太慢！
+ * 【教训】应该在纸上先列下式子，在写代码。代码上来就写导致出错。
  */
 
 public class MatrixMultipleOriginal extends MatrixMultipleParamChecker{
 	/**
 	 * @param a	Source matrix a.
 	 * @param b	Source matrix b.
-	 * @return result matrix of a*b.
+	 * @return result matrix of a*b. It's also a n*n matrix
 	 */
-	public Integer matrixMultiple(int[][] a, int[][] b){
+	public int[][] matrixMultiple(int[][] a, int[][] b){
 		if(!checkParam(a, b)){
 			System.out.println("Invlid parameter!");
 			return null;
 		}
-		int sum = 0;
+		int[][] res = new int[a.length][a.length];
 		for (int i = 0; i < a.length; i++) {
 			for (int j = 0; j < b.length; j++) {
-				for (int k = 0; k < b.length; k++) {
-					sum += a[i][j] * b[j][k];
+				for (int k = 0; k < a.length; k++) {
+					res[i][j] += a[i][k] * b[k][j];		//【BUG】
 				}
 			}
 		}
-		return sum;
+		return res;
 	}
 
 	public static void main(String[] args) {
@@ -37,7 +38,7 @@ public class MatrixMultipleOriginal extends MatrixMultipleParamChecker{
 		for(int i = 0; i < data.size(); i ++){
 			System.out.println("a: " + Arrays.deepToString(data.get(i)) + ", b: " + Arrays.deepToString(data.get(i + 1)));
 			if(i % 2 == 0){
-				System.out.println(m.matrixMultiple(data.get(i), data.get(++i)));
+				System.out.println(Arrays.deepToString(m.matrixMultiple(data.get(i), data.get(++i))));
 			}
 		}
 	}
