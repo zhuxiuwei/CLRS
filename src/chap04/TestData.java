@@ -30,13 +30,13 @@ public class TestData {
 		List<int[][]> res = new ArrayList<int[][]>();
 		res.add(new int[][]{{1}});	//invalid input
 		res.add(new int[][]{{1},{2}});
-		res.add(new int[][]{});	//0
+		res.add(new int[][]{});	//[]
 		res.add(new int[][]{});
-		res.add(new int[][]{{1}});	//2
+		res.add(new int[][]{{1}});	//[[2]]
 		res.add(new int[][]{{2}});
-		res.add(new int[][]{{1,2},{3,4}});	//-36
+		res.add(new int[][]{{1,2},{3,4}});	//[[10, 13], [22, 29]]
 		res.add(new int[][]{{2,3},{4,5}});
-		res.add(new int[][]{{1,-1,1},{2,3,4},{1,2,3}});	//76
+		res.add(new int[][]{{1,-1,1},{2,3,4},{1,2,3}});	//[[5, 1, 3], [9, 9, 22], [6, 6, 15]]
 		res.add(new int[][]{{2,1,2},{-1,1,2},{2,1,3}});
 		return res;
 	}
