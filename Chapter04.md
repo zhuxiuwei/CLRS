@@ -16,7 +16,7 @@ n0边界值问题，没有考虑明白。不会。
 #####4.1-5  
 代码见[MaxSubArray_Lineary.java](https://github.com/zhuxiuwei/CLRS/blob/master/src/chap04/MaxSubArray_Lineary.java)  
 
-#####4.2-1 用Strassen算法给出矩阵的计算过程。矩阵： [1 3 | 7 5], [6 8 | 4 2]('|'表示换行)
+#####4.2-1 用Strassen算法给出矩阵的计算过程。矩阵： [1 3 / 7 5], [6 8 / 4 2]  其中'/'表示换行
 步骤1: 矩阵分解为
 A: A11=1 A12=3 A21=7 A22=5 
 B: B11=6 B12=8 B21=4 B22=2
