@@ -30,6 +30,8 @@ public class TestData {
 		List<int[][]> res = new ArrayList<int[][]>();
 		res.add(new int[][]{{1}});	//invalid input
 		res.add(new int[][]{{1},{2}});
+		res.add(new int[][]{{1},{2}}); //[[1][2]]
+		res.add(new int[][]{{1}});	
 		res.add(new int[][]{});	//[]
 		res.add(new int[][]{});
 		res.add(new int[][]{{1}});	//[[2]]
