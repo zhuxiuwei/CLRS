@@ -5,19 +5,18 @@ package chap04;
  *
  */
 
-public class MatrixMultipleStranssen extends MatrixMultipleParamChecker{
+public class MatrixMultipleStranssen extends MatrixMultipleBase{
 	/**
 	 * @param a	Source matrix a.
 	 * @param b	Source matrix b.
-	 * @return result matrix of a*b.
+	 * @return result matrix of a*b. Its size is: row=a.row, column=b.column 
 	 */
-	public Integer matrixMultiple(int[][] a, int[][] b){
-		if(!checkParam(a, b)){
+	public  int[][] matrixMultiple(int[][] a, int[][] b){
+		if(checkParam(a, b) == -1){
 			System.out.println("Invlid parameter!");
 			return null;
 		}
-		int sum = 0;
-		return sum;
+		return null;
 	}
 
 	public static void main(String[] args) {

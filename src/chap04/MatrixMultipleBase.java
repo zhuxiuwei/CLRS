@@ -1,10 +1,22 @@
 package chap04;
 
+import java.util.Arrays;
+import java.util.List;
+
 /**
  * @author xiuzhu 151012
  *	数组相乘算法的base类。
  */
-public class MatrixMultipleBase {
+public abstract class MatrixMultipleBase {
+	
+	/**
+	 * 矩阵相乘的抽象方法。需要子类实现。
+	 * @param a
+	 * @param b
+	 * @return
+	 */
+	public abstract int[][] matrixMultiple(int[][] a, int[][] b);
+	
 	/**
 	 * 看两个矩阵的size是否合法。合法的标准：a的列数=b的行数，即a是i*j, 则b应该是j*k的。
 	 * @param a 矩阵a
@@ -50,5 +62,20 @@ public class MatrixMultipleBase {
 				}
 				System.out.println("");
 			}
+	}
+	
+	/**
+	 * 运行测试类。
+	 */
+	public void runTest(){
+		List<int[][]> data = TestData.MatrixMultipleTestData();
+		for(int i = 0; i < data.size(); i ++){
+			System.out.print("a: " + Arrays.deepToString(data.get(i)) + 
+					", b: " + Arrays.deepToString(data.get(i + 1)) + ". ");
+			if(i % 2 == 0){
+				printMatrix(matrixMultiple(data.get(i), data.get(++i)));
+				System.out.println("--------------------------------------------------");
+			}
+		}
 	}
 }

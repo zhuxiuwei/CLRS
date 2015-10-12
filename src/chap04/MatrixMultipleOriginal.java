@@ -15,7 +15,7 @@ public class MatrixMultipleOriginal extends MatrixMultipleBase{
 	/**
 	 * @param a	Source matrix a.
 	 * @param b	Source matrix b.
-	 * @return result matrix of a*b. It's also a n*n matrix
+	 * @return result matrix of a*b. Its size is: row=a.row, column=b.column 
 	 */
 	public int[][] matrixMultiple(int[][] a, int[][] b){
 		int bColumn = checkParam(a, b);
@@ -35,15 +35,7 @@ public class MatrixMultipleOriginal extends MatrixMultipleBase{
 
 	public static void main(String[] args) {
 		MatrixMultipleOriginal m = new MatrixMultipleOriginal();
-		List<int[][]> data = TestData.MatrixMultipleTestData();
-		for(int i = 0; i < data.size(); i ++){
-			System.out.print("a: " + Arrays.deepToString(data.get(i)) + 
-					", b: " + Arrays.deepToString(data.get(i + 1)) + ". ");
-			if(i % 2 == 0){
-				m.printMatrix(m.matrixMultiple(data.get(i), data.get(++i)));
-				System.out.println("--------------------------------------------------");
-			}
-		}
+		m.runTest();
 	}
 
 }
