@@ -48,6 +48,7 @@ public abstract class MatrixMultipleBase {
 		}
 	}
 	
+	
 	/**
 	 * 打印数组
 	 * @param a

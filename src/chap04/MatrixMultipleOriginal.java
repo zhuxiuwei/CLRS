@@ -1,7 +1,5 @@
 package chap04;
 
-import java.util.Arrays;
-import java.util.List;
 
 /**
  * 矩阵乘法的原始算法。
