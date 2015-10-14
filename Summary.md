@@ -1,4 +1,4 @@
-有难度的题目
+写的不顺畅的题目总结
 =
 #####第2章  
 [二分查找递归非递归算法](https://github.com/zhuxiuwei/CLRS/blob/master/src/chap02/prac235_BinarySearch.java) ★★★  
