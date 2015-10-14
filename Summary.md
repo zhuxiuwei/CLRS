@@ -2,7 +2,7 @@
 =
 #####第2章  
 [二分查找递归非递归算法](https://github.com/zhuxiuwei/CLRS/blob/master/src/chap02/prac235_BinarySearch.java) ★★★  
-不是很顺畅，退出条件，  
+不是很顺畅，退出情况要思考清楚，这个地方花了些时间，  
 
 [统计逆序对个数](https://github.com/zhuxiuwei/CLRS/blob/master/src/chap02/Thinks24_Inversion_NiXuDui.java) ★★★  
 开始算法思路有问题。而且书上不提示的话，估计想不到用归并排序思想。  
@@ -17,4 +17,4 @@
 当有多重循环时，从业务逻辑中（如矩阵乘法的计算公式），推导出i,j,k变量分别应该在哪个位置的能力需要加强。  
 
 [矩阵乘法的递归算法](https://github.com/zhuxiuwei/CLRS/blob/master/src/chap04/MatrixMultipleRecursive.java) ★★★★  
-【难度】 不是很熟练，在纸上写会有问题。难在建模 --- 怎么给函数定义，怎么定义矩阵的加法（后来发现实际“不用”做）。建好模后，写起来还比较顺畅。  
+【难度】 不是很熟练，在纸上写会有问题。难在递归时 -- 也就是分割矩阵时的建模 --- 怎么抽象出矩阵分割，定义函数签名，怎么处理两个矩阵的加法（后来发现实际“不用”做）。建好模后，写起来还比较顺畅。  
