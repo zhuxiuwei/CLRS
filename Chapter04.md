@@ -32,4 +32,17 @@ C11=P5+P4-P2+P6=18, C12=P1+P2=14, C21=P3+P4=62, C22=P5+P1-P3-P7=66
 结果和手算的结果一致。
 
 #####4.2-2 Strassen伪代码  
-代码见[MatrixMultipleStranssen.java](https://github.com/zhuxiuwei/CLRS/blob/master/src/chap04/MatrixMultipleStranssen.java)  
+matrix_multiple_strassen(A,B){
+	n = A.rows
+	let C be n*n matrix
+	if n == 1
+		c11 
+}
+
+
+
+
+
+
+
+
