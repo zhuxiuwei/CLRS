@@ -18,3 +18,6 @@
 
 [矩阵乘法的递归算法](https://github.com/zhuxiuwei/CLRS/blob/master/src/chap04/MatrixMultipleRecursive.java) ★★★★  
 【难度】 不是很熟练，在纸上写会有问题。难在递归时 -- 也就是分割矩阵时的建模 --- 怎么抽象出矩阵分割，定义函数签名，怎么处理两个矩阵的加法（后来发现实际“不用”做）。建好模后，写起来还比较顺畅。  
+
+[矩阵乘法的Strassen算法](https://github.com/zhuxiuwei/CLRS/blob/master/src/chap04/MatrixMultipleStrassen.java) ★★☆  
+【难度】 难度和矩阵乘法递归类似。因为有先前经验，这次还算顺利，虽然也花了不少时间（1小时+），主要是因为式子太多，一不小心就会写错~~更多像是耐心活。  

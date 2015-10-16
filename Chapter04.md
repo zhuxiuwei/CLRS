@@ -31,13 +31,14 @@ P4=A22*S4=-10, P5=S5*S6=48, P6=S7*S8=-12, P7=S9*S10=-84
 C11=P5+P4-P2+P6=18, C12=P1+P2=14, C21=P3+P4=62, C22=P5+P1-P3-P7=66  
 结果和手算的结果一致。
 
-#####4.2-2 Strassen伪代码  
-matrix_multiple_strassen(A,B){
-	n = A.rows
-	let C be n*n matrix
-	if n == 1
-		c11 
-}
+#####4.2-2 Strassen算法伪代码  
+完整能运行的代码：[矩阵乘法的Strassen算法](https://github.com/zhuxiuwei/CLRS/blob/master/src/chap04/MatrixMultipleStrassen.java)  
+
+#####4.2-6 Strassen算法作为子进程计算kn*n 和 n*kn矩阵相乘的最短时间，以及n*kn和kn*n相乘呢？  
+kn*n 乘以 n*kn，相当于进行了k^2次 n*n的矩阵乘法，因此时间复杂度是k^2*θ(n^lg7)  
+n*kn乘以kn*n，相当于运行k次n*n矩阵乘法，再给这k个n*n矩阵加和。乘法时间复杂度是k*θ(n^lg7)，加和时间复杂度是θ(n^2)，总计k*θ(n^lg7) +  θ(n^2)  
+
+
 
 
 
