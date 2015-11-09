@@ -13,8 +13,19 @@
 #####6.1-6 数组⟨23,17,14,6,13,10,1,5,7,12⟩ 是不是最大堆?  
 不是。数组元素6和7违反定义。  
 
+#####6.2-1  描述过程：MAX-HEAPIFY(A, 3) on the array A=⟨27,17,3,16,13,10,1,5,7,12,4,8,9,0⟩.  
+3和10交换，再和9交换。  
+
 #####6.2-2 最小堆伪代码，并和最大堆运行时间比较  
 代码见[Pac622_Min_Heapify.java](https://github.com/zhuxiuwei/CLRS/blob/master/src/chap06/Pac622_Min_Heapify.java)  
+运行时间和最大堆一样， 0(lgn)  
+
+#####6.2-3  A[i]比所有孩子都大，调用max-heapify(A, i)的后果是？  
+没有效果，已符合最大堆定义  
+
+#####6.2-5  递归效率可能导致某些编译器产生低效代码，重写 max-heapify用循环替代递归  
+代码见[Pac625_Max_Heapify_NoRescursive.java](https://github.com/zhuxiuwei/CLRS/blob/master/src/chap06/Pac625_Max_Heapify_NoRescursive.java)  
+
 
 
 ###-------- 思考题 ----------  
