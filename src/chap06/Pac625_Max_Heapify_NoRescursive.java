@@ -3,14 +3,14 @@ package chap06;
 import java.util.Arrays;
 
 /**
+ * 用循环替代递归的最大堆维护算法。
  * @author xiuzhu
- * 20151006
- * 一个注意点
+ * 20151110
  */
 public class Pac625_Max_Heapify_NoRescursive {
 
 	/**
-	 * 对数组A的元素i进行最小堆调整。
+	 * 对数组A的元素i进行最大堆调整。用循环替代递归
 	 * @param a
 	 * @param i
 	 */
