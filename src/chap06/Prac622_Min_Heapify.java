@@ -7,7 +7,7 @@ import java.util.Arrays;
  * 20151109
  * 一个注意点
  */
-public class Pac622_Min_Heapify {
+public class Prac622_Min_Heapify {
 
 	/**
 	 * 对数组A的元素i进行最小堆调整。
@@ -37,7 +37,7 @@ public class Pac622_Min_Heapify {
 	}
 	
 	public static void main(String[] args) {
-		Pac622_Min_Heapify m = new Pac622_Min_Heapify();
+		Prac622_Min_Heapify m = new Prac622_Min_Heapify();
 		int a[] = {27, 17, 3, 10, 13, 10};
 		m.minHeapify(a,1);
 		System.out.println(Arrays.toString(a));
