@@ -6,6 +6,7 @@ import java.util.Arrays;
  * 调用Max_Heapify，构建最大堆算法。
  * @author xiuzhu
  * 20151110
+ * 简单
  */
 public class Text63_build_max_heap {
 	private Prac625_Max_Heapify_NoRescursive h = new Prac625_Max_Heapify_NoRescursive();

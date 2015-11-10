@@ -13,9 +13,9 @@ public class Prac625_Max_Heapify_NoRescursive {
 	 * 对数组A的元素i进行最大堆调整。用循环替代递归
 	 * @param a
 	 * @param i
-	 * @param heapSize
+	 * @param lastHeapElementIndex
 	 */
-	public void maxHeapify_NoRescursive(int[] a , int i, int heapSize){
+	public void maxHeapify_NoRescursive(int[] a , int i, int lastHeapElementIndex){
 		if(i > a.length - 1 || i < 0){
 			System.out.println("Invalid input!");
 			return;
@@ -24,9 +24,9 @@ public class Prac625_Max_Heapify_NoRescursive {
 			int leftIndex = 2 * i + 1;
 			int rightIndex = 2 * i + 2;
 			int maxIndex = i;
-			if(leftIndex <= heapSize && a[leftIndex] > a[i])	//left
+			if(leftIndex <= lastHeapElementIndex && a[leftIndex] > a[i])	//left
 				maxIndex = leftIndex;
-			if(rightIndex <= heapSize && a[rightIndex] > a[maxIndex])	//right
+			if(rightIndex <= lastHeapElementIndex && a[rightIndex] > a[maxIndex])	//right
 				maxIndex = rightIndex;
 			if(maxIndex != i){	//switch minIndex and i
 				int temp = a[i];
@@ -35,8 +35,8 @@ public class Prac625_Max_Heapify_NoRescursive {
 			}
 			//judge if break
 			i = maxIndex;
-			int tempRight = 2 * i + 2 <= heapSize ? a[2 * i + 2]: Integer.MIN_VALUE;
-			int tempLeft = 2 * i + 1 <= heapSize ? a[2 * i + 1]: Integer.MIN_VALUE;
+			int tempRight = 2 * i + 2 <= lastHeapElementIndex ? a[2 * i + 2]: Integer.MIN_VALUE;
+			int tempLeft = 2 * i + 1 <= lastHeapElementIndex ? a[2 * i + 1]: Integer.MIN_VALUE;
 			if(a[maxIndex] >= tempRight && a[maxIndex] >= tempLeft)
 				break;
 		}
