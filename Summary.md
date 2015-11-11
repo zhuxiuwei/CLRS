@@ -1,4 +1,4 @@
-写的不顺畅的题目总结
+需要注意的的题目总结
 =
 #####第2章  
 [二分查找递归非递归算法](https://github.com/zhuxiuwei/CLRS/blob/master/src/chap02/prac235_BinarySearch.java) ★★★  
@@ -21,3 +21,6 @@
 
 [矩阵乘法的Strassen算法](https://github.com/zhuxiuwei/CLRS/blob/master/src/chap04/MatrixMultipleStrassen.java) ★★☆  
 【难度】 难度和矩阵乘法递归类似。因为有先前经验，这次还算顺利，虽然也花了不少时间（1小时+），主要是因为式子太多，一不小心就会写错~~更多像是耐心活。  
+
+[最小堆实现的最小优先队列](https://github.com/zhuxiuwei/CLRS/blob/master/src/chap06/Prac625_Max_Heapify_NoRescursive.java) ★★  
+不算难，但是比较值得关注。用到的Java知识点挺多的。  

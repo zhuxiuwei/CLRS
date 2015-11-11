@@ -138,6 +138,7 @@ public class Prac653_PriorityQueueMinHeap<E extends Comparable> {	//Use generics
 	 * Print elements in queue.
 	 */
 	public void printElements(){
+		System.out.print("size[" + size() + "]: ");
 		for (int i = 0; i <= this.last_heap_elem_index; i++) {
 			System.out.print(elems.get(i) + " ");
 		}
