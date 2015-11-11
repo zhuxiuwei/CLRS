@@ -17,14 +17,14 @@
 3和10交换，再和9交换。  
 
 #####6.2-2 最小堆伪代码，并和最大堆运行时间比较  
-代码见[Pac622_Min_Heapify.java](https://github.com/zhuxiuwei/CLRS/blob/master/src/chap06/Pac622_Min_Heapify.java)  
+代码见[Prac622_Min_Heapify.java](https://github.com/zhuxiuwei/CLRS/blob/master/src/chap06/Prac622_Min_Heapify.java)  
 运行时间和最大堆一样， 0(lgn)  
 
 #####6.2-3  A[i]比所有孩子都大，调用max-heapify(A, i)的后果是？  
 没有效果，已符合最大堆定义  
 
 #####6.2-5  递归效率可能导致某些编译器产生低效代码，重写 max-heapify用循环替代递归  
-代码见[Pac625_Max_Heapify_NoRescursive.java](https://github.com/zhuxiuwei/CLRS/blob/master/src/chap06/Pac625_Max_Heapify_NoRescursive.java)  
+代码见[Prac625_Max_Heapify_NoRescursive.java](https://github.com/zhuxiuwei/CLRS/blob/master/src/chap06/Prac625_Max_Heapify_NoRescursive.java)  
 
 #####6.3-2  为什么建堆算法，是从最后一个非叶节点递减，而不是从第一个非叶节点递增  
 递增的话，逻辑不对可能导致结果不对。因为子节点的调整可能破坏大根堆的性质。简单地例子：
