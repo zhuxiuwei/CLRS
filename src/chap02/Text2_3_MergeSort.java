@@ -20,12 +20,12 @@ public class Text2_3_MergeSort {
 		/**
 		 * 带“哨兵”的merge
 		 */
-		//merge(src, begin, mid, end);
+		merge(src, begin, mid, end);
 		
 		/**
 		 * 练习题2.3-2不带哨兵的merge
 		 */
-		new_merge(src, begin, mid, end);
+		//new_merge(src, begin, mid, end);
 	}
 	
 	/**

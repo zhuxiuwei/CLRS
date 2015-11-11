@@ -39,6 +39,22 @@
 #####6.5-3 用最小堆实现最小优先队列。  
 代码见[PriorityQueueMinHeap](https://github.com/zhuxiuwei/CLRS/blob/master/src/chap06/Prac653_PriorityQueueMinHeap.java)  
 
+#####6.5-4  
+相当于让队列数组里的最后一个元素当前值为-∞，对这个元素调用HEAP-INCREASE-KEY时，key(新值)就一定比A[i]（当前值）大，从而能执行到进行上浮调整的代码，让新插入的元素走到可能的合适位置。  
 
+#####6.5-6  
+相当于每次while，都把parent的值赋到当前位置。当找到最终位置后，再把最初的值放到最终的位置。总的来说确实能减少交换次数，但不是真的“只有一次交换”  
+
+#####6.5-7 用优先队列实现先入先出队列和栈。  
+假设是最大优先队列。  
+对于先入先出队列，相当于不断把元素按照 priority递减的顺序加入优先队列。  
+对于栈，相当于不断把元素按照 priority递增的顺序加入优先队列。  
+
+#####6.5-8  
+见代码[Max_Heap_Delete](https://github.com/zhuxiuwei/CLRS/blob/master/src/chap06/Prac658_Max_Heap_Delete.java)  
+思想：交换节点i和堆中最后一个节点，然后调用heapify(a, i)调整堆。  
+
+#####6.5-9 合并k个有序链表为1个有序链表，k个连边一共有n个元素，则时间复杂度O(n * lgk)  
+代码见[CombineKOrderedList](https://github.com/zhuxiuwei/CLRS/blob/master/src/chap06/Prac659_CombineKOrderedList.java)  
 
 ###-------- 思考题 ----------  
