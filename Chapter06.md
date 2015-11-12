@@ -55,6 +55,7 @@
 思想：交换节点i和堆中最后一个节点，然后调用heapify(a, i)调整堆。  
 
 #####6.5-9 合并k个有序链表为1个有序链表，k个连边一共有n个元素，则时间复杂度O(n * lgk)  
+思路：每次从k个链表中取出1个放到堆里，从堆里取出root放到结果集，然后从上一个root所在的链表集合中取出下一个放到堆，重复以上步骤直到所有元素都在结果集。  
 代码见[CombineKOrderedList](https://github.com/zhuxiuwei/CLRS/blob/master/src/chap06/Prac659_CombineKOrderedList.java)  
 
 ###-------- 思考题 ----------  

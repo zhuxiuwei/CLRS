@@ -113,7 +113,7 @@ public class Prac653_PriorityQueueMinHeap<E extends Comparable> {	//Use generics
 	 * @param a	ArrayList of elements
 	 * @param i	Heapify for element at index i.
 	 */
-	private void minHeapify(ArrayList<E> a , int i, int lastHeapElementIndex){
+	public void minHeapify(ArrayList<E> a , int i, int lastHeapElementIndex){
 		if(i > a.size() - 1 || i < 0){
 			System.out.println("Invalid input!");
 			return;
