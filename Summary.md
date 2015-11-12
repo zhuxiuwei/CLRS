@@ -24,3 +24,6 @@
 
 [最小堆实现的最小优先队列](https://github.com/zhuxiuwei/CLRS/blob/master/src/chap06/Prac625_Max_Heapify_NoRescursive.java) ★★  
 不算难，但是比较值得关注。用到的Java知识点挺多的。  
+
+[将k个有序链表合并成一个有序链表的O(lgk x n)算法](https://github.com/zhuxiuwei/CLRS/blob/master/src/chap06/Prac659_CombineKOrderedList.java) ★★☆  
+花费时间略长。大概2h+。难点在于，如何表达，从n个list里取“下一个”的代码逻辑。逻辑略复杂，手写会有问题。  
