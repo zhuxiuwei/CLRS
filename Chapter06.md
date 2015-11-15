@@ -60,3 +60,18 @@
 代码见[CombineKOrderedList](https://github.com/zhuxiuwei/CLRS/blob/master/src/chap06/Prac659_CombineKOrderedList.java)  
 
 ###-------- 思考题 ----------  
+6-1  
+a. 不总是一样。如1 2 3 4 5 6， 经典算法是6 5 3 4 2 1， 本算法是6 4 5 1 3 2  
+b. 没做  
+
+6-2 d叉堆  
+a. 数组下标从0开始，对于index=i的元素，父： i-1/k，子：i x k + 1, i x k + 2, ... , i x k + k.  
+b. log(k,n)  
+c. 和二叉堆类似，也是根元素和最后一个元素交换，然后从root开始heapify。  
+时间效率，相当于就是heapify的效率，O(log(k,n)) 
+d. 和二叉堆类似，先放在数组最后，然后不断（上浮）。时间效率O(log(k,n))  
+e. 和二叉堆一样，和parent比较大小，比parent大的话就上浮。时间效率O(log(k,n))  
+
+6-3 杨氏矩阵  
+a. 2 3 4 ∞  5 8 9 ∞  12 14 16 ∞  ∞ ∞ ∞ ∞  
+b.  
