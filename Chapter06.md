@@ -79,7 +79,7 @@ a. 画法不唯一
 或 2 3 4 12 | 8 14 ∞ ∞ | 9 16 ∞ ∞ | ∞ ∞ ∞ ∞
 b. 略  
 c. **Extract-MIN** 思想：和堆的extract-max类似。最小的数一定是出现在矩阵中的第一个数。EXTRACT-MIN取出第一个数，并用∞替换之，然后不断和其右邻居、下邻居中较小的一个进行交换，直到找到合适位置为止。（到达边界，或者邻居都不比它小）  
-d. **插入** 如果矩阵不满，其最右下角的元素一定是∞。将其用新插入的数替换，然后将这个数不断“上浮”，上浮的过程是和其左/上邻居中较小的一个不断交换直到到达合适位置。  
+d. **插入** 从左到右，从上到下，遍历找到第一个∞。将其用新插入的数替换，然后将这个数不断“上浮”，上浮的过程是和其左/上邻居中较小的一个不断交换直到到达合适位置。  
 e. **排序** 和堆排序思想类似。用c的算法不断取出最小的即可。  
-f. **查找** 先找到所在的行。在依次
+f. **查找** （不会，看的这个[答案](http://clrs.skanev.com/06/problems/03.html)）:We from the **lower-left** corner. We check the current element current with the one we're looking for key and move **up** if current**>**key and **right** if current**<**key. We declare success if current=key and otherwise terminate if we walk off the tableau.  
 
