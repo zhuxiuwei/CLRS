@@ -9,7 +9,7 @@
 ![](https://github.com/zhuxiuwei/CLRS/blob/master/Images/7.1-2.png)  
 
 #####7.1-4 Quick PARTITION的非递增排序  
-见代码代码见[QuickSort_Partition](https://github.com/zhuxiuwei/CLRS/blob/master/src/chap07/QuickSort_Partition.java)的partition_desc方法。  
+代码见[QuickSort_Partition](https://github.com/zhuxiuwei/CLRS/blob/master/src/chap07/QuickSort_Partition.java)的**partition_desc**方法。  
 
 ###-------- 思考题 ----------  
 7-1  

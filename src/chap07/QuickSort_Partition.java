@@ -11,17 +11,54 @@ public class QuickSort_Partition {
 
 	//Partition in CLRS
 	public void partition(int a[], int start, int end){
-		
+		if(a == null || a.length <= 1)
+			return;
+		int i = -1, r = a[end];
+		for (int j = 0; j < a.length; j++) {
+			if(a[j] <= r){
+				int temp = a[j];
+				a[j] = a[++i];
+				a[i] = temp;
+			}
+		}
 	}
 	
 	//problem 7.1-4，partition in DESC.
 	public void partition_desc(int a[], int start, int end){
-		
+		if(a == null || a.length <= 1)
+			return;
+		int i = -1, r = a[end];
+		for (int j = 0; j < a.length; j++) {
+			if(a[j] >= r){
+				int temp = a[j];
+				a[j] = a[++i];
+				a[i] = temp;
+			}
+		}
 	}
 	
 	//traditional partition
 	public void partition_traditional(int a[], int start, int end){
+		if(a == null || a.length <= 1)
+			return;
 		
+		int r = a[end];
+		int i = 0, j = end;
+		while(i < j){
+			while(a[i] <= r && i < j)
+				i++;
+			while(a[j] >= r && i < j)
+				j--;
+			int temp = a[i];
+			a[i] = a[j];
+			a[j] = temp;
+		}
+		
+		if(i == j){
+			int temp = a[i];
+			a[i] = a[end];
+			a[end] = temp;
+		}
 	}
 	
 	//call all 3 methods above. --- Just to facility test.
@@ -45,13 +82,15 @@ public class QuickSort_Partition {
 		int a0[] = {};
 		int a1[] = {1};
 		int a2[] = {2,1};
-		int a3[] = {2,1,3};
-		int a4[] = {13,19,9,5,12,8,7,4,21,2,6,11};
+		int a3[] = {1 ,2, 3};
+		int a4[] = {3, 2, 1};
+		int a5[] = {13,19,9,5,12,8,7,4,21,2,6,11};
 		p.call_all_partition(a0, 0, a0.length - 1);
 		p.call_all_partition(a1, 0, a1.length - 1);
 		p.call_all_partition(a2, 0, a2.length - 1);
 		p.call_all_partition(a3, 0, a3.length - 1);
 		p.call_all_partition(a4, 0, a4.length - 1);
+		p.call_all_partition(a5, 0, a5.length - 1);
 	}
 
 }
