@@ -24,7 +24,7 @@ public class QuickSort_Partition {
 		
 	}
 	
-	//call all 3 methods above to facility test.
+	//call all 3 methods above. --- Just to facility test.
 	public void call_all_partition(int a[], int start, int end){
 		System.out.println("Original Array: " + Arrays.toString(a));
 		int a1[] = a.clone();
