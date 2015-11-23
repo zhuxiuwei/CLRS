@@ -10,17 +10,20 @@ import java.util.Arrays;
 public class QuickSort_Partition {
 
 	//Partition in CLRS
-	public void partition(int a[], int start, int end){
+	public int partition(int a[], int start, int end){
+		int index = -1;
 		if(a == null || a.length <= 1)
-			return;
+			return index;
 		int i = -1, r = a[end];
 		for (int j = 0; j < a.length; j++) {
 			if(a[j] <= r){
 				int temp = a[j];
 				a[j] = a[++i];
 				a[i] = temp;
+				index = i;
 			}
 		}
+		return index;
 	}
 	
 	//problem 7.1-4，partition in DESC.
@@ -38,9 +41,9 @@ public class QuickSort_Partition {
 	}
 	
 	//traditional partition
-	public void partition_traditional(int a[], int start, int end){
+	public int partition_traditional(int a[], int start, int end){
 		if(a == null || a.length <= 1)
-			return;
+			return -1;
 		
 		int r = a[end];
 		int i = 0, j = end;
@@ -59,6 +62,7 @@ public class QuickSort_Partition {
 			a[i] = a[end];
 			a[end] = temp;
 		}
+		return i;
 	}
 	
 	//call all 3 methods above. --- Just to facility test.
@@ -84,13 +88,15 @@ public class QuickSort_Partition {
 		int a2[] = {2,1};
 		int a3[] = {1 ,2, 3};
 		int a4[] = {3, 2, 1};
-		int a5[] = {13,19,9,5,12,8,7,4,21,2,6,11};
+		int a5[] = {3, 1, 2};
+		int a6[] = {13,19,9,5,12,8,7,4,21,2,6,11};
 		p.call_all_partition(a0, 0, a0.length - 1);
 		p.call_all_partition(a1, 0, a1.length - 1);
 		p.call_all_partition(a2, 0, a2.length - 1);
 		p.call_all_partition(a3, 0, a3.length - 1);
 		p.call_all_partition(a4, 0, a4.length - 1);
 		p.call_all_partition(a5, 0, a5.length - 1);
+		p.call_all_partition(a6, 0, a6.length - 1);
 	}
 
 }
