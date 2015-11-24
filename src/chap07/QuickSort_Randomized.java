@@ -31,7 +31,7 @@ public class QuickSort_Randomized {
 		return index;
 	}
 	
-	//和普通版本的没有区别。
+	//Sort. 和普通版本的没有区别。
 	public void sort_Randomized(int a[], int start, int end){
 		int mid = partition_Randomized(a, start, end);
 		if(mid + 1 < end)
@@ -40,7 +40,9 @@ public class QuickSort_Randomized {
 			sort_Randomized(a, start, mid - 1);
 	}
 	
-	//将数组随机化，就是把end和start（包括）...end（不包括）...之间的一个数随机交换。
+	/**
+	 * 将数组随机化，就是把end和start（包括）...end（不包括）...之间的一个数随机交换。
+	 */
 	public void randomnizedArray(int a[], int start, int end){
 		if(start == end)
 			return;
