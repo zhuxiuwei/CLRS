@@ -28,3 +28,7 @@
 
 [将k个有序链表合并成一个有序链表的O(lgk x n)算法](https://github.com/zhuxiuwei/CLRS/blob/master/src/chap06/Prac659_CombineKOrderedList.java) ★★☆  
 花费时间略长。大概2h+。难点在于，如何表达，从n个list里取“下一个”的代码逻辑。逻辑略复杂，手写会有问题。  
+
+#####第8章 线性时间排序  
+[CountNumberInRange](https://github.com/zhuxiuwei/CLRS/blob/master/src/chap08/CountNumberInRange.java) ★★★  
+[8.2-4]查找0..k之间n个数的数组，落在区间[a..b]内的数字的个数。思路不难，但写的时候有三个地儿出错，如果手写会有问题。

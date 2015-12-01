@@ -14,6 +14,10 @@ n-1
 #####8.2-3 把第10行循环改成* for j = 1 to A.length *，算法依然正确，但是还稳定吗？  
 不稳定。举一个反例，依然用8.2-1的例子。第一次赋值，A[1]=6, c[6]=11，故把B[11]赋值成A[1]=6。  
 而对于6这个出现2次数，如果想保持稳定，**应该把A[8]=6赋值给B[11]，A[1]=6赋值给B[10]**。  
-依据以上反例，不稳定。
+依据以上反例，不稳定.  
+
+#####8.2-4 Describe an algorithm that, given n integers in the range 0 to k, preprocesses its input and then answers any query 
+about how many of the n integers fall into a range [a..b] in O(1) time. Your algorithm should use Θ(n+k) preprocessing time.  
+代码见[CountNumberInRange](https://github.com/zhuxiuwei/CLRS/blob/master/src/chap08/CountNumberInRange.java)。  
 
 ###-------- 思考题 ----------  
