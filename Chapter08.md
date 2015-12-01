@@ -16,8 +16,7 @@ n-1
 而对于6这个出现2次数，如果想保持稳定，**应该把A[8]=6赋值给B[11]，A[1]=6赋值给B[10]**。  
 依据以上反例，不稳定.  
 
-#####8.2-4 Describe an algorithm that, given n integers in the range 0 to k, preprocesses its input and then answers any query 
-about how many of the n integers fall into a range [a..b] in O(1) time. Your algorithm should use Θ(n+k) preprocessing time.  
+#####8.2-4 Describe an algorithm that, given n integers in the range 0 to k, preprocesses its input and then answers any query about how many of the n integers fall into a range [a..b] in O(1) time. Your algorithm should use Θ(n+k) preprocessing time.  
 代码见[CountNumberInRange](https://github.com/zhuxiuwei/CLRS/blob/master/src/chap08/CountNumberInRange.java)。  
 
 ###-------- 思考题 ----------  
