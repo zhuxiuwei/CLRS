@@ -19,4 +19,14 @@ n-1
 #####8.2-4 Describe an algorithm that, given n integers in the range 0 to k, preprocesses its input and then answers any query about how many of the n integers fall into a range [a..b] in O(1) time. Your algorithm should use Θ(n+k) preprocessing time.  
 代码见[CountNumberInRange](https://github.com/zhuxiuwei/CLRS/blob/master/src/chap08/CountNumberInRange.java)。  
 
+#####8.3-2 下面哪些排序算法是稳定的？给出一个能使任何排序算法都稳定的方法，这个方法的时间和空间开销是？  
+稳定：插入排序 归并排序  
+不稳定：堆排序 快速排序  
+[方法](http://clrs.skanev.com/08/03/02.html)：We can make any algorithm stable by mapping the array to an array of pairs, where the first element in each pair is the original element and the second is its index. Then we sort lexicographically. This scheme takes additional   
+
+#####8.3-4 如何在O(n)时间内，对0到n^3-1区间内的n个整数进行排序？  
+就是采用基数排序。设n^3-1的位数是d，按照d/3划分一组。每组内正好可以进行记数排序。总体进行基数排序。时间复杂度是O(d/3*n)=O(d*n)=O(n)  
+
+
+
 ###-------- 思考题 ----------  
