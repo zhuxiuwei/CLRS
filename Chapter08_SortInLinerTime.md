@@ -32,3 +32,21 @@ n-1
 ![](https://github.com/zhuxiuwei/CLRS/blob/master/Images/8.4-1.png)  
 
 ###-------- 思考题 ----------  
+8-2 数组n个元素，都是0或1。对这样的数组排序算法可能有以下三种特性的一部分：  
+1. 时间复杂度O(n)。   
+2. 算法是稳定的。  
+3. 算法是原地排序。除了输入数组外，算法只需要固定的额外存储空间。  
+a.给出满足1,2的算法。  
+代码见[SortArrayOfZeroOne](https://github.com/zhuxiuwei/CLRS/blob/master/src/chap08/SortArrayOfZeroOne.java)的sortA  
+b 给出满足1,3的算法。  
+代码见[SortArrayOfZeroOne](https://github.com/zhuxiuwei/CLRS/blob/master/src/chap08/SortArrayOfZeroOne.java)的sortB   
+c.给出满足2,3的算法。  
+代码见[SortArrayOfZeroOne](https://github.com/zhuxiuwei/CLRS/blob/master/src/chap08/SortArrayOfZeroOne.java)的sortC  
+
+
+
+
+
+
+
+
