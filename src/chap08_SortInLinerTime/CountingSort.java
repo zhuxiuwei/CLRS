@@ -43,6 +43,34 @@ public class CountingSort {
 	}
 	
 	/**
+	 * 就地排序的counting sort。习题8-2 e
+	 */
+	public int[] sort_in_place(int a[]){
+		if(checkInput(a))
+			System.out.println(Arrays.toString(a) + ": 输入合法,  k=" +  k);
+		else{
+			System.out.println(Arrays.toString(a) + ": 输入不合法。" );
+			return null;
+		}
+		
+		//step1: create and initialize c[], make c[i] contains numbers of elements equals to i.
+		int[] c = new int[k + 1];
+		for (int i = 0; i < a.length; i++)
+			c[a[i]] += 1;
+		
+		//step2: update a[] based on c[].
+		for (int i = 0, j = 0; i < a.length;) {
+			while(c[j] != 0){
+				a[i++] = j;
+				c[j]--;
+			}
+			j ++;
+		}
+		
+		return a;
+	}
+	
+	/**
 	 * 检查输入是否符合CountingSort的要求：k=O(n)，顺便求出k。
 	 * @param a
 	 * @return
@@ -63,15 +91,20 @@ public class CountingSort {
 	public static void main(String[] args) {
 		CountingSort cs = new CountingSort();
 		int[] a3 = {2,5,3,9,2,3,0,3};	//illegal input: 9
-		System.out.println("result: " + Arrays.toString(cs.sort(a3)) + "\r\n");
+		System.out.println("result: " + Arrays.toString(cs.sort(a3)));
+		System.out.println("result2: " + Arrays.toString(cs.sort_in_place(a3)) + "\r\n");
 		int[] a4 = {};	//legal
-		System.out.println("result: " + Arrays.toString(cs.sort(a4)) + "\r\n");
+		System.out.println("result: " + Arrays.toString(cs.sort(a4)));
+		System.out.println("result2: " + Arrays.toString(cs.sort_in_place(a4)) + "\r\n");
 		int[] a5 = {0};	//legal
-		System.out.println("result: " + Arrays.toString(cs.sort(a5)) + "\r\n");
+		System.out.println("result: " + Arrays.toString(cs.sort(a5)));
+		System.out.println("result2: " + Arrays.toString(cs.sort_in_place(a5)) + "\r\n");
 		int[] a1 = {2,5,3,0,2,3,0,3};	//legal
-		System.out.println("result: " + Arrays.toString(cs.sort(a1)) + "\r\n");
+		System.out.println("result: " + Arrays.toString(cs.sort(a1)));
+		System.out.println("result2: " + Arrays.toString(cs.sort_in_place(a1)) + "\r\n");
 		int[] a2 = {6,0,2,0,1,3,4,6,1,3,2};	//legal
-		System.out.println("result: " + Arrays.toString(cs.sort(a2)) + "\r\n");
+		System.out.println("result: " + Arrays.toString(cs.sort(a2)));
+		System.out.println("result2: " + Arrays.toString(cs.sort_in_place(a2)) + "\r\n");
 	}
 
 }

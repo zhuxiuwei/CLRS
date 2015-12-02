@@ -42,11 +42,8 @@ b 给出满足1,3的算法。
 代码见[SortArrayOfZeroOne](https://github.com/zhuxiuwei/CLRS/blob/master/src/chap08_SortInLinerTime/SortArrayOfZeroOne.java)的sortB   
 c.给出满足2,3的算法。  
 代码见[SortArrayOfZeroOne](https://github.com/zhuxiuwei/CLRS/blob/master/src/chap08_SortInLinerTime/SortArrayOfZeroOne.java)的sortC  
-
-
-
-
-
-
-
+d. 上面的算法，那个能用到基数排序中？  
+算法a可以，即稳定又是O(n)的。bc不行，一个不稳定，一个不是O(n)  
+e. 就地排序的counting sort。你的算法是稳定的吗？  
+代码见[CountingSort](https://github.com/zhuxiuwei/CLRS/blob/master/src/chap08_SortInLinerTime/CountingSort.java)的sort_in_place方法。不稳定。  
 
