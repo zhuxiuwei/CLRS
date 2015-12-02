@@ -17,14 +17,14 @@
 3和10交换，再和9交换。  
 
 #####6.2-2 最小堆伪代码，并和最大堆运行时间比较  
-代码见[Prac622_Min_Heapify.java](https://github.com/zhuxiuwei/CLRS/blob/master/src/chap06/Prac622_Min_Heapify.java)  
+代码见[Prac622_Min_Heapify.java](https://github.com/zhuxiuwei/CLRS/blob/master/src/chap06_HeapSort/Prac622_Min_Heapify.java)  
 运行时间和最大堆一样， 0(lgn)  
 
 #####6.2-3  A[i]比所有孩子都大，调用max-heapify(A, i)的后果是？  
 没有效果，已符合最大堆定义  
 
 #####6.2-5  递归效率可能导致某些编译器产生低效代码，重写 max-heapify用循环替代递归  
-代码见[Prac625_Max_Heapify_NoRescursive.java](https://github.com/zhuxiuwei/CLRS/blob/master/src/chap06/Prac625_Max_Heapify_NoRescursive.java)  
+代码见[Prac625_Max_Heapify_NoRescursive.java](https://github.com/zhuxiuwei/CLRS/blob/master/src/chap06_HeapSort/Prac625_Max_Heapify_NoRescursive.java)  
 
 #####6.3-2  为什么建堆算法，是从最后一个非叶节点递减，而不是从第一个非叶节点递增  
 递增的话，逻辑不对可能导致结果不对。因为子节点的调整可能破坏大根堆的性质。简单地例子：
@@ -37,7 +37,7 @@
 结果： 15 13 10 5 12 9 7 4 0 6 2 1 8  
 
 #####6.5-3 用最小堆实现最小优先队列。  
-代码见[PriorityQueueMinHeap](https://github.com/zhuxiuwei/CLRS/blob/master/src/chap06/Prac653_PriorityQueueMinHeap.java)  
+代码见[PriorityQueueMinHeap](https://github.com/zhuxiuwei/CLRS/blob/master/src/chap06_HeapSort/Prac653_PriorityQueueMinHeap.java)  
 
 #####6.5-4  
 相当于让队列数组里的最后一个元素当前值为-∞，对这个元素调用HEAP-INCREASE-KEY时，key(新值)就一定比A[i]（当前值）大，从而能执行到进行上浮调整的代码，让新插入的元素走到可能的合适位置。  
@@ -51,13 +51,13 @@
 对于栈，相当于不断把元素按照 priority递增的顺序加入优先队列。  
 
 #####6.5-8  
-见代码[Max_Heap_Delete](https://github.com/zhuxiuwei/CLRS/blob/master/src/chap06/Prac658_Max_Heap_Delete.java)  
+见代码[Max_Heap_Delete](https://github.com/zhuxiuwei/CLRS/blob/master/src/chap06_HeapSort/Prac658_Max_Heap_Delete.java)  
 思想：交换节点i和堆中最后一个节点，然后调用heapify(a, i)调整堆。  
 
 #####6.5-9 合并k个有序链表为1个有序链表，k个连边一共有n个元素，则时间复杂度O(n * lgk)  
 思路：每次从k个链表中取出1个放到数组a里，heapify(a, 1)数组，从堆里取出root放到结果集，然后从上一个root所在的链表集合中取出下一个放到堆，
 如果上一个root所在的链表集合没有下一个元素，就从有下一个元素的链表集合里随机取一个元素加到数组a中。重复以上步骤直到所有元素都在结果集。  
-代码见[CombineKOrderedList](https://github.com/zhuxiuwei/CLRS/blob/master/src/chap06/Prac659_CombineKOrderedList.java)  
+代码见[CombineKOrderedList](https://github.com/zhuxiuwei/CLRS/blob/master/src/chap06_HeapSort/Prac659_CombineKOrderedList.java)  
 
 ###-------- 思考题 ----------  
 6-1  

@@ -17,7 +17,7 @@ n-1
 依据以上反例，不稳定.  
 
 #####8.2-4 Describe an algorithm that, given n integers in the range 0 to k, preprocesses its input and then answers any query about how many of the n integers fall into a range [a..b] in O(1) time. Your algorithm should use Θ(n+k) preprocessing time.  
-代码见[CountNumberInRange](https://github.com/zhuxiuwei/CLRS/blob/master/src/chap08/CountNumberInRange.java)。  
+代码见[CountNumberInRange](https://github.com/zhuxiuwei/CLRS/blob/master/src/chap08_SortInLinerTime/CountNumberInRange.java)。  
 
 #####8.3-2 下面哪些排序算法是稳定的？给出一个能使任何排序算法都稳定的方法，这个方法的时间和空间开销是？  
 稳定：插入排序 归并排序  
@@ -37,11 +37,11 @@ n-1
 2. 算法是稳定的。  
 3. 算法是原地排序。除了输入数组外，算法只需要固定的额外存储空间。  
 a.给出满足1,2的算法。  
-代码见[SortArrayOfZeroOne](https://github.com/zhuxiuwei/CLRS/blob/master/src/chap08/SortArrayOfZeroOne.java)的sortA  
+代码见[SortArrayOfZeroOne](https://github.com/zhuxiuwei/CLRS/blob/master/src/chap08_SortInLinerTime/SortArrayOfZeroOne.java)的sortA  
 b 给出满足1,3的算法。  
-代码见[SortArrayOfZeroOne](https://github.com/zhuxiuwei/CLRS/blob/master/src/chap08/SortArrayOfZeroOne.java)的sortB   
+代码见[SortArrayOfZeroOne](https://github.com/zhuxiuwei/CLRS/blob/master/src/chap08_SortInLinerTime/SortArrayOfZeroOne.java)的sortB   
 c.给出满足2,3的算法。  
-代码见[SortArrayOfZeroOne](https://github.com/zhuxiuwei/CLRS/blob/master/src/chap08/SortArrayOfZeroOne.java)的sortC  
+代码见[SortArrayOfZeroOne](https://github.com/zhuxiuwei/CLRS/blob/master/src/chap08_SortInLinerTime/SortArrayOfZeroOne.java)的sortC  
 
 
 

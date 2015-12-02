@@ -4,17 +4,17 @@
 只返回绝对值最小的一个元素
 
 #####4.1-2  
-见[MaxSubArray_Violence.java](https://github.com/zhuxiuwei/CLRS/blob/master/src/chap04/MaxSubArray_Violence.java)  
+见[MaxSubArray_Violence.java](https://github.com/zhuxiuwei/CLRS/blob/master/src/chap04_DivideAndConquer/MaxSubArray_Violence.java)  
 
 #####4.1-3  
-代码见[MaxSubArray_Recursive.java](https://github.com/zhuxiuwei/CLRS/blob/master/src/chap04/MaxSubArray_Recursive.java)  
+代码见[MaxSubArray_Recursive.java](https://github.com/zhuxiuwei/CLRS/blob/master/src/chap04_DivideAndConquer/MaxSubArray_Recursive.java)  
 n0边界值问题，没有考虑明白。不会。  
 
 #####4.1-4  
 没做  
 
 #####4.1-5  
-代码见[MaxSubArray_Lineary.java](https://github.com/zhuxiuwei/CLRS/blob/master/src/chap04/MaxSubArray_Lineary.java)  
+代码见[MaxSubArray_Lineary.java](https://github.com/zhuxiuwei/CLRS/blob/master/src/chap04_DivideAndConquer/MaxSubArray_Lineary.java)  
 
 #####4.2-1 用Strassen算法给出矩阵的计算过程。矩阵： [1 3 / 7 5], [6 8 / 4 2]  其中'/'表示换行
 步骤1: 矩阵分解为
@@ -32,7 +32,7 @@ C11=P5+P4-P2+P6=18, C12=P1+P2=14, C21=P3+P4=62, C22=P5+P1-P3-P7=66
 结果和手算的结果一致。
 
 #####4.2-2 Strassen算法伪代码  
-完整能运行的代码：[矩阵乘法的Strassen算法](https://github.com/zhuxiuwei/CLRS/blob/master/src/chap04/MatrixMultipleStrassen.java)  
+完整能运行的代码：[矩阵乘法的Strassen算法](https://github.com/zhuxiuwei/CLRS/blob/master/src/chap04_DivideAndConquer/MatrixMultipleStrassen.java)  
 
 #####4.2-6 Strassen算法作为子进程计算knxn 和 nxkn矩阵相乘的最短时间，以及nxkn和knxn相乘呢？  
 knxn 乘以 nxkn，相当于进行了k^2次 nxn的矩阵乘法，因此时间复杂度是k^2xθ(n^lg7)  
