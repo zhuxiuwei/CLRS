@@ -14,7 +14,7 @@ import java.util.LinkedList;
 	b 给出满足1,3的算法。  
 	c.给出满足2,3的算法。  
  * @author xiuzhu
- *
+ * 151202
  */
 public class SortArrayOfZeroOne {
 	private int[] a;	//array to be sort

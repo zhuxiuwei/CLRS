@@ -32,7 +32,7 @@ n-1
 ![](https://github.com/zhuxiuwei/CLRS/blob/master/Images/8.4-1.png)  
 
 ###-------- 思考题 ----------  
-8-2 数组n个元素，都是0或1。对这样的数组排序算法可能有以下三种特性的一部分：  
+#####8-2 数组n个元素，都是0或1。对这样的数组排序算法可能有以下三种特性的一部分：  
 1. 时间复杂度O(n)。   
 2. 算法是稳定的。  
 3. 算法是原地排序。除了输入数组外，算法只需要固定的额外存储空间。  
@@ -47,3 +47,14 @@ d. 上面的算法，那个能用到基数排序中？
 e. 就地排序的counting sort。你的算法是稳定的吗？  
 代码见[CountingSort](https://github.com/zhuxiuwei/CLRS/blob/master/src/chap08_SortInLinerTime/CountingSort.java)的sort_in_place方法。不稳定。  
 
+#####8-3 变长数据项的排序  
+a. 给一个整数数组，不同整数包含的数字位数可能不同，但是所有整数总共的位数是n，设计算法在O(n)排序。  
+代码见[ChangebleLengthDataSort](https://github.com/zhuxiuwei/CLRS/blob/master/src/chap08_SortInLinerTime/ChangebleLengthDataSort.java)的sortIntArray  
+
+#####8-4 红蓝水壶配对儿  
+其实本质是基于比较的排序问题。  
+a. 两层循环依次遍历，代码略。  
+b. 和证明基于比较的排序比较次数下界，估计是一个套路。（决策树）  
+c. 没什么思路。知道应该用快速排序类似的思想。笨办法是，用Map记录红罐的初始位置，然后用快速排序随机版排序红罐（O(nlgn)），
+然后对蓝罐的数，依次从红罐进行二分查找，查找总的时间复杂度是nO(lgN)=O(nlgn)，在红罐里找到后，在从Map里O(1)红罐原始位置，和蓝罐当前位置即可配对。
+排序和查找加起来2个O(nlgn)，还是O(nlgn)。 只是这个方法比较蠢。  
