@@ -3,7 +3,7 @@ package chap08_SortInLinerTime;
 import java.util.Arrays;
 
 /**
- * 基数排序 p108
+ * 记数排序 p108
  * @author xiuzhu
  * 151201
  */
