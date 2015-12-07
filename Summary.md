@@ -23,7 +23,7 @@
 【难度】 难度和矩阵乘法递归类似。因为有先前经验，这次还算顺利，虽然也花了不少时间（1小时+），主要是因为式子太多，一不小心就会写错~~更多像是耐心活。  
 
 #####第6章 堆排序  
-[最小堆实现的最小优先队列](https://github.com/zhuxiuwei/CLRS/blob/master/src/chap06_HeapSort/Prac625_Max_Heapify_NoRescursive.java) ★★  
+[最小堆实现的最小优先队列](https://github.com/zhuxiuwei/CLRS/blob/master/src/chap06_HeapSort/Prac653_PriorityQueueMinHeap.java) ★★  
 不算难，但是比较值得关注。用到的Java知识点挺多的。  
 
 [将k个有序链表合并成一个有序链表的O(lgk x n)算法](https://github.com/zhuxiuwei/CLRS/blob/master/src/chap06_HeapSort/Prac659_CombineKOrderedList.java) ★★☆  
