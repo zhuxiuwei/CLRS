@@ -7,3 +7,6 @@
 过程如下图：  
 ![](https://github.com/zhuxiuwei/CLRS/blob/master/Images/9.1-1.png)  
 代码自己已实现，见[Find2ndSmallest](https://github.com/zhuxiuwei/CLRS/blob/master/src/chap09_MediansAndOrderStatistics/Find2ndSmallest.java)。  
+
+#####9.2-3 给出randomnized-select的一个基于循环的版本。  
+代码见[Randomnized_Select](https://github.com/zhuxiuwei/CLRS/blob/master/src/chap09_MediansAndOrderStatistics/Randomnized_Select.java)的randomnized_select_loop方法。  
