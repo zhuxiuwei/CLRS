@@ -16,15 +16,6 @@ public class TwoStacksInOneArray {
 	private boolean stack1FullMode = false;
 	private boolean stack2FullMode = false;
 	
-//	//If both stacks are full. (Total elements count reach n.)
-//	public boolean isFull(){
-//		if(head1 == head2)
-//			isFull = true;
-//		else
-//			isFull 
-//		return isFull;
-//	}
-	
 	public void pushStack1(int ele){
 		if(stack1FullMode){
 			if(head1 - 2 == head2){
@@ -151,10 +142,6 @@ public class TwoStacksInOneArray {
 		return rest;
 	}
 	
-	public void printArray(){
-		System.out.println(Arrays.toString(a));
-	}
-	
 	public TwoStacksInOneArray(int n){	//array size is n.
 		a = new int[n];
 	}
@@ -170,7 +157,9 @@ public class TwoStacksInOneArray {
 		t.pushStack2(3);
 		t.pushStack1(12);
 		t.popStack1();
+		t.popStack2();
 		t.popStack1();
+		t.popStack2();
 		t.popStack1();
 		t.popStack1();
 		t.popStack1();
