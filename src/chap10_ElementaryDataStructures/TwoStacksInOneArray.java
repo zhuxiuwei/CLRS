@@ -176,14 +176,14 @@ public class TwoStacksInOneArray {
 		t.pushStack1(2);
 		t.pushStack1(4);
 		t.pushStack1(6);
+		t.popStack1();
 		t.popStack2();
-		t.popStack2();
+		t.popStack1();
 		t.popStack2();
 		t.popStack2();
 		t.popStack2();
 		t.popStack1();
-		t.popStack1();
-		t.popStack1();
+		t.popStack2();
 	}
 
 }
