@@ -29,6 +29,7 @@ public class TwoStacksInOneArray {
 		if(stack1FullMode){
 			if(head1 - 2 == head2){
 				System.out.println("pushStack1 with " + ele + " failed, stack full. ");
+				return;
 			}else{
 				head1 -= 2;
 				a[head1] = ele;
@@ -44,11 +45,13 @@ public class TwoStacksInOneArray {
 				if(head1 == head2){
 					System.out.println("pushStack1 with " + ele + " failed, stack full. ");
 					head1 = temp;	//rollback
+					return;
 				}else
 					a[head1] = ele;
 			}else{
 				if(head1 + 2 == head2){
 					System.out.println("pushStack1 with " + ele + " failed, stack full. ");
+					return;
 				}else{
 					head1 += 2;
 					a[head1] = ele;
@@ -62,6 +65,7 @@ public class TwoStacksInOneArray {
 		if(stack2FullMode){
 			if(head2 - 2 == head1){
 				System.out.println("pushStack2 with " + ele + " failed, stack full. ");
+				return;
 			}else{
 				head2 -= 2;
 				a[head2] = ele;
@@ -77,11 +81,13 @@ public class TwoStacksInOneArray {
 				if(head1 == head2){
 					System.out.println("pushStack2 with " + ele + " failed, stack full. ");
 					head2 = temp;	//rollback
+					return;
 				}else
 					a[head2] = ele;
 			}else{
 				if(head2 + 2 == head1){
 					System.out.println("pushStack2 with " + ele + " failed, stack full. ");
+					return;
 				}else{
 					head2 += 2;
 					a[head2] = ele;
@@ -96,6 +102,7 @@ public class TwoStacksInOneArray {
 		int temp = head1;
 		if(head1 - 2  < -2){
 			System.out.println("popStack1 failed, stack1 empty.");
+			return rest;
 		}else{
 			rest = a[head1];
 			if(stack1FullMode){
@@ -122,6 +129,7 @@ public class TwoStacksInOneArray {
 		int temp = head2;
 		if(head2 - 2  < -2){
 			System.out.println("popStack2 failed, stack2 empty.");
+			return rest;
 		}else{
 			rest = a[head2];
 			if(stack2FullMode){
