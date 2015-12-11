@@ -17,3 +17,6 @@
 出队时，如果出队元素在stack2（stack2不为空），直接stack2.pop，O(1)。否则，stack1要把所有元素先弹栈再依次入stack2，然后stack2.pop，O(n)。  
 
 #####10.1-7 两个队列实现栈，并分析相关运行时间。  
+代码见[Stack_By2Queue](https://github.com/zhuxiuwei/CLRS/blob/master/src/chap10_ElementaryDataStructures/Stack_By2Queue.java)  
+入队时间O(1)。
+出队时，每次都要把一个队列的数除了队尾的都重新插入另外一个队列。时间复杂度O(n-1)。  
