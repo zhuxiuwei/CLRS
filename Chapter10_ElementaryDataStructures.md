@@ -6,3 +6,6 @@
 #####10.1-3 用图示说明队列操作过程ENQUEUE(Q, 4), ENQUEUE(Q, 1), ENQUEUE(Q, 3), DEQUEUE(Q), ENQUEUE(Q, 8), and DEQUEUE(Q) in array Q[1..6].  
 ![](https://github.com/zhuxiuwei/CLRS/blob/master/Images/10.1-3.png)  
 
+#####10.1-4 Queue代码。要能处理上溢和下溢  
+代码见[Queue](https://github.com/zhuxiuwei/CLRS/blob/master/src/chap10_ElementaryDataStructures/Queue.java)  
+

@@ -39,3 +39,9 @@
 花费时间较长，纸上写写不完。开始的时候思路不清晰。  
 	1. 数组越界问题。  
 	2. 算法思路问题。没想到这种两两比较的快速的算法思路，看的网上的答案。  
+
+#####第10章 基本数据结构  
+[Queue](https://github.com/zhuxiuwei/CLRS/blob/master/src/chap10_ElementaryDataStructures/Queue.java) ★★☆  
+不算难，有两个【注意点】：   
+1. 队满时的判断。注意不要还有明明一个剩余空间，就告知满了。  
+2. 出队的时候，也要判断head是否需要轮转回到0。  
