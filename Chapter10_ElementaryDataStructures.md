@@ -9,3 +9,11 @@
 #####10.1-4 Queue代码。要能处理上溢和下溢  
 代码见[Queue](https://github.com/zhuxiuwei/CLRS/blob/master/src/chap10_ElementaryDataStructures/Queue.java)  
 
+#####10.1-5 双端队列Deque，其插入和删除操作都可以在两端完成。写出4个在两端插入和删除的O(1)操作。  
+
+#####10.1-6 两个栈实现队列，并分析相关运行时间。  
+代码见[Queue_By2Stacks](https://github.com/zhuxiuwei/CLRS/blob/master/src/chap10_ElementaryDataStructures/Queue_By2Stacks.java)  
+入队时间O(1)。
+出队时，如果出队元素在stack2（stack2不为空），直接stack2.pop，O(1)。否则，stack1要把所有元素先弹栈再依次入stack2，然后stack2.pop，O(n)。  
+
+#####10.1-7 两个队列实现栈，并分析相关运行时间。  

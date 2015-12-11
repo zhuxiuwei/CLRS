@@ -13,8 +13,8 @@ public class Queue {
 	private int a[];
 	private int head = 0;
 	private int tail = 0;
-	private boolean isFull = false;
-	private boolean isEmpty = true;
+	public boolean isFull = false;
+	public boolean isEmpty = true;
 
 	public Queue(int n) {
 		this.a = new int[n];
