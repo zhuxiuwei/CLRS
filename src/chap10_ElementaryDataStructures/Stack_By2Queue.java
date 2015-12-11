@@ -6,7 +6,7 @@ package chap10_ElementaryDataStructures;
  */
 public class Stack_By2Queue {
 
-	private Queue q1 = new Queue(20);
+	private Queue q1 = new Queue(20);	//和两个栈实现队列里的两个栈各司其职不一样，这里的两个队列功能是一样的，轮换上阵。
 	private Queue q2 = new Queue(20);
 	private boolean queue1InUse = true;
 	
