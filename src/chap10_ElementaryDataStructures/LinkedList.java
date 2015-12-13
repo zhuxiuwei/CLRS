@@ -100,6 +100,26 @@ public class LinkedList<E> {
 	}
 	
 	/**
+	 * Union two linkedlist. Other follow this.
+	 * @param other
+	 * @return this + follow
+	 */
+	public LinkedList<E> union(LinkedList<E> other){
+		if(other == null || other.isEmpty()){
+			;//do nothing. just return this.
+		}
+		else if(this.isEmpty()){	//'this' is empty, make 'this' = other.
+			this.head = other.head;
+			this.tail = other.tail;
+		}else{	//both not empty, combine two.
+			this.tail.next = other.head;
+			other.head.prev = this.tail;
+			this.tail = other.tail;
+		}
+		return this;
+	}
+	
+	/**
 	 * Print LinkedList
 	 */
 	public void printList(){
@@ -196,6 +216,20 @@ public class LinkedList<E> {
 		l.printList();
 		System.out.println("remove last: " + l.removeLast());
 		l.printList();
+		
+		System.out.println("--test union--");
+		LinkedList<Integer> other = new LinkedList<Integer>();
+		l.union(other);
+		l.printList();
+		other.union(l);
+		other.printList();
+		other.insert(1); other.insert(2); other.insert(3);
+		l.union(other);
+		l.printList();
+		other = new LinkedList<Integer>();
+		other.insert(4); other.insert(5); other.insert(6);
+		other.union(l);
+		other.printList();
 	}
 
 }
