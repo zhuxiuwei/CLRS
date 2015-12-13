@@ -105,7 +105,14 @@ public class LinkedList<E> {
 			System.out.print(i + "-> ");
 			i = i.next;
 		}
-		System.out.println("null");
+		System.out.println("null. isEmpty: " + isEmpty());
+	}
+	
+	/**
+	 * If linkedList is empty
+	 */
+	public boolean isEmpty(){
+		return head == null;
 	}
 	
 	//test
