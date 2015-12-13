@@ -43,7 +43,8 @@ public class LinkedList<E> {
 		}
 	}
 	
-	public Item head = null;
+	public Item head = null; 	//point to first item.
+	public Item tail = null;	//point to last item.
 	
 	/**
 	 * Insert Element to LinkedList
@@ -53,6 +54,7 @@ public class LinkedList<E> {
 		Item i = new Item(ele);
 		if(head == null){	//empty list
 			head = i;
+			tail = i;
 		}else{
 			i.next = head;
 			head.prev = i;
@@ -85,9 +87,11 @@ public class LinkedList<E> {
 		if(i == null)
 			return false;
 		else{
-			if(head == i)	//delete 1st element
+			if(head == i)
 				head = i.next;
-			else
+			if(tail == i)
+				tail = i.prev;
+			if(i.prev != null)
 				i.prev.next = i.next;
 			if(i.next != null)
 				i.next.prev = i.prev;
@@ -105,7 +109,7 @@ public class LinkedList<E> {
 			System.out.print(i + "-> ");
 			i = i.next;
 		}
-		System.out.println("null. isEmpty: " + isEmpty());
+		System.out.println("null. isEmpty: " + isEmpty() + ", head: " + head + ", tail: "+ tail);
 	}
 	
 	/**
@@ -113,6 +117,37 @@ public class LinkedList<E> {
 	 */
 	public boolean isEmpty(){
 		return head == null;
+	}
+	
+	/**
+	 * Get last item
+	 * @return
+	 */
+	public E getLast(){
+		return tail == null? null: tail.key;
+	}
+	
+	/**
+	 * remove the last element in linkedlist
+	 * @return last element
+	 */
+	public E removeLast(){
+		E rest = null;
+		if(tail == null)	//empty list
+			return null;
+		else{
+			rest = tail.key;
+			if(tail == head){	//only one element
+				head = null;
+				tail = null;
+			}
+			else
+			{
+				tail.prev.next = null;
+				tail = tail.prev;
+			}
+		}
+		return rest;
 	}
 	
 	//test
@@ -123,27 +158,43 @@ public class LinkedList<E> {
 		l.insert(3);
 		l.insert(2);
 		l.printList();
-		System.out.println(l.find(1));
-		System.out.println(l.find(2));
-		System.out.println(l.find(3));
-		System.out.println(l.find(4));
-		System.out.println(l.delete(4));
+		System.out.println("find: " + l.find(1));
+		System.out.println("find: " + l.find(2));
+		System.out.println("find: " + l.find(3));
+		System.out.println("find: " + l.find(4));
+		System.out.println("delete: " + l.delete(4));
 		l.printList();
-		System.out.println(l.delete(2));
+		System.out.println("delete: " + l.delete(2));
 		l.printList();
-		System.out.println(l.delete(1));
+		System.out.println("delete: " + l.delete(1));
 		l.printList();
-		System.out.println(l.delete(3));
+		System.out.println("delete: " + l.delete(3));
 		l.printList();
-		System.out.println(l.delete(2));
+		System.out.println("delete: " + l.delete(2));
 		l.printList();
 		
 		l = new LinkedList<Integer>();
 		l.insert(5);
 		l.printList();
-		System.out.println(l.delete(2));
+		System.out.println("delete: " + l.delete(2));
 		l.printList();
-		System.out.println(l.delete(5));
+		System.out.println("delete: " + l.delete(5));
+		l.printList();
+		System.out.println("last: " + l.getLast());
+		
+		System.out.println("--test removeLast--");
+		l = new LinkedList<Integer>();
+		l.insert(5);
+		System.out.println("remove last: " + l.removeLast());
+		l.printList();
+		l.insert(1);
+		l.insert(2);
+		l.printList();
+		System.out.println("remove last: " + l.removeLast());
+		l.printList();
+		System.out.println("remove last: " + l.removeLast());
+		l.printList();
+		System.out.println("remove last: " + l.removeLast());
 		l.printList();
 	}
 
