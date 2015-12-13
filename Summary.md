@@ -45,3 +45,6 @@
 不算难，有两个【注意点】：   
 1. 队满时的判断。注意不要还有明明一个剩余空间，就告知满了。  
 2. 出队的时候，也要判断head是否需要轮转回到0。  
+
+[字典序的单链表](https://github.com/zhuxiuwei/CLRS/blob/master/src/chap10_ElementaryDataStructures/LinkedList_Sorted.java) ★  
+注意*泛型*，*继承*，*内部类*的语法。  

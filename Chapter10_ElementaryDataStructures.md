@@ -34,3 +34,4 @@ O(1)的removeLast()在我的[LinkedList](https://github.com/zhuxiuwei/CLRS/blob/
 
 #####10.2-5 字典序的单链表INSERT, DELETE和SEARCH。并分析时间。  
 代码见[LinkedList_Sorted](https://github.com/zhuxiuwei/CLRS/blob/master/src/chap10_ElementaryDataStructures/LinkedList_Sorted.java)  
+时间复杂度，如果插入、查找、删除的元素不在字典区间内，则O(1)。否则O(n)。  
