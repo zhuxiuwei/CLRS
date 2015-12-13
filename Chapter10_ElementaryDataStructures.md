@@ -29,6 +29,6 @@
 
 #####10.2-3 单链表实现队列。enqueue和dequeue仍是O(1)。  
 代码见[Queue_ByLinkedList](https://github.com/zhuxiuwei/CLRS/blob/master/src/chap10_ElementaryDataStructures/Queue_ByLinkedList.java)  
-需要注意的是，要实现O(1)级别的dequeue，需要LinkedList提供O(1)removeLast()方法。  
+需要注意的是，要实现O(1)级别的dequeue，需要LinkedList提供O(1)的removeLast()方法。  
 O(1)的removeLast()在我的[LinkedList](https://github.com/zhuxiuwei/CLRS/blob/master/src/chap10_ElementaryDataStructures/LinkedList.java)类里已实现。  
 
