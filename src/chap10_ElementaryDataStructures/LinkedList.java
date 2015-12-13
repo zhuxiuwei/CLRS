@@ -1,6 +1,6 @@
 package chap10_ElementaryDataStructures;
 /**
- * 链表的实现
+ * 双向链表的实现 -- 每个链表元素都有prev和next。
  * @author xiuzhu
  * 151212
  */
@@ -107,7 +107,6 @@ public class LinkedList<E> {
 		}
 		System.out.println("null");
 	}
-	
 	
 	//test
 	public static void main(String[] args) {
