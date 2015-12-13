@@ -32,3 +32,5 @@
 需要注意的是，要实现O(1)级别的dequeue，需要LinkedList提供O(1)的removeLast()方法。  
 O(1)的removeLast()在我的[LinkedList](https://github.com/zhuxiuwei/CLRS/blob/master/src/chap10_ElementaryDataStructures/LinkedList.java)类里已实现。  
 
+#####10.2-5 字典序的单链表INSERT, DELETE和SEARCH。并分析时间。  
+代码见[LinkedList_Sorted](https://github.com/zhuxiuwei/CLRS/blob/master/src/chap10_ElementaryDataStructures/LinkedList_Sorted.java)  
