@@ -20,3 +20,13 @@
 代码见[Stack_By2Queue](https://github.com/zhuxiuwei/CLRS/blob/master/src/chap10_ElementaryDataStructures/Stack_By2Queue.java)  
 入队时间O(1)。
 出队时，每次都要把一个队列的数除了队尾的都重新插入另外一个队列。时间复杂度O(n-1)。  
+
+#####10.2-1 单链表上的插入、删除操作能否O(1)实现？  
+插入能，删除不能。  
+
+#####10.2-2 单链表实现栈。push pop仍是O(1)。  
+代码见[Stack_ByLinkedList](https://github.com/zhuxiuwei/CLRS/blob/master/src/chap10_ElementaryDataStructures/Stack_ByLinkedList.java)  
+
+#####10.2-3 单链表实现队列。enqueue和dequeue仍是O(1)。  
+代码见[Queue_ByLinkedList](https://github.com/zhuxiuwei/CLRS/blob/master/src/chap10_ElementaryDataStructures/Queue_ByLinkedList.java)  
+
