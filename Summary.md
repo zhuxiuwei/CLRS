@@ -48,3 +48,6 @@
 
 [字典序的单链表](https://github.com/zhuxiuwei/CLRS/blob/master/src/chap10_ElementaryDataStructures/LinkedList_Sorted.java) ★  
 注意*泛型*，*继承*，*内部类*的语法。  
+
+[链表反转](https://github.com/zhuxiuwei/CLRS/blob/master/src/chap10_ElementaryDataStructures/LinkedList.java)的revert方法 ★★  
+有两个注意点。_如果手写，还是做不到完全不出错_，郁闷~~~~！！！！  

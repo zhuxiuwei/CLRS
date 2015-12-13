@@ -39,3 +39,6 @@ O(1)的removeLast()在我的[LinkedList](https://github.com/zhuxiuwei/CLRS/blob/
 #####10.2-6 两个连边的O(1)的Union操作。  
 代码见[LinkedList之union方法](https://github.com/zhuxiuwei/CLRS/blob/master/src/chap10_ElementaryDataStructures/LinkedList.java)  
 
+#####10.2-6 链表反转。非递归。只用固定的额外存储空间。  
+代码见[LinkedList之revert方法](https://github.com/zhuxiuwei/CLRS/blob/master/src/chap10_ElementaryDataStructures/LinkedList.java)  
+

@@ -3,6 +3,8 @@ package chap10_ElementaryDataStructures;
  * 双向链表的实现 -- 每个链表元素都有prev和next。
  * @author xiuzhu
  * 151212
+ * 注意点：
+ * 	revert方法有一个注意点。
  */
 
 public class LinkedList<E> {
@@ -120,6 +122,31 @@ public class LinkedList<E> {
 	}
 	
 	/**
+	 * Revert the linkedlist
+	 */
+	public void revert(){
+		if(isEmpty())
+			return;
+		else{
+			Item cur = head;
+			Item next = cur.next;
+			do{
+				//just switch prev and next for each element.
+				cur.next = cur.prev;
+				cur.prev = next;
+				cur = next;
+				if(cur != null)		//！！！注意点2：必须加这个，不然到了最后一个元素会空指针异常。
+					next = cur.next;
+			}while(cur != null);	//！！！注意点1：注意退出条件。如果写成next != null，最后一个元素就不能正常翻转。
+			
+			//Then switch head and tail;
+			Item temp = head;
+			head = tail;
+			tail = temp;
+		}
+	}
+	
+	/**
 	 * Print LinkedList
 	 */
 	public void printList(){
@@ -202,7 +229,7 @@ public class LinkedList<E> {
 		l.printList();
 		System.out.println("last: " + l.getLast());
 		
-		System.out.println("--test removeLast--");
+		System.out.println("\r\n--test removeLast--");
 		l = new LinkedList<Integer>();
 		l.insert(5);
 		System.out.println("remove last: " + l.removeLast());
@@ -217,7 +244,7 @@ public class LinkedList<E> {
 		System.out.println("remove last: " + l.removeLast());
 		l.printList();
 		
-		System.out.println("--test union--");
+		System.out.println("\r\n--test union--");
 		LinkedList<Integer> other = new LinkedList<Integer>();
 		l.union(other);
 		l.printList();
@@ -230,6 +257,18 @@ public class LinkedList<E> {
 		other.insert(4); other.insert(5); other.insert(6);
 		other.union(l);
 		other.printList();
+		
+		System.out.println("\r\n--test revert--");
+		other.revert();
+		other.printList();
+		l = new LinkedList<Integer>();
+		l.insert(1);
+		l.revert();
+		l.printList();
+		l.insert(2);
+		l.printList();
+		l.revert();
+		l.printList();
 	}
 
 }
