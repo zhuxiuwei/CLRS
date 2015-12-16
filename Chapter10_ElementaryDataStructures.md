@@ -42,3 +42,6 @@ O(1)的removeLast()在我的[LinkedList](https://github.com/zhuxiuwei/CLRS/blob/
 #####10.2-6 链表反转。非递归。只用固定的额外存储空间。  
 代码见[LinkedList之revert方法](https://github.com/zhuxiuwei/CLRS/blob/master/src/chap10_ElementaryDataStructures/LinkedList.java)  
 
+#####10.3-1 画图表示序列{13,4,8,19,5,1}的多数组表现形式和单数组表现形式。
+假设数组能容纳10个元素。见下图（元素在数组中方的位置我是随机选的）    
+![](https://github.com/zhuxiuwei/CLRS/blob/master/Images/10.3-1.png)  
