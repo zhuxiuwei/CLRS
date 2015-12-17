@@ -51,3 +51,8 @@
 
 [链表反转](https://github.com/zhuxiuwei/CLRS/blob/master/src/chap10_ElementaryDataStructures/LinkedList.java)的revert方法 ★★  
 有两个边界值的注意点。__如果手写，还是做不到完全不出错__，郁闷~~~~！！！！  
+
+[用单数组表示法实现双向链表](https://github.com/zhuxiuwei/CLRS/blob/master/src/chap10_ElementaryDataStructures/ObjectImplBySingleArray.java)的revert方法 ★★★  
+算法思路挺有意思。不算难，稍微有点复杂。  
+一个注意点： free_object时，freeIndex的更新要注意。freeIndex对应的index在array里保存的是下一个可用的index，因此freeIndex始终要保持一种“栈”的感觉，可用的元素通过“栈”连接起来。
+我之前只写了freeIndex = keyIndex一条，导致array都清空一次后，在添加第一个object还正确，但是再添加第二个就出错了。 因为freeIndex没有把“栈”的元素连接起来。  
