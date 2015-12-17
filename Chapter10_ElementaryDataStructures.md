@@ -60,4 +60,4 @@ O(1)的removeLast()在我的[LinkedList](https://github.com/zhuxiuwei/CLRS/blob/
 删除时，如果删除的是最大的数组下标，啥也不用动；如果不是，删除后，可以把最大数组下表的元素移动到被删除空出来的数组位置。这涉及到一些指针的操作而已。  
 
 #####10.4-4 __左孩子右兄弟表示法__的n个节点的树，写出O(n)的输出所有元素的过程。  
- 代码见[LinkedList之union方法](https://github.com/zhuxiuwei/CLRS/blob/master/src/chap10_ElementaryDataStructures/LinkedList.java)  
+ 代码见[Tree_LefrChildRightSibling](https://github.com/zhuxiuwei/CLRS/blob/master/src/chap10_ElementaryDataStructures/Tree_LefrChildRightSibling.java)  
