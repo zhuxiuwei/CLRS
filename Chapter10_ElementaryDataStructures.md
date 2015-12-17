@@ -48,5 +48,16 @@ O(1)的removeLast()在我的[LinkedList](https://github.com/zhuxiuwei/CLRS/blob/
 
 #####10.3-2 对一组同构对象的单数组表示法实现，写出过程allocate-object和free-object。  
 代码见[ObjectImplBySingleArray](https://github.com/zhuxiuwei/CLRS/blob/master/src/chap10_ElementaryDataStructures/ObjectImplBySingleArray.java)  
+数组实现的链表操作，和普通的链表操作时间复杂度一样，插入是O(1)，查找和删除都是最坏O(n)。  
 
+#####10.3-3 allocate-object和free-object的实现过程中，为什么不需要对prev重置？  
+书上的实现中确实没有对prev的重置，但是[我自己的实现](https://github.com/zhuxiuwei/CLRS/blob/master/src/chap10_ElementaryDataStructures/ObjectImplBySingleArray.java)中还是重置了prev的。
+可能是不需要prev操作吧。  
 
+#####10.3-4 我们常常希望一个双链表中的所有元素在存储器中能够紧凑地排列在一起，例如使用多重数组表示中的前m个下标位置（在一个分页的虚拟计算机环境中情况就是这样的）。
+假设链表以外没有指向链表元素的指针，请说明如何实现过程ALLOCATE_OBJECT和FREE_OBJECT，才能使这种表比较紧凑。（提示：使用栈的数组实现）  
+思路是，增加的时候总是往数组能用的最小下标增加（类似stack push）；  
+删除时，如果删除的是最大的数组下标，啥也不用动；如果不是，删除后，可以把最大数组下表的元素移动到被删除空出来的数组位置。这涉及到一些指针的操作而已。  
+
+#####10.4-4 __左孩子右兄弟表示法__的n个节点的树，写出O(n)的输出所有元素的过程。  
+ 代码见[LinkedList之union方法](https://github.com/zhuxiuwei/CLRS/blob/master/src/chap10_ElementaryDataStructures/LinkedList.java)  
