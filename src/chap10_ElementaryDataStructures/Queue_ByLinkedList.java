@@ -4,21 +4,21 @@ package chap10_ElementaryDataStructures;
  * @author xiuzhu
  * 151213
  */
-public class Queue_ByLinkedList {
-	private LinkedList<Integer> list = new LinkedList<Integer>();
+public class Queue_ByLinkedList<E> {
+	private LinkedList<E> list = new LinkedList<E>();
 	
-	public void enqueue(int e){
+	public void enqueue(E e){
 		System.out.println("enquque: " + e);
 		list.insert(e);
 	}
 	
 	//注意：要实现O(1)级别的dequeue，需要LinkedList提供O(1)removeLast()方法。
-	public int dequeue() {
+	public E dequeue() {
 		if(list.isEmpty()){
 			System.out.println("failed to dequeue due to queue empty!!!");
-			return 0;
+			return null;
 		}else{
-			int rest = list.removeLast();
+			E rest = list.removeLast();
 			System.out.println("dequque: " + rest);
 			return rest;
 		}
@@ -26,7 +26,7 @@ public class Queue_ByLinkedList {
 	
 	//test
 	public static void main(String[] args) {
-		Queue_ByLinkedList q = new Queue_ByLinkedList();
+		Queue_ByLinkedList<Integer> q = new Queue_ByLinkedList<Integer>();
 		q.dequeue();
 		q.enqueue(1);
 		q.dequeue();
