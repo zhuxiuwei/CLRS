@@ -6,9 +6,11 @@ package chap10_ElementaryDataStructures;
  */
 public class Queue_ByLinkedList<E> {
 	private LinkedList<E> list = new LinkedList<E>();
+	private boolean printDebug = false;
 	
 	public void enqueue(E e){
-		System.out.println("enquque: " + e);
+		if(printDebug)
+			System.out.println("enquque: " + e);
 		list.insert(e);
 	}
 	
@@ -19,14 +21,20 @@ public class Queue_ByLinkedList<E> {
 			return null;
 		}else{
 			E rest = list.removeLast();
-			System.out.println("dequque: " + rest);
+			if(printDebug)
+				System.out.println("dequque: " + rest);
 			return rest;
 		}
+	}
+	
+	public boolean isEmpty(){
+		return list.isEmpty();
 	}
 	
 	//test
 	public static void main(String[] args) {
 		Queue_ByLinkedList<Integer> q = new Queue_ByLinkedList<Integer>();
+		q.printDebug = true;
 		q.dequeue();
 		q.enqueue(1);
 		q.dequeue();
