@@ -61,3 +61,4 @@ O(1)的removeLast()在我的[LinkedList](https://github.com/zhuxiuwei/CLRS/blob/
 
 #####10.4-4 __左孩子右兄弟表示法__的n个节点的树，写出O(n)的输出所有元素的过程。  
  代码见[Tree_LefrChildRightSibling](https://github.com/zhuxiuwei/CLRS/blob/master/src/chap10_ElementaryDataStructures/Tree_LefrChildRightSibling.java)  
+ 实现了先根遍历，中根遍历，后根遍历和层次遍历。注意怎么快速建立一棵树的。  
