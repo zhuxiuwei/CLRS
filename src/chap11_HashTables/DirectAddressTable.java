@@ -24,7 +24,7 @@ public class DirectAddressTable<E> {
 	 * @param m 能表示的关键字的范围。
 	 */
 	public DirectAddressTable(int m){
-		a =  (E[])new Object[m];	//！！！注意点1:泛型数组的写法。
+		a =  (E[])new Object[m];	//！！！注意点1:泛型数组的写法。如果直接写 a = new E[m] 会报错：'Cannot create a generic array of E'
 	}
 	
 	public void insert(E ele){	//！！！注意点2：用hashcode做key，来做插入和删除。

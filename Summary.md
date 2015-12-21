@@ -60,7 +60,7 @@
 #####第10章 哈希表  
 [直接寻址表的实现](https://github.com/zhuxiuwei/CLRS/blob/master/src/chap11_HashTables/DirectAddressTable.java) ★  
 题不难，但是从Java语法角度，有些有意思的东西要注意：  
-1. Java不支持泛型数组。注意是如何实现一个__泛型数组__的。参考http://stackoverflow.com/questions/529085/how-to-create-a-generic-array-in-java  
+1. Java不支持泛型数组。如果直接写 a = new E[array_size]会报错：'Cannot create a generic array of E'。 注意是如何实现一个__泛型数组__的。参考http://stackoverflow.com/questions/529085/how-to-create-a-generic-array-in-java  
 2. 用元素的__hashcode__做key，来做该元素的插入和删除。  
 3. 有意思的一点。从直接寻址表删除时，我模仿HashSet的行为。__Set判断两个元素是否相同，判断的两个元素是否equals，而不是判断hashcode！__  
  	因为是用hashcode做key，如果元素1和元素2有一样的hashcode,如果直接寻址表中存储的是m1，但是执行delete(m2)，那么：  
