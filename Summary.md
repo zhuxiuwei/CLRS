@@ -56,3 +56,13 @@
 算法思路挺有意思。不算难，稍微有点复杂。  
 一个注意点： free_object()方法中，freeIndex的更新要注意。freeIndex变量存的index在array里保存的是下一个可用的index(见构造函数里对freeIndex的初始化)，因此freeIndex始终要保持一种“栈”的感觉，可用的元素通过“栈”连接起来。
 我之前只写了freeIndex = keyIndex一条，导致array都清空一次后，再添加第一个object还正确，但是再添加第二个就出错了。 因为freeIndex没有把“栈”的元素连接起来。  
+
+#####第10章 哈希表  
+[直接寻址表的实现](https://github.com/zhuxiuwei/CLRS/blob/master/src/chap11_HashTables/DirectAddressTable.java) ★  
+题不难，但是从Java语法角度，有些有意思的东西要注意：  
+1. Java不支持泛型数组。注意是如何实现一个__泛型数组__的。参考http://stackoverflow.com/questions/529085/how-to-create-a-generic-array-in-java  
+2. 用元素的__hashcode__做key，来做该元素的插入和删除。  
+3. 有意思的一点。从直接寻址表删除时，我模仿HashSet的行为。__Set判断两个元素是否相同，判断的两个元素是否equals，而不是判断hashcode！__  
+ 	因为是用hashcode做key，如果元素1和元素2有一样的hashcode,如果直接寻址表中存储的是m1，但是执行delete(m2)，那么：  
+ 		如果元素1.equals(元素2)，那么应该m1也被删除。（从集合的视角看，这俩元素相同）  
+ 		如果元素1 not equals 元素2，那么m1不应该被删除。（从集合的视角看，这俩元素相同）  
