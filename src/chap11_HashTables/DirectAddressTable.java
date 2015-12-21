@@ -13,7 +13,7 @@ import java.util.Set;
  *  3. 有意思的一点。删除时，我模仿HashSet的行为。Set判断两个元素是否相同，判断的两个元素是否equals，而不是判断hashcode！
  *  	因为是用hashcode做key，如果元素1和元素2有一样的hashcode,如果直接寻址表中存储的是m1，但是执行delete(m2)，那么：
  *  		如果元素1.equals(元素2)，那么应该m1也被删除。（从集合的视角看，这俩元素相同）
- *  		如果元素1 not equals 元素2，那么m1不应该被删除。（从集合的视角看，这俩元素相同）
+ *  		如果元素1 not equals 元素2，那么m1不应该被删除。（从集合的视角看，这俩元素不同）
  *  	
  */
 public class DirectAddressTable<E> {
