@@ -10,10 +10,10 @@ import java.util.Set;
  * 注意点：
  * 	1. Java不支持泛型数组。注意是如何实现一个泛型数组的。参考http://stackoverflow.com/questions/529085/how-to-create-a-generic-array-in-java
  *  2. 用元素的hashcode做key，来做该元素的插入和删除。
- *  3. 有意思的一点。删除时，我模仿HashSet的行为。Set判断两个元素是否相同，判断的两个元素是否equals，而不是判断hashcode！
+ *  3. 有意思的一点。删除时，我模仿HashSet的行为。Set判断两个元素是否相同，即要判断俩元素是否equals，又要判断hashcode是否相等！
  *  	因为是用hashcode做key，如果元素1和元素2有一样的hashcode,如果直接寻址表中存储的是m1，但是执行delete(m2)，那么：
- *  		如果元素1.equals(元素2)，那么应该m1也被删除。（从集合的视角看，这俩元素相同）
- *  		如果元素1 not equals 元素2，那么m1不应该被删除。（从集合的视角看，这俩元素不同）
+ *  		如果m1.equals(m2)，那么应该m1也被删除。（从集合的视角看，这俩元素相同）
+ *  		如果m1 not equals m2，那么m1不应该被删除。（从集合的视角看，这俩元素不同）
  *  	
  */
 public class DirectAddressTable<E> {
@@ -43,7 +43,7 @@ public class DirectAddressTable<E> {
 		if(ele.hashCode() < 0 || ele.hashCode() > a.length - 1)
 			return false;
 		else{
-			if(ele.equals(a[ele.hashCode()])){
+			if(ele.equals(a[ele.hashCode()])){	//！！！注意点3：要保证hashcode和equals都相等，才认为俩元素一样。
 				a[ele.hashCode()] = null;
 				return true;
 			}
@@ -79,6 +79,19 @@ public class DirectAddressTable<E> {
 		set.add(m1);
 		System.out.println("remove from set succeed:" + set.remove(m2));
 		System.out.println("set contains: " + set.contains(m1));
+		System.out.println("set contains: " + set.contains(m2));
+		
+		//用来验证在set中，俩元素相等的条件，除了要equals，还要hashcode相等。
+		System.out.println("---test HashSet behavior2222222222222---");
+		MyData2 m21 = new MyData2(1, "haha");
+		MyData2 m22 = new MyData2(1, "haha");
+		System.out.println(m21.equals(m22));
+		System.out.println(m21.hashCode());
+		System.out.println(m21.hashCode());
+		Set<MyData2> set2 = new HashSet<MyData2>();
+		set2.add(m21);
+		set2.add(m22);
+		System.out.println(set2);	//应该同时包含m21 m22，因为他俩虽然equals，但是hashcode不想等
 	}
 
 }
@@ -98,17 +111,45 @@ class MyData{
 	/**
 	 * ！！！注意点3：equals是否override，影响Set对两个元素是否相等的判断。可以把注释加上、去掉，观察结果的不同。
 	 */
-//	@Override
-//	public boolean equals(Object o){
-//		if(o == null)
-//			return false;
-//		else if(!(o instanceof MyData)){
-//			return false;
-//		}else{
-//			MyData other = (MyData)o;
-//			return this.key == other.key;
-//		}
-//	}
+	@Override
+	public boolean equals(Object o){
+		if(o == null)
+			return false;
+		else if(!(o instanceof MyData)){
+			return false;
+		}else{
+			MyData other = (MyData)o;
+			return this.key == other.key;
+		}
+	}
+	public String toString(){
+		return key + "," + data;
+	}
+}
+
+//用来验证在set中，俩元素相等的条件，除了要equals，还要hashcode相等。
+class MyData2{
+	private int key;
+	private String data;
+	public MyData2(int key, String data){
+		this.key = key;
+		this.data = data;
+	}
+	@Override
+	public int hashCode(){	//故意让hashCode返回随机数
+		return new java.util.Random().nextInt(100000);
+	}
+	@Override
+	public boolean equals(Object o){
+		if(o == null)
+			return false;
+		else if(!(o instanceof MyData2)){
+			return false;
+		}else{
+			MyData2 other = (MyData2)o;
+			return this.key == other.key;
+		}
+	}
 	public String toString(){
 		return key + "," + data;
 	}

@@ -62,7 +62,7 @@
 题不难，但是从Java语法角度，有些有意思的东西要注意：  
 1. Java不支持泛型数组。如果直接写 a = new E[array_size]会报错：'Cannot create a generic array of E'。 注意是如何实现一个__泛型数组__的。参考http://stackoverflow.com/questions/529085/how-to-create-a-generic-array-in-java  
 2. 用元素的__hashcode__做key，来做该元素的插入和删除。  
-3. 有意思的一点。从直接寻址表删除时，我模仿HashSet的行为。__Set判断两个元素是否相同，判断的两个元素是否equals，而不是判断hashcode！__  
+3. 有意思的一点。从直接寻址表删除时，我模仿HashSet的行为。__Set判断两个元素是否相同，即要判断俩元素是否equals，又要判断hashcode是否相等！__  
  	因为是用hashcode做key，如果元素1和元素2有一样的hashcode,如果直接寻址表中存储的是m1，但是执行delete(m2)，那么：  
- 		如果元素1.equals(元素2)，那么应该m1也被删除。（从集合的视角看，这俩元素相同）  
- 		如果元素1 not equals 元素2，那么m1不应该被删除。（从集合的视角看，这俩元素不同）  
+ 		如果m1.equals(m2)，那么应该m1也被删除。（从集合的视角看，这俩元素相同）  
+ 		如果m1 not equals m2，那么m1不应该被删除。（从集合的视角看，这俩元素不同）  
