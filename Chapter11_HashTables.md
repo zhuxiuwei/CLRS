@@ -11,3 +11,6 @@
 代码见[DirectAddressTable](https://github.com/zhuxiuwei/CLRS/blob/master/src/chap11_HashTables/DirectAddressTable.java)  
 有__三个注意点__，有点意思。  
 
+#####11.3-1 假设我们希望查找一个长度为n的链表，其中每一个元素都包含一个关键字k和一个散列值h(k)。每一个关键字都是长字符串。在表中查找具有给定关键字的元素时，如何利用各元素中的散列值。  
+对链表中每一个元素，先比较该元素与待查关键字的散列值。若一样，在比较字符串值。__（感觉和Java的HashSet处理思路一样！先比较hashcode，再比较equals）__  
+
