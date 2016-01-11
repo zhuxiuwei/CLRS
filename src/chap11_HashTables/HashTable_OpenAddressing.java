@@ -7,17 +7,20 @@ import java.util.Arrays;
  * 默认的版本里，不支持从HashTable删除。这个例子要支持删除。（习题11.4-2）
  * @author xiuzhu
  * 160111
+ * 
+ * 注意点：
+ * 1. index_status，因为int数组初始化默认元素都是0，所以未使用的状态（相当于默认状态）应该是0才合理。（我最开始实现时写的是1）
  */
 public class HashTable_OpenAddressing {
 
 	private int[] elements;	//hashtable存放元素的数组。
-	private int[] delete_flag;	//标识一个hashtable中的index的元素的状态。-1:未使用过。 0:已删除。 1:被使用中，有元素。
+	private int[] index_status;	//标识一个hashtable中的index的元素的状态。0:未使用过。 1:已删除。 2:被使用中，有元素。
 	private int m;
 	private int size = 0;	//hashtable中元素的个数
 	
 	public HashTable_OpenAddressing(int m_size){
 		this.elements = new int[m_size];
-		this.delete_flag = new int[m_size];
+		this.index_status = new int[m_size];
 		m = m_size;
 	}
 	
@@ -34,11 +37,11 @@ public class HashTable_OpenAddressing {
 		else{
 			size ++;
 			int index = hash_doubleHashing(k, 0);
-			for (int i = 1; delete_flag[index] == 1; i++) {
+			for (int i = 1; index_status[index] == 2; i++) {
 				index = hash_doubleHashing(k, i);
 			}
 			elements[index] = k;
-			delete_flag[index] = 1;
+			index_status[index] = 2;
 			return index;
 		}
 	}
@@ -51,7 +54,7 @@ public class HashTable_OpenAddressing {
 	public int delete(int k){
 		int index = this.search(k);
 		if(index != -1){
-			delete_flag[index] = 0;
+			index_status[index] = 1;
 			size --;
 		}
 		return index;
@@ -80,11 +83,11 @@ public class HashTable_OpenAddressing {
 		int rest = -1;
 		for (int i = 0; i < m; i++) {
 			int temp = hash_doubleHashing(k, i);
-			if(delete_flag[temp] == -1)
+			if(index_status[temp] == 0)
 				break;	//not found
-			else if (delete_flag[temp] == 0)	//被删除的标志位，需要继续search
+			else if (index_status[temp] == 1)	//被删除的标志位，需要继续search
 				continue;
-			else if (delete_flag[temp] == 1){
+			else if (index_status[temp] == 2){
 				if(elements[temp] == k){
 					rest = temp;
 				}
@@ -125,14 +128,17 @@ public class HashTable_OpenAddressing {
 		h.insert(17);
 		h.insert(88);
 		h.insert(59);
-		h.insert(58);
-		h.insert(57);
-		h.insert(56);
 		
 		System.out.println(h.size());
 		
 		System.out.println(Arrays.toString(h.elements));
-		System.out.println(Arrays.toString(h.delete_flag));
+		System.out.println(Arrays.toString(h.index_status));
+		h.delete(88);
+		System.out.println(Arrays.toString(h.elements));
+		System.out.println(Arrays.toString(h.index_status));
+		h.insert(7);
+		System.out.println(Arrays.toString(h.elements));
+		System.out.println(Arrays.toString(h.index_status));
 	}
 
 }
