@@ -35,3 +35,9 @@
 64: 554  
 65: 172  
 
+#####11.4-1 开放寻址法。Consider inserting the keys 10,22,31,4,15,28,17,88,59 into a hash table of length m=11 using open addressing with the auxiliary hash function h′(k)=k. 
+Illustrate the result of inserting these keys using linear probing, using quadratic probing with c1=1 and c2=3, and using double hashing h1(k)=k and h2(k)=1+(kmod(m+1)).  
+见图：  ![](https://github.com/zhuxiuwei/CLRS/blob/master/Images/11.4-1.png)  
+
+
+
