@@ -35,8 +35,8 @@
 64: 554  
 65: 172  
 
-#####11.4-1 开放寻址法。Consider inserting the keys 10,22,31,4,15,28,17,88,59 into a hash table of length m=11 using open addressing with the auxiliary hash function h′(k)=k. Illustrate the result of inserting these keys using __linear probing__, using __quadratic probing__ with c1=1 and c2=3, and using __double hashing__ h1(k)=k and h2(k)=1+(kmod(m+1)).  
-见图：  ![](https://github.com/zhuxiuwei/CLRS/blob/master/Images/11.4-1.png)  
+#####11.4-1 开放寻址法。Consider inserting the keys 10,22,31,4,15,28,17,88,59 into a hash table of length m=11 using open addressing with the auxiliary hash function h′(k)=k. Illustrate the result of inserting these keys using linear probing, using quadratic probing with c1=1 and c2=3, and using double hashing h1(k)=k and h2(k)=1+(kmod(m+1)).  
+答：见图：  ![](https://github.com/zhuxiuwei/CLRS/blob/master/Images/11.4-1.png)  
 
-
-
+#####11.4-2 Write pseudocode for HASH-DELETE as outlined in the text, and modify HASHINSERT to handle the special value DELETED.  
+答：代码见[HashTable_OpenAddressing](https://github.com/zhuxiuwei/CLRS/blob/master/src/chap11_HashTables/HashTable_OpenAddressing.java)  
