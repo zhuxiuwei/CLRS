@@ -59,7 +59,7 @@ public class BinaryTree<E> {
 		if(node == null)
 			return;
 		else{
-			Stack<TreeNode<E>> stack = new Stack<TreeNode<E>>();
+			Stack<TreeNode<E>> stack = new Stack<TreeNode<E>>();	//stack存放左孩子，以及右孩子。
 			stack.push(node);
 			while(!stack.isEmpty()){
 				if(node.left != null && !currentIsPoped){	//必须加上currentIsPoped这个判断条件！否则会“走回头路”
@@ -81,13 +81,14 @@ public class BinaryTree<E> {
 	
 	/**
 	 * 先根遍历二叉树 - 非递归（习题12.1-4）
+	 * 写的时候，比中跟非递归实现的快一些。
 	 **/
 	public void traversing_preorder_nonrescurive(TreeNode<E> node){
 		if(node == null)
 			return;
 		else{
 			System.out.print(node + " ");
-			Stack<TreeNode<E>> stack = new Stack<TreeNode<E>>();
+			Stack<TreeNode<E>> stack = new Stack<TreeNode<E>>();	//stack只用来存放右孩子
 			if(node.right != null)
 				stack.push(node.right);
 			
