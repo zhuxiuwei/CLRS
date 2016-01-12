@@ -3,7 +3,7 @@ package chap12_BinarySearchTree;
 import java.util.Stack;
 
 /**
- * 左孩子右兄弟表示法的树。
+ * 二叉树。
  * @author xiuzhu
  * 151217
  * 注意点：
@@ -79,7 +79,33 @@ public class BinaryTree<E> {
 		}
 	}
 	
-	
+	/**
+	 * 先根遍历二叉树 - 非递归（习题12.1-4）
+	 **/
+	public void traversing_preorder_nonrescurive(TreeNode<E> node){
+		if(node == null)
+			return;
+		else{
+			System.out.print(node + " ");
+			Stack<TreeNode<E>> stack = new Stack<TreeNode<E>>();
+			if(node.right != null)
+				stack.push(node.right);
+			
+			while(!stack.isEmpty()){
+				if(node.left != null){
+					node = node.left;
+					System.out.print(node + " ");
+					if(node.right != null)
+						stack.push(node.right);
+				}else{
+					node = stack.pop();
+					System.out.print(node + " ");
+					if(node.right != null)
+						stack.push(node.right);
+				}
+			}
+		}
+	}
 	
 	public static void main(String[] args) {
 		//create tree。
@@ -104,6 +130,8 @@ public class BinaryTree<E> {
 		
 		System.out.print("先根:");
 		t.traversing_preorder(t.root);
+		System.out.print("\r\n先根非递归:");
+		t.traversing_preorder_nonrescurive(t.root);
 		System.out.print("\r\n中根:");
 		t.traversing_inorder(t.root);
 		System.out.print("\r\n中根非递归:");
