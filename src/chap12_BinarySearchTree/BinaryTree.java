@@ -81,7 +81,6 @@ public class BinaryTree<E> {
 	
 	public static void main(String[] args) {
 		//create tree。
-		//！！！注意点1：是如何方便地构造这个树的。
 		/***************************
 		 * 下面的代码构造如下的多叉树：
 		 *        1

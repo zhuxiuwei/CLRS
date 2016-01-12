@@ -67,7 +67,7 @@
  		如果m1.equals(m2)，那么应该m1也被删除。（从集合的视角看，这俩元素相同）  
  		如果m1 not equals m2，那么m1不应该被删除。（从集合的视角看，这俩元素不同）  
 
-#####第11章 二叉搜索树  ★★★★
-[BinaryTree中序遍历非递归算法](https://github.com/zhuxiuwei/CLRS/blob/master/src/chap12_BinarySearchTree/BinaryTree.java)  
+#####第11章 二叉搜索树  
+[BinaryTree中序遍历非递归算法](https://github.com/zhuxiuwei/CLRS/blob/master/src/chap12_BinarySearchTree/BinaryTree.java)★★★★  
 debug写的，还是不够熟练。其中有一个额外需要注意的地方，需要加一个判断条件防止算法走“回头路”。回头路指的是一个节点的左孩子已经遍历过了，别回过头来又遍历，导致死循环。  
 
