@@ -10,6 +10,8 @@ import java.util.Stack;
  * 	1. 中序遍历的非递归还是不熟。debug着写的，手写会有问题。
  * 		其中，需要注意加上currentIsPoped一个判断条件，防止“走回头路”陷入死循环。
  *  2. 先序遍历的非递归的一个bug：退出循环的条件，需要加上node.left != null的判断条件。否则当树的root只有左孩子时，除了root，左孩子都遍历不到。
+ *  3. 后序遍历非递归，是三种非递归遍历里最复杂的。和中序遍历一样，后序遍历要记录已经访问过的节点，避免走“回头路”。而这里的逻辑比中序遍历更复杂，是主要的难点。
+ *  	后序遍历记录节点的访问，需要两个flag分别记录左右子树的访问情况。这里引出了三个另外的注意点。
  */
 public class BinaryTree<E> {
 	public TreeNode<E> root = null;
@@ -110,7 +112,48 @@ public class BinaryTree<E> {
 		}
 	}
 	
-	
+	/**
+	 * 后遍历二叉树 - 非递归（习题12.1-4）
+	 **/
+	public void traversing_postorder_nonrescurive(TreeNode<E> node){
+		if(node == null)
+			return;
+		else{
+			Stack<TreeNode<E>> stack = new Stack<TreeNode<E>>();	
+			stack.push(node);
+			boolean isLeftVisisted = false;		//注意点3.1  左右是否访问过都要记录。左右访问记录的赋值是个难点。
+			boolean isRightVisisted = false;
+			while(!stack.isEmpty()){
+				if(node.left != null && !isLeftVisisted){
+					stack.push(node.left);
+					node = node.left;
+					isLeftVisisted = false;
+				}else{
+					node = stack.peek();
+					if(node.right != null && !isRightVisisted){	//if true, left child is visited(or not exist), now visit right child.
+						stack.push(node.right);
+						node = node.right;
+						isLeftVisisted = false;		//注意点3.2 这里需要对访问记录“归位”，否则会出现某些叶节点访问不到的bug。
+						isRightVisisted = false;
+					}else{	//left&right children all visited(or not exist), now visit self
+						TreeNode<E> childNode = stack.pop();
+						System.out.print(childNode + " ");
+						if(!stack.isEmpty()){	//if stack is empty, it's root node, and can exist loop now.
+							node = stack.peek();	//go back to parent node
+							if(node.left == childNode){
+								isLeftVisisted = true;
+								isRightVisisted = false;
+							}
+							else if(node.right == childNode){
+								isRightVisisted = true;		//注意点3.3 后根遍历如果右孩子访问过了，那么左孩子一定也访问过。所以isLeftVisisted = true
+								isLeftVisisted = true;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
 	
 	public static void main(String[] args) {
 		//create tree。
@@ -119,10 +162,10 @@ public class BinaryTree<E> {
 		 *        1
 		 *      /   \
 		 *     2     3
-		 *    /       \
-		 *   4         5
-		 *  / \       / \  
-		 * 6   7     8   9  
+		 *    / \     \
+		 *   4   5     6
+		 *  /\   /\    /  
+		 * 7 8  9 10  11   
 		 ***************************/
 		TreeNode<Integer> root = new TreeNode<Integer>(1);
 		BinaryTree<Integer> t = new BinaryTree<Integer>(root);
@@ -130,10 +173,12 @@ public class BinaryTree<E> {
 		//可以comment out 左/右孩子，做只有右孩子/左孩子的测试。
 		root.addLeftChild(new TreeNode<Integer>(2)
 				.addLeftChild(new TreeNode<Integer>(4)
-						.addLeftChild(new TreeNode<Integer>(6)).addRightChild(new TreeNode<Integer>(7))));
-		root.addRightChild(new TreeNode<Integer>(3)
+						.addLeftChild(new TreeNode<Integer>(7)).addRightChild(new TreeNode<Integer>(8)))
 				.addRightChild(new TreeNode<Integer>(5)
-						.addLeftChild(new TreeNode<Integer>(8)).addRightChild(new TreeNode<Integer>(9))));
+						.addLeftChild(new TreeNode<Integer>(9)).addRightChild(new TreeNode<Integer>(10))));
+		root.addRightChild(new TreeNode<Integer>(3)
+				.addRightChild(new TreeNode<Integer>(6)
+						.addLeftChild(new TreeNode<Integer>(11))));
 		
 		System.out.print("先根:");
 		t.traversing_preorder(t.root);
@@ -145,6 +190,8 @@ public class BinaryTree<E> {
 		t.traversing_inorder_nonrescurive(t.root);
 		System.out.print("\r\n后根:");
 		t.traversing_postorder(t.root);
+		System.out.print("\r\n后根非递归:");
+		t.traversing_postorder_nonrescurive(t.root);
 	}
 
 }
