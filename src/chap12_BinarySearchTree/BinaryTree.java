@@ -17,7 +17,7 @@ public class BinaryTree<E> {
 	}
 	
 	/**
-	 * 先根遍历左孩子右兄弟树
+	 * 先根遍历二叉树
 	 */
 	public void traversing_preorder(TreeNode<E> node){
 		if(node != null){
@@ -28,7 +28,7 @@ public class BinaryTree<E> {
 	}
 	
 	/**
-	 * 中根遍历左孩子右兄弟树
+	 * 中根遍历二叉树
 	 */
 	public void traversing_inorder(TreeNode<E> node){
 		if(node != null){
@@ -39,7 +39,18 @@ public class BinaryTree<E> {
 	}
 	
 	/**
-	 * 中根遍历左孩子右兄弟树 - 非递归
+	 * 后根遍历二叉树
+	 */
+	public void traversing_postorder(TreeNode<E> node){
+		if(node != null){
+			traversing_postorder(node.left);
+			traversing_postorder(node.right);
+			System.out.print(node.key + " ");
+		}
+	}
+	
+	/**
+	 * 中根遍历二叉树 - 非递归 （习题12.1-3）
 	 **/
 	public void traversing_inorder_nonrescurive(TreeNode<E> node){
 		//！！注意点1：需要加上这个判断条件。如果一个节点是从stack里pop的，说明它的左孩子已经遍历过了。
@@ -68,16 +79,7 @@ public class BinaryTree<E> {
 		}
 	}
 	
-	/**
-	 * 后根遍历左孩子右兄弟树
-	 */
-	public void traversing_postorder(TreeNode<E> node){
-		if(node != null){
-			traversing_postorder(node.left);
-			traversing_postorder(node.right);
-			System.out.print(node.key + " ");
-		}
-	}
+	
 	
 	public static void main(String[] args) {
 		//create tree。
