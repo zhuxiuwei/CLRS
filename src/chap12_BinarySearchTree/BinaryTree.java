@@ -9,6 +9,7 @@ import java.util.Stack;
  * 注意点：
  * 	1. 中序遍历的非递归还是不熟。debug着写的，手写会有问题。
  * 		其中，需要注意加上currentIsPoped一个判断条件，防止“走回头路”陷入死循环。
+ *  2. 先序遍历的非递归的一个bug：退出循环的条件，需要加上node.left != null的判断条件。否则当树的root只有左孩子时，除了root，左孩子都遍历不到。
  */
 public class BinaryTree<E> {
 	public TreeNode<E> root = null;
@@ -92,7 +93,8 @@ public class BinaryTree<E> {
 			if(node.right != null)
 				stack.push(node.right);
 			
-			while(!stack.isEmpty()){
+			//！！！注意点2，需要加上node.left != null的判断条件。否则当树的root只有左孩子时，除了root，左孩子都遍历不到。
+			while(!stack.isEmpty() || node.left != null){
 				if(node.left != null){
 					node = node.left;
 					System.out.print(node + " ");
@@ -108,6 +110,8 @@ public class BinaryTree<E> {
 		}
 	}
 	
+	
+	
 	public static void main(String[] args) {
 		//create tree。
 		/***************************
@@ -122,6 +126,8 @@ public class BinaryTree<E> {
 		 ***************************/
 		TreeNode<Integer> root = new TreeNode<Integer>(1);
 		BinaryTree<Integer> t = new BinaryTree<Integer>(root);
+		
+		//可以comment out 左/右孩子，做只有右孩子/左孩子的测试。
 		root.addLeftChild(new TreeNode<Integer>(2)
 				.addLeftChild(new TreeNode<Integer>(4)
 						.addLeftChild(new TreeNode<Integer>(6)).addRightChild(new TreeNode<Integer>(7))));

@@ -68,6 +68,6 @@
  		如果m1 not equals m2，那么m1不应该被删除。（从集合的视角看，这俩元素不同）  
 
 #####第11章 二叉搜索树  
-[BinaryTree中序遍历非递归算法](https://github.com/zhuxiuwei/CLRS/blob/master/src/chap12_BinarySearchTree/BinaryTree.java)★★★★  
-debug写的，还是不够熟练。其中有一个额外需要注意的地方，需要加一个判断条件防止算法走“回头路”。回头路指的是一个节点的左孩子已经遍历过了，别回过头来又遍历，导致死循环。  
-
+[BinaryTree非递归算法](https://github.com/zhuxiuwei/CLRS/blob/master/src/chap12_BinarySearchTree/BinaryTree.java)★★★★  
+1. 中序遍历的非递归，debug写的，纸上写肯定还是不熟练。其中有一个额外需要注意的地方，需要加一个判断条件防止算法走“回头路”。回头路指的是一个节点的左孩子已经遍历过了，别回过头来又遍历，导致死循环。  
+2. 先序遍历的非递归的一个bug：退出循环的条件，需要加上node.left != null的判断条件。否则当树的root只有左孩子时，除了root，左孩子都遍历不到。
