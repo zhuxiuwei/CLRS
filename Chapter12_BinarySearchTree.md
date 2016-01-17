@@ -20,11 +20,11 @@ c，911 240 912不对。
 e，347,621,299不对。  
 
 #####12.2-2 Tree-min和tree-max的递归版本  
-代码见[BinaryTree的traversing_inorder_nonrescurive](https://github.com/zhuxiuwei/CLRS/blob/master/src/chap12_BinarySearchTree/BinarySearchTree_Search.java)
+代码见[BinaryTree](https://github.com/zhuxiuwei/CLRS/blob/master/src/chap12_BinarySearchTree/BinarySearchTree_Search.java)
 的tree_min_recursive()和tree_max_recursive()方法  
 
 #####12.2-2 Tree-Predecessor的代码  
-代码见[BinaryTree的traversing_inorder_nonrescurive](https://github.com/zhuxiuwei/CLRS/blob/master/src/chap12_BinarySearchTree/BinarySearchTree_Search.java)
+代码见[BinaryTree](https://github.com/zhuxiuwei/CLRS/blob/master/src/chap12_BinarySearchTree/BinarySearchTree_Search.java)
 的predecessor()方法  
 
 12.2-4 Professor Bunyan thinks he has discovered a remarkable property of binary search trees. 
@@ -42,3 +42,10 @@ Give a smallest possible counterexample to the professors claim.
 后继一定是右子树中最小的。最小的节点一定是最左的节点，所以它的后继一定没有左孩子。  
 前驱一定是左子树中最大的。最大的节点一定是最右的节点，所以它的前驱一定没有右孩子。  
 
+#####12.2-6 考虑一棵关键字各不相同的二叉查找树T。证明：如果T中某个结点x的右子树为空，且x有一个后继y，那么y就是x的最低祖先，且其左孩子也是x的祖先。（注意每个结点都是它自己的祖先。）  
+答：（这个题就是[BinaryTree](https://github.com/zhuxiuwei/CLRS/blob/master/src/chap12_BinarySearchTree/BinarySearchTree_Search.java)中predecessor()方法的注意点2）  
+首先x有后继并且右子树为空，因为x的后继不可能在左子树中（都比x小），所以y一定是x的祖先；  
+其次，x的父节点又分为两种情况：x是其父结点的左子树，x是其父结点的右子树。  
+1. 若x是其父结点的左子树，则父结点>=x，有成为x后继的资格。然后，父结点的父结点）一定不会是x的后继，原因如下
+：若父结点是爷爷结点的右子树，说明爷爷结点比x小，不能成为后继；若父节点是爷爷结点的左子树，说明爷爷结点比父节点还大；故后继y一定是父节点。  
+2. 若x是其父结点的右子树，父节点<=x，不能成为x的后继。只能再往上找，而且必须“往右找”，即这个祖先结点的左孩子也是祖先结点。（因为往左找是越找越小）。若找不到的话，说明当前结点是树中最大结点（一路向左）。  
