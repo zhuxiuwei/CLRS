@@ -15,3 +15,10 @@
 代码见[BinaryTree](https://github.com/zhuxiuwei/CLRS/blob/master/src/chap12_BinarySearchTree/BinaryTree.java)  
 递归和非递归都实现了。  
 
+#####12.2-1 哪个不是合法的二叉树查找序列。  
+c，911 240 912不对。  
+e，347,621,299不对。  
+
+#####12.2-2 Tree-min和tree-max的递归版本  
+代码见[BinaryTree的traversing_inorder_nonrescurive](https://github.com/zhuxiuwei/CLRS/blob/master/src/chap12_BinarySearchTree/BinarySearchTree_Search.java)
+的tree_min_recursive()和tree_max_recursive()方法  
