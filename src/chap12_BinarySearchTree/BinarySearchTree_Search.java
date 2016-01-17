@@ -133,6 +133,7 @@ public class BinarySearchTree_Search {
 	}
 	
 	public static void main(String[] args) {
+		//以下代码构建书 p163 图12-2的树。
 		TreeNode<Integer> root = new TreeNode<Integer>(15);
 		BinaryTree<Integer> tree = new BinaryTree<Integer>(root);
 		root.addLeftChild(new TreeNode<Integer>(6)

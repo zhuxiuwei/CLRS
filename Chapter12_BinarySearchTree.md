@@ -35,7 +35,7 @@ Professor Bunyan claims that any three keys a ∈ A, b ∈ B,and c ∈ C must sa
 Give a smallest possible counterexample to the professors claim.  
 答：考虑以下二叉树：  
 ![](https://github.com/zhuxiuwei/CLRS/blob/master/Images/12.2-4.png)  
-查找节点20，则集合A={17}, 集合B={15,18,29},集合C={φ}，并不满足集合A中的任意元素>=B中的。（17 v.s. 15）  
+查找节点20，则集合A={17}, 集合B={15,18,29},集合C={φ}，并不满足集合A中的任意元素<=B中的。（17 v.s. 15）  
 
 #####12.2-5 证明一棵二叉搜索树的一个节点有两个孩子，则它的后继没有左孩子，它的前驱没有右孩子。  
 答：如果有两个节点，则：  
