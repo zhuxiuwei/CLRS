@@ -3,6 +3,7 @@ package chap12_BinarySearchTree;
 /**
  * 12.2 二叉搜索树的查找
  * 注意点1：Search的非递归算法，循环的条件要注意。
+ * 注意点2： 查找Successor，当没有右孩子时的分之是要往上找，可能略微不好想。
  * @author xiuzhu
  * 160117
  */
@@ -87,6 +88,49 @@ public class BinarySearchTree_Search {
 		return node == null || node.right == null ? node: tree_max_recursive(node.right);
 	}
 	
+	/**
+	 * Get successor of a given node
+	 */
+	public TreeNode<Integer> successor(Integer key){
+		
+		TreeNode<Integer> node = tree_search(this.tree.root, key);	//got to find the TreeNode by given key first.
+		
+		if(node == null)
+			return null;
+		if(node.right != null){		//has right tree, search from up to down.
+			return tree_min_recursive(node.right);
+		}else{	//has no right tree, search from bottom to up
+			//注意点2： 这个分支可能稍微难想。
+			TreeNode<Integer> p = node.parent;
+			while(p!= null && p.left != node){
+				node = p;
+				p = node.parent;
+			}
+			return p;
+		}
+	}
+	
+	/**
+	 * Get predecessor of a given node
+	 */
+	public TreeNode<Integer> predecessor(Integer key){
+		
+		TreeNode<Integer> node = tree_search(this.tree.root, key);	//got to find the TreeNode by given key first.
+		
+		if(node == null)
+			return null;
+		
+		if(node.left != null)
+			return this.tree_max(node.left);
+		else{
+			TreeNode<Integer> p = node.parent;
+			while(p != null && p.left == node){
+				node = p;
+				p = node.parent;
+			}
+			return p;
+		}
+	}
 	
 	public static void main(String[] args) {
 		TreeNode<Integer> root = new TreeNode<Integer>(15);
@@ -111,6 +155,17 @@ public class BinarySearchTree_Search {
 		System.out.println("max: " + bSearch.tree_max(tree.root));
 		System.out.println("min recursive: " + bSearch.tree_min_recursive(tree.root));
 		System.out.println("max recursive: " + bSearch.tree_max_recursive(tree.root));
+		
+		//test successor
+		System.out.println("successor: " + bSearch.successor(15));
+		System.out.println("successor: " + bSearch.successor(4));
+		System.out.println("successor: " + bSearch.successor(13));
+		System.out.println("successor: " + bSearch.successor(20));
+		
+		//test predecessor
+		System.out.println("predecessor: " + bSearch.predecessor(6));
+		System.out.println("predecessor: " + bSearch.predecessor(17));
+		System.out.println("predecessor: " + bSearch.predecessor(7));
+		System.out.println("predecessor: " + bSearch.predecessor(2));
 	}
-
 }
