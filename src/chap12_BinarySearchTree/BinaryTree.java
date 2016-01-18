@@ -18,6 +18,8 @@ public class BinaryTree<E> {
 	public BinaryTree(TreeNode<E> _root){
 		root = _root;
 	}
+	public BinaryTree(){	//construct an empty tree
+	}
 	
 	/**
 	 * 先根遍历二叉树

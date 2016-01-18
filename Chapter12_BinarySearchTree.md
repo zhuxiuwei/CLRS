@@ -46,6 +46,6 @@ Give a smallest possible counterexample to the professors claim.
 答：（这个题就是[BinaryTree](https://github.com/zhuxiuwei/CLRS/blob/master/src/chap12_BinarySearchTree/BinarySearchTree_Search.java)中predecessor()方法的注意点2）  
 首先x有后继并且右子树为空，因为x的后继不可能在左子树中（都比x小），所以y一定是x的祖先；  
 其次，x的父节点又分为两种情况：x是其父结点的左子树，x是其父结点的右子树。  
-1. 若x是其父结点的左子树，则父结点>=x，有成为x后继的资格。然后，父结点的父结点）一定不会是x的后继，原因如下
+1. 若x是其父结点的左子树，则父结点>=x，有成为x后继的资格。然后，父结点的父结点一定不会是x的后继，原因如下
 ：若父结点是爷爷结点的右子树，说明爷爷结点比x小，不能成为后继；若父节点是爷爷结点的左子树，说明爷爷结点比父节点还大；故后继y一定是父节点。  
 2. 若x是其父结点的右子树，父节点<=x，不能成为x的后继。只能再往上找，而且必须“往右找”，即这个祖先结点的左孩子也是祖先结点。（因为往左找是越找越小）。若找不到的话，说明当前结点是树中最大结点（一路向左）。  
