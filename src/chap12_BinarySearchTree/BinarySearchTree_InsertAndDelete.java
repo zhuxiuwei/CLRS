@@ -3,6 +3,7 @@ package chap12_BinarySearchTree;
 /**
  * 12.2 二叉搜索树的插入和删除
  * @author xiuzhu
+ * 注意点1：插入节点递归算法，找到要插入的地方的条件开始写错了，写成了currentNode.left == null && currentNode.right == null，浪费不少时间。需要先仔细想想。
  * 160118
  */
 public class BinarySearchTree_InsertAndDelete {
@@ -52,26 +53,22 @@ public class BinarySearchTree_InsertAndDelete {
 		insert_recursive(newNode, tree.root);
 	}
 	private void insert_recursive(TreeNode<Integer> newNode, TreeNode<Integer> currentNode){
-		if(currentNode.left == null && currentNode.right == null){	//到了要插入的地方了
-			if(currentNode.key < newNode.key)
-				currentNode.right = newNode;
-			else
-				currentNode.left = newNode;
+		//注意点1：找到要插入的地方，开始写错了，写成了currentNode.left == null && currentNode.right == null，浪费不少时间
+		if(currentNode.left == null && currentNode.key >= newNode.key){	//到了要插入的地方了
+			currentNode.left = newNode;
 			newNode.parent = currentNode;
-		}else{	//递归
+			return;
+		}else if(currentNode.right == null && currentNode.key <= newNode.key){	//到了要插入的地方了
+			currentNode.right = newNode;
+			newNode.parent = currentNode;
+			return;
+		}
+		else{	//递归
 			if(currentNode.key < newNode.key){
-				if(currentNode.right == null){
-					currentNode.right = new TreeNode<Integer>(0);	//new a node
-					currentNode.right.parent = currentNode;
-				}
-				insert_recursive(newNode, currentNode);
+				insert_recursive(newNode, currentNode.right);
 			}
 			else{
-				if(currentNode.left == null){
-					currentNode.left = new TreeNode<Integer>(0);	//new a node
-					currentNode.left.parent = currentNode;
-				}
-				insert_recursive(newNode, currentNode);
+				insert_recursive(newNode, currentNode.left);
 			}
 		}
 	}
