@@ -51,5 +51,5 @@ Give a smallest possible counterexample to the professors claim.
 2. 若x是其父结点的右子树，父节点<=x，不能成为x的后继。只能再往上找，而且必须“往右找”，即这个祖先结点的左孩子也是祖先结点。（因为往左找是越找越小）。若找不到的话，说明当前结点是树中最大结点（一路向左）。  
 
 #####12.3-1 给出TREE-INSERT过程的一个递归版本。  
-代码见[BinaryTree](https://github.com/zhuxiuwei/CLRS/blob/master/src/chap12_BinarySearchTree/BinaryTree.java)的insert_recursive方法。  
+代码见[BinarySearchTree_InsertAndDelete](https://github.com/zhuxiuwei/CLRS/blob/master/src/chap12_BinarySearchTree/BinarySearchTree_InsertAndDelete.java)的insert_recursive方法。  
 一个__注意点__：插入节点递归算法，找到要插入的地方的条件开始写错了，写成了currentNode.left == null && currentNode.right == null，浪费不少时间。需要先仔细想想。  
