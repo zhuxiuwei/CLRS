@@ -13,6 +13,9 @@ public class BinarySearchTree_InsertAndDelete {
 	public BinarySearchTree_InsertAndDelete(){
 		this.tree = new BinaryTree<Integer>();
 	}
+	public BinarySearchTree_InsertAndDelete(BinaryTree<Integer> tree){
+		this.tree = tree;
+	}
 	
 	/**
 	 * 插入结点
@@ -74,9 +77,61 @@ public class BinarySearchTree_InsertAndDelete {
 	}
 	
 	/**
-	 * 删除节点
+	 * 删除节点。
+	 * @param key 待删除的元素
+	 * @return true if deleted, false if not.
 	 */
-	
+	public boolean delete(int key){
+		//先查找。
+		BinarySearchTree_Search search = new BinarySearchTree_Search(tree);
+		TreeNode<Integer> target = search.tree_search(tree.root, key);
+		if(target == null){
+			return false;	//key not in tree, return false;
+		}else{
+			if(target.left == null && target.right == null){ //scenario 1: target is leaf
+				if(target.parent.left == target)
+					target.parent.left = null;
+				else
+					target.parent.right = null;
+				target.parent = null;
+			}else if(target.left == null && target.right != null){	//scenario 2.1: target has only right child
+				target.right.parent = target.parent;
+				if(target.parent.left == target)
+					target.parent.left = target.right;
+				else
+					target.parent.right = target.right;
+				target.right = null;
+				target.parent = null;
+			}else if(target.right == null && target.left != null){	//scenario 2.2: target has only left child
+				target.left.parent = target.parent;
+				if(target.parent.right == target)
+					target.parent.right = target.left;
+				else
+					target.parent.left = target.left;
+				target.left = null; target.parent = null;
+			}else{	//scenario 3: target has both left and right nodes.
+				TreeNode<Integer> successor = search.successor(key);	//find successor
+				if(target.right == successor){	//scenario 3.1, successor is right child
+					if(target.parent.right == target)
+						target.parent.right = successor;
+					else
+						target.parent.left = successor;
+					successor.left = target.left;
+					successor.parent = target.parent;
+					target.left = null; target.left = null; target.parent = null;
+				}else{	//scenario 3.2, successor is not right child, but in right side tree.
+					target.key = successor.key;	//replace target with successor.
+					
+					//then delete successor
+					BinaryTree<Integer> tree2 = new BinaryTree<Integer>();
+					tree2.root = target.right;
+					BinarySearchTree_InsertAndDelete del = new BinarySearchTree_InsertAndDelete(tree2);
+					del.delete(successor.key);
+				}
+			}
+			return true;
+		}
+	}
 	
 	public static void main(String[] args) {
 		BinarySearchTree_InsertAndDelete inAndDel = new BinarySearchTree_InsertAndDelete();
@@ -112,6 +167,15 @@ public class BinarySearchTree_InsertAndDelete {
 		System.out.print("\r\ntest insert_recursive, pre-order:");inAndDel2.tree.traversing_preorder(inAndDel2.tree.root);
 		System.out.print("\r\ntest insert_recursive, in-order:");inAndDel2.tree.traversing_inorder(inAndDel2.tree.root);
 		System.out.print("\r\ntest insert_recursive, post-order:");inAndDel2.tree.traversing_postorder(inAndDel2.tree.root);
+		
+		//test delete
+		inAndDel.delete(9);
+		inAndDel.delete(7);
+		inAndDel.delete(6);
+		inAndDel.delete(15);
+		System.out.print("\r\ntest delete, pre-order:");inAndDel.tree.traversing_preorder(inAndDel.tree.root);
+		System.out.print("\r\ntest delete, in-order:");inAndDel.tree.traversing_inorder(inAndDel.tree.root);
+		System.out.print("\r\ntest delete, post-order:");inAndDel.tree.traversing_postorder(inAndDel.tree.root);
 		
 	}
 }
