@@ -41,13 +41,48 @@ public class BinarySearchTree_InsertAndDelete {
 	}
 	
 	/**
+	 * 插入结点递归算法
+	 * @param newNode 新的要插入的结点
+	 */
+	public void insert_recursive(TreeNode<Integer> newNode){
+		if(tree.root == null){	//empty tree
+			tree.root = newNode;
+			return;
+		}
+		insert_recursive(newNode, tree.root);
+	}
+	private void insert_recursive(TreeNode<Integer> newNode, TreeNode<Integer> currentNode){
+		if(currentNode.left == null && currentNode.right == null){	//到了要插入的地方了
+			if(currentNode.key < newNode.key)
+				currentNode.right = newNode;
+			else
+				currentNode.left = newNode;
+			newNode.parent = currentNode;
+		}else{	//递归
+			if(currentNode.key < newNode.key){
+				if(currentNode.right == null){
+					currentNode.right = new TreeNode<Integer>(0);	//new a node
+					currentNode.right.parent = currentNode;
+				}
+				insert_recursive(newNode, currentNode);
+			}
+			else{
+				if(currentNode.left == null){
+					currentNode.left = new TreeNode<Integer>(0);	//new a node
+					currentNode.left.parent = currentNode;
+				}
+				insert_recursive(newNode, currentNode);
+			}
+		}
+	}
+	
+	/**
 	 * 删除节点
 	 */
 	
 	
 	public static void main(String[] args) {
 		BinarySearchTree_InsertAndDelete inAndDel = new BinarySearchTree_InsertAndDelete();
-		
 		//test insert. Below will create tree in p163 image 12-2
 		inAndDel.insert(new TreeNode<Integer>(15));
 		inAndDel.insert(new TreeNode<Integer>(6));
@@ -60,10 +95,26 @@ public class BinarySearchTree_InsertAndDelete {
 		inAndDel.insert(new TreeNode<Integer>(9));
 		inAndDel.insert(new TreeNode<Integer>(17));
 		inAndDel.insert(new TreeNode<Integer>(20));
-		inAndDel.tree.traversing_preorder(inAndDel.tree.root);System.out.println();
-		inAndDel.tree.traversing_inorder(inAndDel.tree.root);System.out.println();
-		inAndDel.tree.traversing_postorder(inAndDel.tree.root);System.out.println();
+		System.out.print("test insert, pre-order:");inAndDel.tree.traversing_preorder(inAndDel.tree.root);
+		System.out.print("\r\ntest insert, in-order:");inAndDel.tree.traversing_inorder(inAndDel.tree.root);
+		System.out.print("\r\ntest insert, post-order:");inAndDel.tree.traversing_postorder(inAndDel.tree.root);
 		
+		BinarySearchTree_InsertAndDelete inAndDel2 = new BinarySearchTree_InsertAndDelete();
+		//test insert_recursive recursive. Below will create tree in p163 image 12-2
+		inAndDel2.insert_recursive(new TreeNode<Integer>(15));
+		inAndDel2.insert_recursive(new TreeNode<Integer>(6));
+		inAndDel2.insert_recursive(new TreeNode<Integer>(18));
+		inAndDel2.insert_recursive(new TreeNode<Integer>(3));
+		inAndDel2.insert_recursive(new TreeNode<Integer>(2));
+		inAndDel2.insert_recursive(new TreeNode<Integer>(4));
+		inAndDel2.insert_recursive(new TreeNode<Integer>(7));
+		inAndDel2.insert_recursive(new TreeNode<Integer>(13));
+		inAndDel2.insert_recursive(new TreeNode<Integer>(9));
+		inAndDel2.insert_recursive(new TreeNode<Integer>(17));
+		inAndDel2.insert_recursive(new TreeNode<Integer>(20));
+		System.out.print("\r\ntest insert_recursive, pre-order:");inAndDel2.tree.traversing_preorder(inAndDel2.tree.root);
+		System.out.print("\r\ntest insert_recursive, in-order:");inAndDel2.tree.traversing_inorder(inAndDel2.tree.root);
+		System.out.print("\r\ntest insert_recursive, post-order:");inAndDel2.tree.traversing_postorder(inAndDel2.tree.root);
 		
 	}
 }
