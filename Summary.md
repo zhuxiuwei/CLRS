@@ -73,3 +73,9 @@
 2. 先序遍历的非递归的一个bug：退出循环的条件，需要加上node.left != null的判断条件。否则当树的root只有左孩子时，除了root，左孩子都遍历不到。
 3. 后续遍历的非递归，是三者之中__最复杂__的。和中序遍历一样，后序遍历要记录已经访问过的节点，避免走“回头路”。而这里的逻辑比中序遍历更复杂，是主要的难点。 
 后序遍历记录节点的访问，需要两个flag分别记录左右子树的访问情况。这里引出了三个另外的注意点。  
+
+[二叉搜索树的插入和删除](https://github.com/zhuxiuwei/CLRS/blob/master/src/chap12_BinarySearchTree/BinarySearchTree_InsertAndDelete.java)★★  
+有两个注意点，其中第二个更需要注意：  
+1：插入节点递归算法，找到要插入的地方的条件开始写错了，写成了currentNode.left == null && currentNode.right == null，浪费不少时间。需要先仔细想想。  
+2： 删除结点时，__如果被删除的结点是root，需要特殊考虑！__ （比如它没有parent，因此不能直接修改parent的指针，会NullPointerException；它的parent可以理解成tree的root指针）为此抽象出来了updateParentPointToNewChild()方法。  
+

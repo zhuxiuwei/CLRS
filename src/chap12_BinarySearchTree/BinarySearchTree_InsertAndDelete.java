@@ -4,6 +4,7 @@ package chap12_BinarySearchTree;
  * 12.2 二叉搜索树的插入和删除
  * @author xiuzhu
  * 注意点1：插入节点递归算法，找到要插入的地方的条件开始写错了，写成了currentNode.left == null && currentNode.right == null，浪费不少时间。需要先仔细想想。
+ * **注意点2(160126)**： 删除结点时，如果被删除的结点是root，需要特殊考虑！为此抽象出来了updateParentPointToNewChild()方法。
  * 160118
  */
 public class BinarySearchTree_InsertAndDelete {
@@ -89,36 +90,23 @@ public class BinarySearchTree_InsertAndDelete {
 			return false;	//key not in tree, return false;
 		}else{
 			if(target.left == null && target.right == null){ //scenario 1: target is leaf
-				if(target.parent.left == target)
-					target.parent.left = null;
-				else
-					target.parent.right = null;
-				target.parent = null;
+				updateParentPointToNewChild(target, null, tree); //update parent's point. If deleted is root, got to update tree's root pointer.
+				disconnectNode(target);	//disconnect target node from the tree.
 			}else if(target.left == null && target.right != null){	//scenario 2.1: target has only right child
 				target.right.parent = target.parent;
-				if(target.parent.left == target)
-					target.parent.left = target.right;
-				else
-					target.parent.right = target.right;
-				target.right = null;
-				target.parent = null;
+				updateParentPointToNewChild(target, target.right, tree);
+				disconnectNode(target);
 			}else if(target.right == null && target.left != null){	//scenario 2.2: target has only left child
 				target.left.parent = target.parent;
-				if(target.parent.right == target)
-					target.parent.right = target.left;
-				else
-					target.parent.left = target.left;
-				target.left = null; target.parent = null;
+				updateParentPointToNewChild(target, target.left, tree);
+				disconnectNode(target);
 			}else{	//scenario 3: target has both left and right nodes.
 				TreeNode<Integer> successor = search.successor(key);	//find successor
 				if(target.right == successor){	//scenario 3.1, successor is right child
-					if(target.parent.right == target)
-						target.parent.right = successor;
-					else
-						target.parent.left = successor;
+					updateParentPointToNewChild(target, successor, tree);
 					successor.left = target.left;
 					successor.parent = target.parent;
-					target.left = null; target.left = null; target.parent = null;
+					disconnectNode(target);
 				}else{	//scenario 3.2, successor is not right child, but in right side tree.
 					target.key = successor.key;	//replace target with successor.
 					
@@ -131,6 +119,32 @@ public class BinarySearchTree_InsertAndDelete {
 			}
 			return true;
 		}
+	}
+	
+	/**
+	 * Update target's parent's pointer which previously points to target. Make it point to newChild now.
+	 * Note that, if target is root, consider parent to be root pointer of the tree.
+	 * @param target Change the target's parent's pointer which previously points to target.
+	 * @param newChild Make the pointer of parent points to a new child. 
+	 * @param tree The tree where the target nodes lives. (We need the tree reference when target is root node)
+	 */
+	private void updateParentPointToNewChild(TreeNode<Integer> target, TreeNode<Integer> newChild, BinaryTree<Integer> tree){
+		if(target.parent != null){	//not root
+			if(target.parent.left == target)
+				target.parent.left = newChild;
+			else
+				target.parent.right = newChild;
+		}else	//is root
+			tree.root = newChild;	//！！！注意点2：如果被删除的结点是root，必须特殊考虑！否则会出现bug！！！
+	}
+	
+	/**
+	 * After target is deleted from tree, make target node's left, right, parent all point to null to disconnect it from the tree so GC can recycle it later.
+	 */
+	public void disconnectNode(TreeNode<Integer> target){
+		target.parent = null;
+		target.left = null;
+		target.right = null;
 	}
 	
 	public static void main(String[] args) {
@@ -172,7 +186,10 @@ public class BinarySearchTree_InsertAndDelete {
 		inAndDel.delete(9);
 		inAndDel.delete(7);
 		inAndDel.delete(6);
+		inAndDel.delete(20);
+		inAndDel.delete(17);
 		inAndDel.delete(15);
+		inAndDel.delete(18);
 		System.out.print("\r\ntest delete, pre-order:");inAndDel.tree.traversing_preorder(inAndDel.tree.root);
 		System.out.print("\r\ntest delete, in-order:");inAndDel.tree.traversing_inorder(inAndDel.tree.root);
 		System.out.print("\r\ntest delete, post-order:");inAndDel.tree.traversing_postorder(inAndDel.tree.root);
