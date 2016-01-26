@@ -53,3 +53,12 @@ Give a smallest possible counterexample to the professors claim.
 #####12.3-1 给出TREE-INSERT过程的一个递归版本。  
 代码见[BinarySearchTree_InsertAndDelete](https://github.com/zhuxiuwei/CLRS/blob/master/src/chap12_BinarySearchTree/BinarySearchTree_InsertAndDelete.java)的insert_recursive方法。  
 一个__注意点__：插入节点递归算法，找到要插入的地方的条件开始写错了，写成了currentNode.left == null && currentNode.right == null，浪费不少时间。需要先仔细想想。  
+
+#####12.3-2  
+插入和查找，都是从root向下走到target结点的过程。插入，最后一次比较是和待插入结点的父结点；而查找，最后一次比较的是待查找的结点。查找的比较次数比插入时加一。  
+
+#####12.3-3 利用不断构造一棵二叉搜索树，然后中序遍历的方式来排序的最好最坏时间复杂度。  
+最好：树基本是平衡的，O(nlgn)。  
+最坏：树只有一个分支，O(n^2)。  
+
+
