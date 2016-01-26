@@ -102,6 +102,7 @@ public class BinarySearchTree_NodeHasSuccessorPointerButNoParentPointer {
 		inAndDel.insert(17);
 		inAndDel.insert(20);
 		inAndDel.insert(14);
+		inAndDel.insert(16);	//not included in image 12-2, just test a bug fix for 注意点1
 		inAndDel.goOverTree();
 		
 		//test search
