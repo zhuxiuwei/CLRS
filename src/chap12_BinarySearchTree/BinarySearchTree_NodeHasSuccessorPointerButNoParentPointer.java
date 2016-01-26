@@ -77,7 +77,7 @@ public class BinarySearchTree_NodeHasSuccessorPointerButNoParentPointer {
 	}
 	
 	/**
-	 * Scan tree from min to max. (To help debug)
+	 * Scan tree from min to max. (just to help verify)
 	 */
 	public void goOverTree(){
 		TreeNodeForBSearchTree node = minNode();
@@ -88,7 +88,19 @@ public class BinarySearchTree_NodeHasSuccessorPointerButNoParentPointer {
 	}
 	
 	public static void main(String[] args) {
-		//test insert. Below will create tree in p163 image 12-2
+		//test insert. 
+		/***************************
+		 * Below will create tree in p163 image 12-2：
+		 *       15
+		 *      /  \
+		 *     6    18
+		 *    / \   / \
+		 *   3   7 17 20
+		 *  /\    \      
+		 * 2  4   13
+		 *        /
+		 *       9    
+		 ********Image 12-2*********/
 		BinarySearchTree_NodeHasSuccessorPointerButNoParentPointer inAndDel = new BinarySearchTree_NodeHasSuccessorPointerButNoParentPointer();
 		inAndDel.insert(15);
 		inAndDel.insert(6);

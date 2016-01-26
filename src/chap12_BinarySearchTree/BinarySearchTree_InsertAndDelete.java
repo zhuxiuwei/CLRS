@@ -149,7 +149,19 @@ public class BinarySearchTree_InsertAndDelete {
 	
 	public static void main(String[] args) {
 		BinarySearchTree_InsertAndDelete inAndDel = new BinarySearchTree_InsertAndDelete();
-		//test insert. Below will create tree in p163 image 12-2
+		//test insert. 
+		/***************************
+		 * Below will create tree in p163 image 12-2：
+		 *       15
+		 *      /  \
+		 *     6    18
+		 *    / \   / \
+		 *   3   7 17 20
+		 *  /\    \      
+		 * 2  4   13
+		 *        /
+		 *       9    
+		 ********Image 12-2*********/
 		inAndDel.insert(new TreeNode<Integer>(15));
 		inAndDel.insert(new TreeNode<Integer>(6));
 		inAndDel.insert(new TreeNode<Integer>(18));
