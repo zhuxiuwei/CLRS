@@ -29,8 +29,8 @@ public class BinarySearchTree_NodeHasSuccessorPointerButNoParentPointer {
 						cur.successor = newNode;
 						break;
 					}else{
-						if(cur.right.key > newNode.key)
-							cur.successor = newNode;	//！！！注意点1：这是更新successor要注意，就是插入9的时候，7原来的successor要从13改成9.
+						if(cur.successor.key > newNode.key)
+							cur.successor = newNode;	//！！！注意点1：这是更新successor要注意，就是插入9的时候，7原来的successor要从13改成9. (而且要注意更新的条件，cur.successor.key > newNode.key，不是cur.right.key > newNode.key.在test最后在多加insert(12)试试。)
 						cur = cur.right;
 					}
 				}else{
@@ -101,7 +101,8 @@ public class BinarySearchTree_NodeHasSuccessorPointerButNoParentPointer {
 		inAndDel.insert(9);
 		inAndDel.insert(17);
 		inAndDel.insert(20);
-//		inAndDel.goOverTree();
+		inAndDel.insert(14);
+		inAndDel.goOverTree();
 		
 		//test search
 		System.out.println(inAndDel.search(4).details());
