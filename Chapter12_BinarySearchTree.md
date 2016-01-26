@@ -1,7 +1,8 @@
 第12章习题答案
 =
 #####12.1-1 对关键字集合{1,4,5,10,1,17,21}，分别画出高度2、3、4、5、6的二叉搜索树。  
-答：见图：  ![](https://github.com/zhuxiuwei/CLRS/blob/master/Images/12.1-1.png)  
+答：见图：  
+![](https://github.com/zhuxiuwei/CLRS/blob/master/Images/12.1-1.png)  
 
 #####12.1-2 二叉搜索树与最小堆性质之间有什么不同？能否使用最小堆性质在O(n)时间内按序输出一课有n个结点树的关键字么？。  
 答：二叉搜索树左孩子<=自己，右孩子>=自己。最小堆左右孩子都>=自己。  
@@ -54,11 +55,13 @@ Give a smallest possible counterexample to the professors claim.
 代码见[BinarySearchTree_InsertAndDelete](https://github.com/zhuxiuwei/CLRS/blob/master/src/chap12_BinarySearchTree/BinarySearchTree_InsertAndDelete.java)的insert_recursive方法。  
 一个__注意点__：插入节点递归算法，找到要插入的地方的条件开始写错了，写成了currentNode.left == null && currentNode.right == null，浪费不少时间。需要先仔细想想。  
 
-#####12.3-2  
+#####12.3-2 Suppose that we construct a binary search tree by repeatedly inserting distinct values into the tree. Argue that the number of nodes examined in searching for a value in the tree is one plus the number of nodes examined when the value was first inserted into the tree.  
 插入和查找，都是从root向下走到target结点的过程。插入，最后一次比较是和待插入结点的父结点；而查找，最后一次比较的是待查找的结点。查找的比较次数比插入时加一。  
 
 #####12.3-3 利用不断构造一棵二叉搜索树，然后中序遍历的方式来排序的最好最坏时间复杂度。  
 最好：树基本是平衡的，O(nlgn)。  
 最坏：树只有一个分支，O(n^2)。  
 
-
+#####12.3-4 delete操作是否是“可交换”的，即先删除x后删除y，和先删除y后删除x，树长得一样？  
+（__看的答案。最初我以为是可交换的。__）不是可交换的，如下图：  
+![](https://github.com/zhuxiuwei/CLRS/blob/master/Images/12.3-4.png)  
