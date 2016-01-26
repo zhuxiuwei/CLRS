@@ -65,3 +65,6 @@ Give a smallest possible counterexample to the professors claim.
 #####12.3-4 delete操作是否是“可交换”的，即先删除x后删除y，和先删除y后删除x，树长得一样？  
 （__看的答案。最初我以为是可交换的。__）不是可交换的，如下图：  
 ![](https://github.com/zhuxiuwei/CLRS/blob/master/Images/12.3-4.png)  
+
+##### 12.3-5 假设为每个结点换一种设计，没有指向x的双亲的属性x.p，而有指向x的后继的属性x.succ。试给出使用这种表示法的二叉搜索树T上SEARCH,INSERT和DELETE操作的伪代码。这些伪代码应在O(h)时间内执行完，其中h为T的高度。(提示：应该设计一个返回某个结点的双亲的子过程。)  
+代码见[BinarySearchTree_NodeHasSuccessorPointerButNoParentPointer](https://github.com/zhuxiuwei/CLRS/blob/master/src/chap12_BinarySearchTree/BinarySearchTree_NodeHasSuccessorPointerButNoParentPointer.java)。  

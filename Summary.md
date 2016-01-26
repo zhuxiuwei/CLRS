@@ -79,3 +79,7 @@
 1：插入节点递归算法，找到要插入的地方的条件开始写错了，写成了currentNode.left == null && currentNode.right == null，浪费不少时间。需要先仔细想想。  
 2： 删除结点时，__如果被删除的结点是root，需要特殊考虑！__ （比如它没有parent，因此不能直接修改parent的指针，会NullPointerException；它的parent可以理解成tree的root指针）为此抽象出来了updateParentPointToNewChild()方法。  
 
+[有successor没有parent指针的二叉搜索树](https://github.com/zhuxiuwei/CLRS/blob/master/src/chap12_BinarySearchTree/BinarySearchTree_NodeHasSuccessorPointerButNoParentPointer.java)★★  
+ 注意点：  
+1. 插入时，一个情况需要注意更新successor。就是待插入的结点比当前结点大，但是当前结点的右孩子已经被占据了，此时可能需要更新当前结点的successor。见test中插入9时，7的successor从13更新成9.  
+2. 查找时，待查找结点比当前结点大，不能写成current = current.successor，还是和传统的查找一样找右子树（我开始还以为这是个比传统二叉搜索树的改进。。。），因为可能陷入死循环。见test中查找5.就会6-3-4-6-3-4...死循环  
