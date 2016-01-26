@@ -141,7 +141,7 @@ public class BinarySearchTree_InsertAndDelete {
 	/**
 	 * After target is deleted from tree, make target node's left, right, parent all point to null to disconnect it from the tree so GC can recycle it later.
 	 */
-	public void disconnectNode(TreeNode<Integer> target){
+	private void disconnectNode(TreeNode<Integer> target){
 		target.parent = null;
 		target.left = null;
 		target.right = null;
