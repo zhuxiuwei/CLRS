@@ -67,4 +67,5 @@ Give a smallest possible counterexample to the professors claim.
 ![](https://github.com/zhuxiuwei/CLRS/blob/master/Images/12.3-4.png)  
 
 ##### 12.3-5 假设为每个结点换一种设计，没有指向x的双亲的属性x.p，而有指向x的后继的属性x.succ。试给出使用这种表示法的二叉搜索树T上SEARCH,INSERT和DELETE操作的伪代码。这些伪代码应在O(h)时间内执行完，其中h为T的高度。(提示：应该设计一个返回某个结点的双亲的子过程。)  
-代码见[BinarySearchTree_NodeHasSuccessorPointerButNoParentPointer](https://github.com/zhuxiuwei/CLRS/blob/master/src/chap12_BinarySearchTree/BinarySearchTree_NodeHasSuccessorPointerButNoParentPointer.java)。  
+代码见[BinarySearchTree_NodeHasSuccessorPointerButNoParentPointer](https://github.com/zhuxiuwei/CLRS/blob/master/src/chap12_BinarySearchTree/BinarySearchTree_NodeHasSuccessorPointerButNoParentPointer.java)。
+完成了插入，查找，删除，以及辅助性的min, predecessor, parent.不算难，比较繁琐。  
