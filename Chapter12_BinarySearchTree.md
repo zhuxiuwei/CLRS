@@ -69,3 +69,16 @@ Give a smallest possible counterexample to the professors claim.
 ##### 12.3-5 假设为每个结点换一种设计，没有指向x的双亲的属性x.p，而有指向x的后继的属性x.succ。试给出使用这种表示法的二叉搜索树T上SEARCH,INSERT和DELETE操作的伪代码。这些伪代码应在O(h)时间内执行完，其中h为T的高度。(提示：应该设计一个返回某个结点的双亲的子过程。)  
 代码见[BinarySearchTree_NodeHasSuccessorPointerButNoParentPointer](https://github.com/zhuxiuwei/CLRS/blob/master/src/chap12_BinarySearchTree/BinarySearchTree_NodeHasSuccessorPointerButNoParentPointer.java)。
 完成了插入，查找，删除，以及辅助性的min, predecessor, parent.不算难，比较繁琐。  
+
+##### 12.3-6  
+删除前驱和删除后继类似，也分为两种情况：如果左孩子是前驱，和左孩子不是前驱。和删除后继的策略是一样的，就是用前驱代替当前待删除的结点，然后删除前驱。  
+公平策略，可以简单地随机选择用前驱或者后继替换。也可以从左右子树的高度考虑，如左子树高，则用前驱替换。  
+
+###-------- 思考题 ----------
+#####思考题12.1 带有相同关键字的二叉搜索树  
+a. n个相同几点的插入的渐进性能：结点比较的次数依次是0,1,2,...,n-1，并且一直是往右子树插入。渐进性能为nx(n-1)/2 = O(n^2).  
+b. 此策略会生成一棵满二叉树。 O(lgn)。  
+c. 此策略取决于列表数据结构的插入时间。可以是O(1)。  
+d. 最坏O(n^2)。期望O(lgn)。证明没做。  
+
+
