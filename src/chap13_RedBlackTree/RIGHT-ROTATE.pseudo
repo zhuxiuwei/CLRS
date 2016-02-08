@@ -1,0 +1,25 @@
+/**
+ * RIGHT-ROTATE pseudo code. 160208
+ * @param T tree
+ * @param y right rotate for node y
+ */
+RIGHT-ROTATE(T, y)
+	x = y.left	//set x
+	
+	//turn x's right to y's left
+	y.left = x.right
+	if(y.left != T.Nil)
+		y.left.p = y
+		
+	//set x's new parent to y's old parent
+	x.p = y.p
+	if(x.p == T.Nil)	//y was root
+		T.root = x	//set new root to x
+	elseif(x.p.left == y)
+		x.p.left = x
+	else
+		x.p.right = x
+		
+	//set x to y's new parent
+	x.right = y
+	y.p = x

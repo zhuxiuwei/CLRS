@@ -37,6 +37,6 @@
 
 ##13.2 旋转  
 #####13.2-1 写出RIGHT-ROTATE的伪代码  
-
+代码见[RIGHT-ROTATE pseudo code](https://github.com/zhuxiuwei/CLRS/blob/master/src/chap13_RedBlackTree/RIGHT-ROTATE.pseudo).  
 
 ###-------- 思考题 ----------  
