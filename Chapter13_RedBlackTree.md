@@ -39,4 +39,17 @@
 #####13.2-1 写出RIGHT-ROTATE的伪代码  
 代码见[RIGHT-ROTATE pseudo code](https://github.com/zhuxiuwei/CLRS/blob/master/src/chap13_RedBlackTree/RIGHT-ROTATE.pseudo).  
 
+#####13.2-2  
+用数学归纳法？  
+
+#####13.2-3  
+a深度+1，b深度不变，c深度-1。  
+
+#####13.3-1  
+z着为黑色，虽然不破坏性质4，但是会破坏性质 5。  
+
+#####13.3-2  
+答：见图：  
+![](https://github.com/zhuxiuwei/CLRS/blob/master/Images/13.3-2.png)  
+
 ###-------- 思考题 ----------  
