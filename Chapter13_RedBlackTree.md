@@ -52,4 +52,15 @@ z着为黑色，虽然不破坏性质4，但是会破坏性质 5。
 答：见图：  
 ![](https://github.com/zhuxiuwei/CLRS/blob/master/Images/13.3-2.png)  
 
+#####13.3-4 证明RB-INSERT-FIXUP永远不会将T.nil.color设为RED  
+答：纵观RB-INSERT和RB-INSERT-FIXUP，只有三处讲一个结点的颜色设置为红，分别是RB-INSERT里对z，和RB-INSERT-FIXUP里两处对z.p.p，都不可能设置的是nil结点。  
+
+#####13.3-5 证明插入n个结点的红黑树，如果n>1，则该树至少有一个红结点。  
+因为新插入的结点，在调用fixup前是红的；然后调用fixup后分为以下两种情况：  
+如果该插入的结点的父结点是黑色的，那么fixup里的循环走不到，fixup退出循环后只有一行Code，是将root设置成black，而新插入的结点不是root(n>1)，所以此时新插入的结点保持是红色的，结论成立；  
+如果新插入的结点的父结点是红色的，那么会执行fixup里的循环，而fixup循环一定会执行case3（执行到case 3就是退出循环之时），case3里有将z.p.p设置成红色的操作，所以至少一个红结点的结论依然成立；  
+证毕。  
+
+
+
 ###-------- 思考题 ----------  
