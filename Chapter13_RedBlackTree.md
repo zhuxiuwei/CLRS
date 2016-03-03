@@ -71,4 +71,8 @@ a. 插入的话，改变从根节点到插入的结点的简单路径上的所�
 	![](https://github.com/zhuxiuwei/CLRS/blob/master/Images/13-1-a.1.png)  
 	-若后继不是其右孩子，则改变从被删除结点到根结点简单路径上的所有结点。  如图。  
 	![](https://github.com/zhuxiuwei/CLRS/blob/master/Images/13-1-a.2.png)  
-b. 
+b. 代码见[Persistent_Tree](https://github.com/zhuxiuwei/CLRS/blob/master/src/chap13_RedBlackTree/Persistent_Tree.java).  
+c. 时间：o(logN)，空间：logN个TreeNode的空间。（logN的期望值是树高）  
+d. 如果有父节点指针，需要更新所有的结点。为O(N)。  
+e. 和普通红黑树一样，多了一些复制操作。  
+
