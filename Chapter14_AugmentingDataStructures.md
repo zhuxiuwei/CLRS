@@ -17,3 +17,17 @@
 退出循环，结果为r=16.  
 
 #####14.1-3 Write a nonrecursive version of OS-SELECT  
+OS-SELECT-NonRescursive(x, i)  
+	do  
+	{  
+		r = x.left.size + 1  
+		if i == r  
+			return x  
+		else if i < r  
+			x = x.left;  
+		else  
+			x = x.right;  
+			i = i - r;  
+	}while(i != r)  
+
+#####14.1-4 Write a recursive procedure OS-KEY-RANK(T, k) that takes as input an orderstatistic tree T and a key k and returns the rank of k in the dynamic set represented by T . Assume that the keys of T are distinct.  
