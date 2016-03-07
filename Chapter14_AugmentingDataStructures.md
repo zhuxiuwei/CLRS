@@ -18,7 +18,7 @@
 
 #####14.1-3 Write a nonrecursive version of OS-SELECT  
 ```C
-OS-SELECT-NonRescursive(x, i)  
+OS-SELECT-NonRecursive(x, i)  
 	do  
 	{  
 		r = x.left.size + 1  
@@ -31,4 +31,25 @@ OS-SELECT-NonRescursive(x, i)
 			i = i - r;  
 	}while(i != r)  
 ```
-#####14.1-4 Write a recursive procedure OS-KEY-RANK(T, k) that takes as input an orderstatistic tree T and a key k and returns the rank of k in the dynamic set represented by T . Assume that the keys of T are distinct.  
+#####14.1-4 Write a recursive procedure OS-KEY-RANK(T, k) that takes as input an order-statistic tree T and a key k and returns the rank of k in the dynamic set represented by T . Assume that the keys of T are distinct.  
+（和OS-RANK(T, k)不一样，这里输入的k是key，而OS-RANK的输入是一个node。）  
+非递归：  
+```C
+OS-KEY-RANK-NonRecursive(T, k)
+	x = T.root;
+	y = T.root;
+	int r = 0;
+	while( x! =null )
+		y = x;
+		if(x.key == k)
+			r = r + x.left.size +1;
+		elseif(x.key < k)
+			x = x.left;
+		else
+			x = x.right;
+			r = r + y.left.size + 1
+	if(x  == null)	//not found k
+		return 0;
+	else
+		return r;
+```
