@@ -5,7 +5,15 @@
 第1轮: x=26, r=13, i=10<r, 做 OS-SELECT(17, 10)  
 第2轮: x=17, r=8, i=10>r，做 OS-SELECT(21, 10-8=2)  
 第3轮: x=21, r=3, i=2<r, 做OS-SELECT(19, 2)  
-第4轮: x=19, r=1(叶子节点), i=2>r, 做OS-SELECT(20, 2-1)  
-第5轮: x=20，r=1(叶子节点)，i=1, i=r找到了。结果就是20。  
+第4轮: x=19, r=1(x.left是叶子节点), i=2>r, 做OS-SELECT(20, 2-1)  
+第5轮: x=20，r=1(x.left是叶子节点)，i=1, i=r找到了。结果就是20。  
 
 #####14.1-2 Show how OS-RANK(T, x) operates on the red-black tree T of Figure 14.1 and the node x with x.key=35.  
+初始化： r=1(x.left是叶子节点)， y=35。  
+循环1： y=38;  
+循环2： r=1+1+1=3, y=30;  
+循环3： y=41;  
+循环4： r=3+12+1=16, y=26，是root;  
+退出循环，结果为r=16.  
+
+#####14.1-3 Write a nonrecursive version of OS-SELECT  
