@@ -17,8 +17,8 @@
 退出循环，结果为r=16.  
 
 #####14.1-3 Write a nonrecursive version of OS-SELECT  
-OS-SELECT-NonRescursive(x, i)  
 ```C
+OS-SELECT-NonRescursive(x, i)  
 	do  
 	{  
 		r = x.left.size + 1  
