@@ -17,7 +17,7 @@
 退出循环，结果为r=16.  
 
 #####14.1-3 Write a nonrecursive version of OS-SELECT  
-```C
+```Java
 OS-SELECT-NonRecursive(x, i)  
 	do  
 	{  
@@ -33,17 +33,18 @@ OS-SELECT-NonRecursive(x, i)
 ```
 #####14.1-4 Write a recursive procedure OS-KEY-RANK(T, k) that takes as input an order-statistic tree T and a key k and returns the rank of k in the dynamic set represented by T . Assume that the keys of T are distinct.  
 （和OS-RANK(T, k)不一样，这里输入的k是key，而OS-RANK的输入是一个node。）  
-非递归：  
-```C
+非递归版本：  
+```Java
 OS-KEY-RANK-NonRecursive(T, k)
 	x = T.root;
 	y = T.root;
 	int r = 0;
 	while( x! =null )
 		y = x;
-		if(x.key == k)
+		if(x.key == k)	//found
 			r = r + x.left.size +1;
-		elseif(x.key < k)
+			break;
+		else if(x.key > k)
 			x = x.left;
 		else
 			x = x.right;
@@ -52,4 +53,25 @@ OS-KEY-RANK-NonRecursive(T, k)
 		return 0;
 	else
 		return r;
+```
+递归版本：  
+```Java
+bool found = true;
+OS-KEY-RANK(T, k)
+	result = OS-KEY-RANK(T.root, k)
+	if(found)
+		return result;
+	else
+		return 0;	//k not found
+
+OS-KEY-RANK(node, k)
+	if(node == null)	//k not found
+		found = false;
+		return;
+	else if(node.key == k)
+		return node.left.size + 1;
+	else  if(node.key > k)
+		return OS-KEY-RANK(node.left, k)
+	else
+		return OS-KEY-RANK(node.right, k) + node.left.size + 1;
 ```
