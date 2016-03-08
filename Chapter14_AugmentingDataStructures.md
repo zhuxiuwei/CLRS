@@ -75,3 +75,10 @@ OS-KEY-RANK(node, k)
 	else
 		return OS-KEY-RANK(node.right, k) + node.left.size + 1;
 ```
+#####14.1-5 确定元素x的第i个后继，时间为log(n)  
+```Java
+OS-FIND-I-SECCEED(x, i)
+	int rOfx = OS-RANK(T, x);	//先调用OS-RANK计算x的秩
+	return OS-SELECT(T.root, rOfx + i); //再调用OS-SELECT，查找x第i个后继结点
+```
+#####14.1-6 
