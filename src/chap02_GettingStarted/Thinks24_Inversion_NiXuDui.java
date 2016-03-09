@@ -35,7 +35,7 @@ public class Thinks24_Inversion_NiXuDui {
 	
 	/**
 	 * 思路：模仿merge sort中的merge过程，当两个数组merge时，如果先进入result数组的是右边的数组中的某个数字，
-	 * 那么左边数组中的所有剩下的数字都可以和右边数组的这个数字组成一个逆序对。
+	 * 那么左边数组中的所有剩下的数字都可以和右边数组的这个数字组成一个逆序对 -- 因为merge数组的时候，左右数组都是有序数组
 	 */
 	public void count(int a[], int begin, int mid, int end){
 		if(a.length == 0)
