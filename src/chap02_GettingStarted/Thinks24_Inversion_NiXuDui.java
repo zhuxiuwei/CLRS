@@ -12,7 +12,7 @@ package chap02_GettingStarted;
  */
 public class Thinks24_Inversion_NiXuDui {
 	
-	int count = 0;
+	int count = 0;	//全局变量记载最终count结果
 	/**
 	 *@return: 逆序对的个数
 	 */
@@ -28,14 +28,14 @@ public class Thinks24_Inversion_NiXuDui {
 		
 		count(a, begin, mid, end);
 		if(begin == 0 && end == a.length - 1){	//注意点2 - 递归结束
-			System.out.println(count);
 			return count;	//递归结束的打印和return最终有意义的count值
 		}
 		return 0;	//随便return个东西， 不影响最终结果。
 	}
 	
 	/**
-	 * 思路：模仿merge sort中的merge过程，当两个数组merge时，如果先进入result数组的时右边的数组中的某个数字，那么左边数组中的所有剩下的数字都可以和右边数组这个数字组成一个逆序对。
+	 * 思路：模仿merge sort中的merge过程，当两个数组merge时，如果先进入result数组的是右边的数组中的某个数字，
+	 * 那么左边数组中的所有剩下的数字都可以和右边数组的这个数字组成一个逆序对。
 	 */
 	public void count(int a[], int begin, int mid, int end){
 		if(a.length == 0)
@@ -68,22 +68,22 @@ public class Thinks24_Inversion_NiXuDui {
 		Thinks24_Inversion_NiXuDui t = new Thinks24_Inversion_NiXuDui();
 		 
 		int e[] = {8,7,2,5,9,8,5};	//10
-		t.calculate(e, 0, e.length - 1);
+		System.out.println(t.calculate(e, 0, e.length - 1));
 		
 		int a[] = {8,7,2,5,9,8};	//6
-		t.calculate(a, 0, a.length - 1);
+		System.out.println(t.calculate(a, 0, a.length - 1));
 		
 		int b[] = {8,7};	//1
-		t.calculate(b, 0, b.length - 1);
+		System.out.println(t.calculate(b, 0, b.length - 1));
 		
 		int c[] = {8};	//0
-		t.calculate(c, 0, c.length - 1);
+		System.out.println(t.calculate(c, 0, c.length - 1));
 		
 		int d[] = {};	//0
-		t.calculate(d, 0, d.length - 1);
+		System.out.println(t.calculate(d, 0, d.length - 1));
 
 		int f[] = {8,7,2,10, 100, 99, 80, 98};	//8
-		t.calculate(f, 0, f.length - 1);
+		System.out.println(t.calculate(f, 0, f.length - 1));
 		
 	}
 }
