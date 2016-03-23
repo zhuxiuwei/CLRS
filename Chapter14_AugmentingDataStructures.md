@@ -106,8 +106,29 @@ OS-FIND-I-SECCEED(x, i)
 INTERVAL-SEARCH-OPEN(T, i)
 	x = T.root
  	while x != T.nil and i does not overlap x.int
-		if x.left != T.nil and x.left.max > i:low
+		if x.left != T.nil and x.left.max > i.low
 			x = x.left
 		else x = x.right
 	return x  
 ```
+
+####14.3-3 Describe an efficient algorithm that, given an interval i, returns an interval overlapping i that has the minimum low endpoint, or T.nil if no such interval exists.  
+```Java
+INTERVAL-SEARCH-MINIMUM(T, i)
+	x = T.root
+	result = T.nil;
+ 	while x != T.nil
+ 		if i overlap x.int
+ 			if(result == T.nil || result.min < x.min)
+ 				result = x;
+		if x.left != T.nil and x.left.max >= i.low
+			x = x.left
+		else x = x.right
+	return result  
+```
+
+####14.3-4 Given an interval tree T and an interval i, describe how to list all intervals in T that overlap i in O(min(n, k lgn)) time, where k is the number of intervals in the output list. 
+(Hint: One simple method makes several queries, modifying the tree between queries. A slightly more complicated method does not modify the tree.)  
+
+
+
