@@ -112,7 +112,7 @@ INTERVAL-SEARCH-OPEN(T, i)
 	return x  
 ```
 
-####14.3-3 Describe an efficient algorithm that, given an interval i, returns an interval overlapping i that has the minimum low endpoint, or T.nil if no such interval exists.  
+#####14.3-3 Describe an efficient algorithm that, given an interval i, returns an interval overlapping i that has the minimum low endpoint, or T.nil if no such interval exists.  
 ```Java
 INTERVAL-SEARCH-MINIMUM(T, i)
 	x = T.root
@@ -127,8 +127,23 @@ INTERVAL-SEARCH-MINIMUM(T, i)
 	return result  
 ```
 
-####14.3-4 Given an interval tree T and an interval i, describe how to list all intervals in T that overlap i in O(min(n, k lgn)) time, where k is the number of intervals in the output list. 
-(Hint: One simple method makes several queries, modifying the tree between queries. A slightly more complicated method does not modify the tree.)  
-
-
+#####14.3-4 Given an interval tree T and an interval i, describe how to list all intervals in T that overlap i in O(min(n, k lgn)) time, where k is the number of intervals in the output list. (Hint: One simple method makes several queries, modifying the tree between queries. A slightly more complicated method does not modify the tree.)  
+simple method: 每找到一个overlap的interval，把这个interval从interval tree删除掉，然后重新query。  
+more complicated method: 思路是，即使x.left满足条件时，也要递归search右子树。找右子树的时候，可以判断i和当前x的后继y的int，若y.int.min <= i.max的话，继续search i'=(y.int.min, i.max)，代码：  
+```Java
+Node[] result;
+INTERVAL-SEARCH-ALL(T, i)
+	x = T.root
+	result = T.nil;
+ 	while x != T.nil
+ 		if i overlap x.int
+ 			result.add(x)
+		if x.left != T.nil and x.left.max >= i.low
+			y = x.successor
+			if(y != T.Nil && y.int.min <= i.max)
+ 				i' = (y.int.min, i.max)
+ 				INTERVAL-SEARCH-ALL(T, i')
+			x = x.left
+		else x = x.right
+```
 
