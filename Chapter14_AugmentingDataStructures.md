@@ -93,3 +93,21 @@ OS-FIND-I-SECCEED(x, i)
 对19及其后面元素构建的树，r[19]=2，19的逆序对为2-1=1；  
 对8及其后面元素构建的树，r[8]=1，8的逆序对为1-1=0；  
 最终结果为5+4+3+1+1+0=14  
+
+#####14.3-1 Write pseudocode for LEFT-ROTATE that operates on nodes in an interval tree and updates the max attributes in O(1) time.  
+在区间树的LEFT-ROTATE操作中，需要修改max属性的只有参与旋转的两个node。因此，区间树的LEFT-ROTATE操作，除了常规红黑树的LEFT-ROTATE外，需要加上以下两行code:  
+```Java
+	x.max = max(x.left.max, x.right.max, x.int.high)
+	y.max = max(y.left.max, y.right.max, y.int.high)
+```
+
+#####14.3-2 Rewrite the code for INTERVAL-SEARCH so that it works properly when all intervals are assumed to be open.  
+```Java
+INTERVAL-SEARCH-OPEN(T, i)
+	x = T.root
+ 	while x != T.nil and i does not overlap x.int
+		if x.left != T.nil and x.left.max > i:low
+			x = x.left
+		else x = x.right
+	return x  
+```
