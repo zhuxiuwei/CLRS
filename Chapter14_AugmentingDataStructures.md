@@ -147,7 +147,7 @@ INTERVAL-SEARCH-ALL(T, i)
 		else x = x.right
 ```
 
-#####14.3-4 INTERVAL-SEARCH-EXACTLY(T, i)，精确查找。O(lgn)。  
+#####14.3-5 INTERVAL-SEARCH-EXACTLY(T, i)，精确查找。O(lgn)。  
 思路就是二叉树搜索。（假设结点的int.low都是不同的。相同的话还要麻烦些）。    
 ```Java
 INTERVAL-SEARCH-EXACTLY(T, i)
@@ -160,7 +160,7 @@ INTERVAL-SEARCH-EXACTLY(T, i)
 		else x = x.right
 ```
 
-#####14.3-5 Show how to maintain a dynamic set Q of numbers that supports the operation MIN-GAP, which gives the magnitude of the difference of the two closest numbers in Q. For example, if Q={1,5,9,15,18,22}, then MIN-GAP returns 18-15=3, since 15 and 18 are the two closest numbers in Q. Make the operations INSERT, DELETE, SEARCH, and MIN-GAP as efficient as possible, and analyze their running times.  
+#####14.3-6 Show how to maintain a dynamic set Q of numbers that supports the operation MIN-GAP, which gives the magnitude of the difference of the two closest numbers in Q. For example, if Q={1,5,9,15,18,22}, then MIN-GAP returns 18-15=3, since 15 and 18 are the two closest numbers in Q. Make the operations INSERT, DELETE, SEARCH, and MIN-GAP as efficient as possible, and analyze their running times.  
 显然，最直接的方法 -- 每插入一个数字时线性计算的时间复杂度是O(n)，这个算法希望得到的更优的复杂度是O(lgn)。  
 可以使用如下图的红黑树扩展的数据结构：  
 ![](https://github.com/zhuxiuwei/CLRS/blob/master/Images/14.3-6.png)  
