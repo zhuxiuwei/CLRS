@@ -119,7 +119,7 @@ INTERVAL-SEARCH-MINIMUM(T, i)
 	result = T.nil;
  	while x != T.nil
  		if i overlap x.int
- 			if(result == T.nil || result.min < x.min)
+ 			if(result == T.nil || result.low < x.low)
  				result = x;
 		if x.left != T.nil and x.left.max >= i.low
 			x = x.left
@@ -129,7 +129,7 @@ INTERVAL-SEARCH-MINIMUM(T, i)
 
 #####14.3-4 Given an interval tree T and an interval i, describe how to list all intervals in T that overlap i in O(min(n, k lgn)) time, where k is the number of intervals in the output list. (Hint: One simple method makes several queries, modifying the tree between queries. A slightly more complicated method does not modify the tree.)  
 simple method: 每找到一个overlap的interval，把这个interval从interval tree删除掉，然后重新query。  
-more complicated method: 思路是，即使x.left满足条件时，也要递归search右子树。找右子树的时候，可以判断i和当前x的后继y的int，若y.int.min <= i.max的话，继续search i'=(y.int.min, i.max)，代码：  
+more complicated method: 思路是，即使x.left满足条件时，也要递归search右子树。找右子树的时候，可以判断i和当前x的后继y的int，若y.int.low <= i.int.high的话，继续search i'=(y.int.min, i.int.high)，代码：  
 ```Java
 Node[] result;
 INTERVAL-SEARCH-ALL(T, i)
@@ -138,12 +138,34 @@ INTERVAL-SEARCH-ALL(T, i)
  	while x != T.nil
  		if i overlap x.int
  			result.add(x)
-		if x.left != T.nil and x.left.max >= i.low
+		if x.left != T.nil and x.left.max >= i.int.low
 			y = x.successor
-			if(y != T.Nil && y.int.min <= i.max)
- 				i' = (y.int.min, i.max)
+			if(y != T.Nil && y.int.low <= i.int.high)
+ 				i' = (y.int.low, i.int.high)
  				INTERVAL-SEARCH-ALL(T, i')
 			x = x.left
 		else x = x.right
 ```
 
+#####14.3-4 INTERVAL-SEARCH-EXACTLY(T, i)，精确查找。O(lgn)。  
+思路就是二叉树搜索。（假设结点的int.low都是不同的。相同的话还要麻烦些）。    
+```Java
+INTERVAL-SEARCH-EXACTLY(T, i)
+	x = T.root
+ 	while x != T.nil
+ 		if i.int.low == x.int.low and i.int.high == x.int.high
+ 			return x
+		if x.int.low >= i.low
+			x = x.left
+		else x = x.right
+```
+
+#####14.3-5 Show how to maintain a dynamic set Q of numbers that supports the operation MIN-GAP, which gives the magnitude of the difference of the two closest numbers in Q. For example, if Q={1,5,9,15,18,22}, then MIN-GAP returns 18-15=3, since 15 and 18 are the two closest numbers in Q. Make the operations INSERT, DELETE, SEARCH, and MIN-GAP as efficient as possible, and analyze their running times.  
+显然，最直接的方法 -- 每插入一个数字时线性计算的时间复杂度是O(n)，这个算法希望得到的更优的复杂度是O(lgn)。  
+可以使用如下图的红黑树扩展的数据结构：  
+![](https://github.com/zhuxiuwei/CLRS/blob/master/Images/14.3-6.png)  
+每个节点额外记录两个属性gap_predecessor和GAP_MIN。分别记录和前驱的gap，以及子树（包括自己）中最小的gap。  
+###-------- 思考题 ----------  
+14.1 最大重叠点  
+
+14.2 Josephus排列  
