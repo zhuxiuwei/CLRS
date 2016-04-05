@@ -3,6 +3,9 @@ package chap15_DynamicProgramming;
  * cut rod problem。
  * @author xiuzhu
  * 160405
+ * 注意点：
+ *  1. 注意记录结果的方式，是返回数组中的一个元素
+ *  2. 注意j循环的起始值。
  */
 public class CutRod {
 
@@ -74,14 +77,14 @@ public class CutRod {
 		int r[] = new int[prices.length];
 		for (int i = 0; i <= length; i++) {
 			int q = Integer.MIN_VALUE;
-			for (int j = 1; j <= i; j++) {
+			for (int j = 1; j <= i; j++) {	//！！！！注意2. 注意j循环的起始值。
 				int temp = Math.max(prices[i], prices[j] + r[i - j]);
 				q = Math.max(q, temp);
 			}
 			System.out.println("Calculate: " + i);    //you can see for a given length n, it will be calculated 1 time only, and from 0 to n.
 			r[i] = q;
 		}
-		return r[length];
+		return r[length];  //！！！注意1. 注意记录结果的方式，是返回数组中的一个元素
 	}
 	
 	public static void main(String[] args) {
