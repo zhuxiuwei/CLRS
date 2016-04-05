@@ -1,4 +1,7 @@
 package chap15_DynamicProgramming;
+
+import java.util.Arrays;
+
 /**
  * cut rod problem。
  * @author xiuzhu
@@ -29,7 +32,7 @@ public class CutRod {
 	}
 	
 	/**
-	 * Memorized up bottom cut rod. O(2^n)
+	 * Memorized up bottom cut rod. O(n^2)
 	 * @param prices 价格数组
 	 * @param length 长度为length的钢条
 	 * @return 长度为length的钢条切割最大收益
@@ -65,22 +68,20 @@ public class CutRod {
 	}
 	
 	/**
-	 * bottom Up cut rod. O(2^n)
+	 * bottom Up cut rod. O(n^2)
 	 * @param prices 价格数组
 	 * @param length 长度为length的钢条
 	 * @return 长度为length的钢条切割最大收益
 	 */
 	public int cutRod_BottomUp(int[] prices, int length){
 		if(length < 0 || length > prices.length - 1)	//illegal input, out of prices range
-			return Integer.MIN_VALUE;
+			return 0;
 		
 		int r[] = new int[prices.length];
 		for (int i = 0; i <= length; i++) {
-			int q = Integer.MIN_VALUE;
-			for (int j = 1; j <= i; j++) {	//！！！！注意2. 注意j循环的起始值。
-				int temp = Math.max(prices[i], prices[j] + r[i - j]);
-				q = Math.max(q, temp);
-			}
+			int q = 0;
+			for (int j = 1; j <= i; j++) 	//！！！！注意2. 注意j循环的起始值。
+				q = Math.max(q, prices[j] + r[i - j]);
 			System.out.println("Calculate: " + i);    //you can see for a given length n, it will be calculated 1 time only, and from 0 to n.
 			r[i] = q;
 		}
