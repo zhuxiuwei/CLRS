@@ -1,7 +1,5 @@
 package chap15_DynamicProgramming;
 
-import java.util.Arrays;
-
 /**
  * cut rod problem。
  * @author xiuzhu
@@ -13,7 +11,7 @@ import java.util.Arrays;
 public class CutRod {
 
 	/**
-	 * up bottom cut rod. O(2^n)
+	 * up bottom cut rod. O(2^n)。 P206
 	 * @param prices 价格数组
 	 * @param length 长度为length的钢条
 	 * @return 长度为length的钢条切割最大收益
@@ -32,7 +30,7 @@ public class CutRod {
 	}
 	
 	/**
-	 * Memorized up bottom cut rod. O(n^2)
+	 * Memorized up bottom cut rod. O(n^2)。 P207
 	 * @param prices 价格数组
 	 * @param length 长度为length的钢条
 	 * @return 长度为length的钢条切割最大收益
@@ -68,7 +66,7 @@ public class CutRod {
 	}
 	
 	/**
-	 * bottom Up cut rod. O(n^2)
+	 * bottom Up cut rod. O(n^2)。 P208
 	 * @param prices 价格数组
 	 * @param length 长度为length的钢条
 	 * @return 长度为length的钢条切割最大收益
