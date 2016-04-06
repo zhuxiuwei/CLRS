@@ -3,7 +3,7 @@ package chap15_DynamicProgramming;
 import java.util.Arrays;
 
 /**
- * cut rod extended。不止计算最大收益，还记录最优解对应的第一段钢条的切割长度
+ * cut rod extended。不止计算最大收益，还返回切割方案。
  * @author xiuzhu
  * 160406
  */
@@ -55,7 +55,7 @@ public class CutRodExtended {
 		int n = length;
 		while(n > 0){
 			System.out.print(s[n] + " ");
-			n = s[n - s[n] ];
+			n = n - s[n];
 		}
 	}
 	
