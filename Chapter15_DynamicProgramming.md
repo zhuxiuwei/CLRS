@@ -14,5 +14,12 @@
 #####15.1-4 Modify MEMOIZED-CUT-ROD to return not only the value but the actual solution too.  
 代码见[CutRodMemorizedExtended](https://github.com/zhuxiuwei/CLRS/blob/master/src/chap15_DynamicProgramming/CutRodMemorizedExtended.java)  
 
+#####15.1-5 O(n)time dynamic-programming algorithm to compute the nth Fibonacci number. Draw the subproblem graph. How many vertices and edges are in the graph?  
+代码见[FibonacciDynamicProgramming](https://github.com/zhuxiuwei/CLRS/blob/master/src/chap15_DynamicProgramming/FibonacciDynamicProgramming.java)  
+subproblem graph:  
+![](https://github.com/zhuxiuwei/CLRS/blob/master/Images/15.1-5.png)  
+vertices: n+1  
+edges: n=0,0; else 2(n-1)  
+
 ###-------- 思考题 ----------  
 15.1 最大重叠点  

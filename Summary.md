@@ -84,3 +84,8 @@
 1. 插入时，一个情况需要注意更新successor。就是待插入的结点比当前结点大，但是当前结点的右孩子已经被占据了，此时可能需要更新当前结点的successor。见test中插入9时，7的successor从13更新成9.  
 2. 查找时，待查找结点比当前结点大，不能写成current = current.successor，还是和传统的查找一样找右子树（我开始还以为这是个比传统二叉搜索树的改进。。。），因为可能陷入死循环。见test中查找5.就会6-3-4-6-3-4...死循环  
 删除方法，做完了普通二叉搜索树的删除再做这个，不难，但是比较繁琐。  
+
+#####第15章 动态规划  
+[钢管切割的bottom oUp方法](https://github.com/zhuxiuwei/CLRS/blob/master/src/chap15_DynamicProgramming/CutRod.java),
+[斐波那契数列](https://github.com/zhuxiuwei/CLRS/blob/master/src/chap15_DynamicProgramming/FibonacciDynamicProgramming.java)  
+两者有一个共同点：用__辅助数组r记录各个子问题结果，然后n的最优解返回r[n]__。看起来用动态规划Bottom Up算法这是一个很好用的思路！  
