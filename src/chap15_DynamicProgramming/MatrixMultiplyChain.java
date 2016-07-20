@@ -15,10 +15,8 @@ public class MatrixMultiplyChain {
 	 * @param p 乘法矩阵中各个矩阵维度的序列。对于矩阵Ai，Ai的大小为pi-1*pi
 	 */
 	public int matrixChain_UpBottom(int p[]){
-		if(p.length <= 1){
-			System.out.println("invalid input"); 
-			return -1;
-		}
+		if(p.length <= 1)
+			return 0;
 		int m[][] = new int[p.length][p.length];
 		for (int i = 0; i < m.length; i++) 
 			for (int j = 0; j < m.length; j++) 
@@ -63,10 +61,8 @@ public class MatrixMultiplyChain {
 	 * @param p 乘法矩阵中各个矩阵维度的序列。对于矩阵Ai，Ai的大小为pi-1*pi
 	 */
 	public int matrixChain_UpBottom_Memorized(int p[]){
-		if(p.length <= 1){
-			System.out.println("invalid input"); 
-			return -1;
-		}
+		if(p.length <= 1)
+			return 0;
 		int m[][] = new int[p.length][p.length];
 		for (int i = 0; i < m.length; i++) 
 			for (int j = 0; j < m.length; j++) 
@@ -104,7 +100,8 @@ public class MatrixMultiplyChain {
 					s[i][j] = k;
 				}
 			}
-		}
+		}else
+			if(debug) System.out.println("call cached: " + i + " " + j);
 		return m[i][j];
 	}
 	
@@ -115,8 +112,8 @@ public class MatrixMultiplyChain {
 	public void printSolution(int s[][]){
 		/*
 		 * parentheses array：记录各个矩阵需要打印的左右括号的个数
-		 * parentheses[i][0]: Ai left side bracket count
-		 * parentheses[i][1]: Ai right side bracket count
+		 * parentheses[i][0]: Ai left side parenthesis count
+		 * parentheses[i][1]: Ai right side parenthesis count
 		 */
 		int[][] parentheses = new int[s.length][2];
 		//整个矩阵列最左右的括号，默认一定要打印。所以先加1.
@@ -130,10 +127,10 @@ public class MatrixMultiplyChain {
 		//print solution based on parentheses array.
 		System.out.print("Solution: ");
 		for (int i = 1; i < parentheses.length; i++) {
-			for (int j = 0; j < parentheses[i][0]; j++)	//print left bracket
+			for (int j = 0; j < parentheses[i][0]; j++)	//print left parenthesis
 				System.out.print("(");
 			System.out.print("A" + i);
-			for (int j = 0; j < parentheses[i][1]; j++)	//print right bracket
+			for (int j = 0; j < parentheses[i][1]; j++)	//print right parenthesis.
 				System.out.print(")");
 		}
 		System.out.println();

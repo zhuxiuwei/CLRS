@@ -21,5 +21,16 @@ subproblem graph:
 vertices: n+1  
 edges: n=0,0; else 2(n-1)  
 
+##15.2 Matrix-chain multiplication  
+#####15.2-1 Find an optimal parenthesization of a matrix-chain product whose sequence of dimensions is {5, 10, 3, 12, 5, 50, 6}  
+Minimum multiply count： 2010, Solution: ((A1A2)((A3A4)(A5A6)))  
+
+#####15.2-2设计递归算法MATRIX-CHAIN-MULTIPLY(A,s,i,j),实现矩阵链最优代价乘法计算的真正计算过程，其输入参数为矩阵序列{A1,A2,...,An},MATRIX-CHAIN-ORDER得到的表s,以及下标i和j.(初始调用应为MATRIX-CHAIN-MULTIPLY(A,s,1,n)).  
+代码见[MatrixMultiplyChain之matrixChain_UpBottom()](https://github.com/zhuxiuwei/CLRS/blob/master/src/chap15_DynamicProgramming/MatrixMultiplyChain.java)  
+
+#####15.2-4 对输入链长度为n的矩阵连乘法问题，描述其子问题图：它包含多少个顶点？包含多少条边？这些分别连接哪些顶点？  
+n^2个顶点，n^3条边连接着n^2个顶点。具体形式化的解不做了。  
+
+
 ###-------- 思考题 ----------  
 15.1 最大重叠点  
