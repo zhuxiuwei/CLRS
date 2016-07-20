@@ -1,5 +1,7 @@
 package chap15_DynamicProgramming;
 
+import java.util.Arrays;
+
 /**
  * cut rod problem。
  * @author xiuzhu
