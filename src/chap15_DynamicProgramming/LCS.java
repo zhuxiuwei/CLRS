@@ -3,7 +3,7 @@ package chap15_DynamicProgramming;
 import java.util.Arrays;
 
 /**
- * 最长公共子序列问题。
+ * 最长公共子序列问题。3个注意点。
  * @author xiuzhu
  * 160726
  */
@@ -68,6 +68,7 @@ public class LCS {
 	 * ！！注意点2：不是很好想，思路走了一些弯路。花了些时间才写对。
 	 */
 	private void print_bottomup_solution_withOutB(char[] x, char[] y, int[][] c){
+		System.out.println(Arrays.deepToString(c));
 		StringBuilder sb = new StringBuilder();
 		int i = x.length - 1, j = y.length - 1;
 		while(i >= 1 && j >= 1){
@@ -100,6 +101,7 @@ public class LCS {
 			for (int j = 0; j < memorized[i].length; j++) 
 				memorized[i][j] = Integer.MAX_VALUE;
 		int res = lcs_length_upbottom_memorized_sentinel_helper(memorized, a, b, a.length - 1, b.length - 1);
+		print_bottomup_solution_withOutB(a, b, memorized);	//！！注意点3: 习题15.4-2的打印solution，也适用于自顶向下带哨兵。自己想想不到。
 		return res;
 	}
 	private int lcs_length_upbottom_memorized_sentinel_helper(int[][] m, char[] a, char[] b, int i, int j){
@@ -124,7 +126,7 @@ public class LCS {
 	}
 	
 	/**
-	 * 习题15.4-3，自顶向下带备忘录版本。
+	 * 习题15.4-3，自顶向下带备忘录版本。没有哨兵。
 	 * ！！注意点1： 没有哨兵时，由于递归退出条件是-1，需要处理小心数组向下越界的情况。比有哨兵的处理复杂。
 	 * @return
 	 */
@@ -134,6 +136,7 @@ public class LCS {
 			for (int j = 0; j < memorized[i].length; j++) 
 				memorized[i][j] = Integer.MAX_VALUE;
 		int res = lcs_length_upbottom_memorized_helper(memorized, a, b, a.length - 1, b.length - 1);
+		print_bottomup_solution_withOutB(a, b, memorized);	//！！注意点3: 习题15.4-2的打印solution，不太适用于自顶向下不带哨兵。能看到第一个相等的字符串，如果都是第一位，可能打不出来(因为while(i >= 1 && j >= 1))。
 		return res;
 	}
 	private int lcs_length_upbottom_memorized_helper(int[][] m, char[] a, char[] b, int i, int j){
@@ -164,18 +167,18 @@ public class LCS {
 		String c = "KL";
 		String com = "BDCABA";
 		
-		System.out.println("bottom up ");
-		System.out.println(l.lcs_length_bottomup_sentinel(a, com));	//3
+		System.out.println("---bottom up--- ");
+		System.out.println(l.lcs_length_bottomup_sentinel(a, com));	
 		System.out.println(l.lcs_length_bottomup_sentinel(b, com));	//1
 		System.out.println(l.lcs_length_bottomup_sentinel(c, com));	//0
 		
-		System.out.println("\r\nupbottom memorized");
-		System.out.println(l.lcs_length_upbottom_memorized(a.toCharArray(), com.toCharArray()));	//3
+		System.out.println("\r\n---upbottom memorized---");
+		System.out.println(l.lcs_length_upbottom_memorized(a.toCharArray(), com.toCharArray()));	
 		System.out.println(l.lcs_length_upbottom_memorized(b.toCharArray(), com.toCharArray()));	//1
 		System.out.println(l.lcs_length_upbottom_memorized(c.toCharArray(), com.toCharArray()));	//0
 		
-		System.out.println("\r\nupbottom memorized with sentinel");
-		System.out.println(l.lcs_length_upbottom_memorized_sentinel(a, com));	//3
+		System.out.println("\r\n---upbottom memorized with sentinel---");
+		System.out.println(l.lcs_length_upbottom_memorized_sentinel(a, com));	
 		System.out.println(l.lcs_length_upbottom_memorized_sentinel(b, com));	//1
 		System.out.println(l.lcs_length_upbottom_memorized_sentinel(c, com));	//0
 

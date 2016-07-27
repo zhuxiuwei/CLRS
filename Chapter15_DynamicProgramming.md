@@ -56,7 +56,7 @@ n^2个顶点，n^3条边连接着n^2个顶点。具体形式化的解不做了�
 代码见[LCS之print_bottomup_solution_withOutB()](https://github.com/zhuxiuwei/CLRS/blob/master/src/chap15_DynamicProgramming/LCS.java)  
 
 #####15.4-3 Give a memoized version of LCS-LENGTH that runs in O.mn/ time.  
-代码见[LCS之lcs_length_bottomup_sentinel(有哨兵版本)和lcs_length_bottomup(无哨兵版本)](https://github.com/zhuxiuwei/CLRS/blob/master/src/chap15_DynamicProgramming/LCS.java)  
+代码见[LCS之lcs_length_upbottom_memorized_sentinel(有哨兵版本)和lcs_length_upbottom_memorized(无哨兵版本)](https://github.com/zhuxiuwei/CLRS/blob/master/src/chap15_DynamicProgramming/LCS.java)  
 
 ###-------- 思考题 ----------  
 15.1 最大重叠点  
