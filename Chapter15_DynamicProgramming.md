@@ -49,5 +49,14 @@ n^2个顶点，n^3条边连接着n^2个顶点。具体形式化的解不做了�
 动态规划方法：Minimum multiply count： 90675, Solution: ((A1A2)(A3A4))  
 贪心法： Minimum multiply count： 95250, Solution: ((A1(A2A3))A4)  
 
+#####15.4-1 Determine an LCS of {1; 0; 0; 1; 0; 1; 0} and {0; 1; 0; 1; 1; 0; 1; 1; 0}.  
+100110  
+
+#####15.4-2 Give pseudocode to reconstruct an LCS from the completed c table and the original sequences X={x1...xm} and Y={Y1...Yn} in O(m+n) time without using the b table.  
+代码见[LCS之print_bottomup_solution_withOutB()](https://github.com/zhuxiuwei/CLRS/blob/master/src/chap15_DynamicProgramming/LCS.java)  
+
+#####15.4-3 Give a memoized version of LCS-LENGTH that runs in O.mn/ time.  
+代码见[LCS之lcs_length_bottomup_sentinel(有哨兵版本)和lcs_length_bottomup(无哨兵版本)](https://github.com/zhuxiuwei/CLRS/blob/master/src/chap15_DynamicProgramming/LCS.java)  
+
 ###-------- 思考题 ----------  
 15.1 最大重叠点  
