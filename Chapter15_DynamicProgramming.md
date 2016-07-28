@@ -26,7 +26,7 @@ edges: n=0,0; else 2(n-1)
 Minimum multiply count： 2010, Solution: ((A1A2)((A3A4)(A5A6)))  
 
 #####15.2-2设计递归算法MATRIX-CHAIN-MULTIPLY(A,s,i,j),实现矩阵链最优代价乘法计算的真正计算过程，其输入参数为矩阵序列{A1,A2,...,An},MATRIX-CHAIN-ORDER得到的表s,以及下标i和j.(初始调用应为MATRIX-CHAIN-MULTIPLY(A,s,1,n)).  
-代码见[MatrixMultiplyChain之matrixChain_UpBottom()](https://github.com/zhuxiuwei/CLRS/blob/master/src/chap15_DynamicProgramming/MatrixMultiplyChain.java)  
+代码见[MatrixMultiplyChain.java](https://github.com/zhuxiuwei/CLRS/blob/master/src/chap15_DynamicProgramming/MatrixMultiplyChain.java#L17)  
 
 #####15.2-4 对输入链长度为n的矩阵连乘法问题，描述其子问题图：它包含多少个顶点？包含多少条边？这些分别连接哪些顶点？  
 n^2个顶点，n^3条边连接着n^2个顶点。具体形式化的解不做了。  
@@ -53,15 +53,16 @@ n^2个顶点，n^3条边连接着n^2个顶点。具体形式化的解不做了�
 100110  
 
 #####15.4-2 设计代码，利用完整的表c及原始寻列X={x1,x2,...xm};Y={y1,y2,.....yn};来重构LCS，要求运行时间为O(m+n),不能使用表b.  
-代码见[LCS之print_bottomup_solution_withOutB()](https://github.com/zhuxiuwei/CLRS/blob/master/src/chap15_DynamicProgramming/LCS.java#L70)  
+代码见[LCS.java](https://github.com/zhuxiuwei/CLRS/blob/master/src/chap15_DynamicProgramming/LCS.java#L70)  
 
 #####15.4-3 设计LCS-LENGTH的带备忘的版本，运行时间为O(mn).  
-代码见[LCS之lcs_length_upbottom_memorized_sentinel(有哨兵版本)和lcs_length_upbottom_memorized(无哨兵版本)](https://github.com/zhuxiuwei/CLRS/blob/master/src/chap15_DynamicProgramming/LCS.java)  
+有哨兵版本: [LCS.java](https://github.com/zhuxiuwei/CLRS/blob/master/src/chap15_DynamicProgramming/LCS.java#L96)  
+无哨兵版本: [LCS.java](https://github.com/zhuxiuwei/CLRS/blob/master/src/chap15_DynamicProgramming/LCS.java#L133)  
 
 #####15.4-4  说明如何只使用表c中2Xmin(m,n)个表项及O(1)的额外空间来计算LCS的长度。然后说明如何只用min(m,n)个表项及O(1)的额外空间完成相同的工作。  
 我做的貌不是2Xmin(m,n)和min(m,n)，而是2Xmax(m,n)和max(m,n)。分别用到一个只有两行的的二维矩阵c和一行矩阵c。  
-2Xmax(m,n):[LCS_SmallerC](https://github.com/zhuxiuwei/CLRS/blob/master/src/chap15_DynamicProgramming/LCS_SmallerC.java#L12)  
-max(m,n):[LCS_SmallerC](https://github.com/zhuxiuwei/CLRS/blob/master/src/chap15_DynamicProgramming/LCS_SmallerC.java#L55)  
+2Xmax(m,n):[LCS_SmallerC.java](https://github.com/zhuxiuwei/CLRS/blob/master/src/chap15_DynamicProgramming/LCS_SmallerC.java#L12)  
+max(m,n):[LCS_SmallerC.java](https://github.com/zhuxiuwei/CLRS/blob/master/src/chap15_DynamicProgramming/LCS_SmallerC.java#L55)  
 
 ###-------- 思考题 ----------  
 15.1 最大重叠点  
