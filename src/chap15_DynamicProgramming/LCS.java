@@ -71,7 +71,7 @@ public class LCS {
 		System.out.println(Arrays.deepToString(c));
 		StringBuilder sb = new StringBuilder();
 		int i = x.length - 1, j = y.length - 1;
-		while(i >= 1 && j >= 1){
+		while(i >= 1 && j >= 1){	//因为此条件，不一定适用不带哨兵的LCS算法。
 			if(x[i] == y[j]){
 				sb.append(x[i]);
 				i--;
@@ -136,7 +136,7 @@ public class LCS {
 			for (int j = 0; j < memorized[i].length; j++) 
 				memorized[i][j] = Integer.MAX_VALUE;
 		int res = lcs_length_upbottom_memorized_helper(memorized, a, b, a.length - 1, b.length - 1);
-		print_bottomup_solution_withOutB(a, b, memorized);	//！！注意点3: 习题15.4-2的打印solution，不太适用于自顶向下不带哨兵。能看到第一个相等的字符串，如果都是第一位，可能打不出来(因为while(i >= 1 && j >= 1))。
+		print_bottomup_solution_withOutB(a, b, memorized);	//！！注意点3: 习题15.4-2的打印solution，不太适用于自顶向下不带哨兵。能看到第一个相等的字符串，如果恰好是第一位时会打不出来(因为while(i >= 1 && j >= 1))。
 		return res;
 	}
 	private int lcs_length_upbottom_memorized_helper(int[][] m, char[] a, char[] b, int i, int j){

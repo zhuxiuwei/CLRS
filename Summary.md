@@ -89,3 +89,6 @@
 [钢管切割的bottom oUp方法](https://github.com/zhuxiuwei/CLRS/blob/master/src/chap15_DynamicProgramming/CutRod.java),
 [斐波那契数列](https://github.com/zhuxiuwei/CLRS/blob/master/src/chap15_DynamicProgramming/FibonacciDynamicProgramming.java)  
 两者有一个共同点：用__辅助数组r记录各个子问题结果，然后n的最优解返回r[n]__。看起来用动态规划Bottom Up算法这是一个很好用的思路！  
+
+[LCS最长公共子序列](https://github.com/zhuxiuwei/CLRS/blob/master/src/chap15_DynamicProgramming/LCS.java)  
+使用哨兵可以简化问题。有三个注意点。其中打印solution用到的辅助数组b的思路挺有意思。  
