@@ -37,10 +37,10 @@ O(1)的removeLast()在我的[LinkedList](https://github.com/zhuxiuwei/CLRS/blob/
 时间复杂度，如果插入、查找、删除的元素不在字典区间内，则O(1)。否则O(n)。  
 
 #####10.2-6 两个连边的O(1)的Union操作。  
-代码见[LinkedList之union方法](https://github.com/zhuxiuwei/CLRS/blob/master/src/chap10_ElementaryDataStructures/LinkedList.java)  
+代码见[LinkedList.java](https://github.com/zhuxiuwei/CLRS/blob/master/src/chap10_ElementaryDataStructures/LinkedList.java#L109)  
 
 #####10.2-6 链表反转。非递归。只用固定的额外存储空间。  
-代码见[LinkedList之revert方法](https://github.com/zhuxiuwei/CLRS/blob/master/src/chap10_ElementaryDataStructures/LinkedList.java)  
+代码见[LinkedList.java](https://github.com/zhuxiuwei/CLRS/blob/master/src/chap10_ElementaryDataStructures/LinkedList.java#L127)  
 
 #####10.3-1 画图表示序列{13,4,8,19,5,1}的__多数组__表现形式和__单数组__表现形式。
 假设数组能容纳10个元素。见下图（元素在数组中方的位置我是随机选的）    

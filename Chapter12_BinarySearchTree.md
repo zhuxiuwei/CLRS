@@ -10,7 +10,7 @@
 不能。堆排序也是基于比较的排序，下限是O(nlgn)。  
 
 #####12.1-3 中序遍历的非递归算法。  
-代码见[BinaryTree的traversing_inorder_nonrescurive](https://github.com/zhuxiuwei/CLRS/blob/master/src/chap12_BinarySearchTree/BinaryTree.java)  
+代码见[BinaryTree.java](https://github.com/zhuxiuwei/CLRS/blob/master/src/chap12_BinarySearchTree/BinaryTree.java#L60)  
 
 #####12.1-4 对于有n个节点的树，设计O(n)的先序遍历和后序遍历算法。  
 代码见[BinaryTree](https://github.com/zhuxiuwei/CLRS/blob/master/src/chap12_BinarySearchTree/BinaryTree.java)  
