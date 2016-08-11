@@ -68,5 +68,8 @@ n^2个顶点，n^3条边连接着n^2个顶点。具体形式化的解不做了�
 2Xmax(m,n):[LCS_SmallerC.java](https://github.com/zhuxiuwei/CLRS/blob/master/src/chap15_DynamicProgramming/LCS_SmallerC.java#L12)  
 max(m,n):[LCS_SmallerC.java](https://github.com/zhuxiuwei/CLRS/blob/master/src/chap15_DynamicProgramming/LCS_SmallerC.java#L55)  
 
+#####15.4-5 设计一个O(n²)时间的算法，求一个n个数的序列的最长单调递增子序列。  
+
+
 ###-------- 思考题 ----------  
 15.1 最大重叠点  
