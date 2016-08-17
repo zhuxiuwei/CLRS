@@ -1,7 +1,7 @@
 package chap16_GreedyAlgorithms;
 
 /**
- * 活动选择问题
+ * Activity selector problem
  * @author xiuzhu
  * 160810
  * ！！注意1： DP memorized 写法，开始花了很多时间也写不对，子问题划分的有些问题。最后参考了网上文章，改了划分方法成功了。
@@ -9,7 +9,7 @@ package chap16_GreedyAlgorithms;
 public class ActivitySelector {
 
 	/**
-	 * 活动选择问题的迭代贪心算法.p241
+	 * Greedy ActivitySelector.p241
 	 * @param s 活动开始时间
 	 * @param f 活动结束时间
 	 */
@@ -29,7 +29,7 @@ public class ActivitySelector {
 	}
 	
 	/**
-	 * dynamic programming ActivitySelector - .UpBottom memorized. 16.1-1
+	 * dynamic programming ActivitySelector - UpBottom memorized. 16.1-1
 	 * @param s 活动开始时间
 	 * @param f 活动结束时间
 	 */
@@ -50,15 +50,15 @@ public class ActivitySelector {
 		{
 			int left = 0;
 			if(c[end] == Integer.MIN_VALUE){
-				//find the biggest compatible index j, where j < end;
+				//find the biggest compatible index j, where j < end, assign to left.
 				for (int i = end - 1; i >= 0; i--) {
 					if(f[i] <= s[end]){
 						left = i;
 						break;
 					}
 				}
-				int temp1 = selector_DP_memorized_helper(s, f, left, c) + 1;
-				int temp2 = selector_DP_memorized_helper(s, f, end - 1, c);
+				int temp1 = selector_DP_memorized_helper(s, f, left, c) + 1;	//in case index end is in optimal set.
+				int temp2 = selector_DP_memorized_helper(s, f, end - 1, c);		//in case index end is NOT in optimal set.
 				c[end] = Math.max(temp1, temp2);
 				//System.out.println("c " + end + "=" + c[end] + " " + temp1 + " " + temp2);
 			}
@@ -126,10 +126,8 @@ public class ActivitySelector {
 	public static void main(String[] args) {
 		int s[] = {0,1,3,0,5,3,5,6,8,8,2,12,1};	//开始的0是虚拟活动，类似哨兵的作用。
 		int f[] = {0,4,5,6,7,9,9,10,11,12,14,16,19};
-//		int s[] = {0,1,12};	//开始的0是虚拟活动，类似哨兵的作用。
-//		int f[] = {0,4,16};
 		ActivitySelector.selector_greedy(s, f);
-		selector_DP_memorized(s, f);
+		ActivitySelector.selector_DP_memorized(s, f);
 	}
 
 }
