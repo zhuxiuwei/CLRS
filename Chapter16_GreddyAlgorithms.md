@@ -2,8 +2,9 @@
 =
 ##16.1 活动选择问题  
 #####16.1-1 活动选择问题的动态规划算法以及运行时间。  
-花了很多时间，__代码还是不对__：[CutRodWithCost](https://github.com/zhuxiuwei/CLRS/blob/master/src/chap16_GreedyAlgorithms/ActivitySelector.java#L37)  
-时间应该是O(n^3)  
+DP memorized版本的代码见：[ActivitySelector](https://github.com/zhuxiuwei/CLRS/blob/master/src/chap16_GreedyAlgorithms/ActivitySelector.java#L36)  
+开始花了很多时间也写不对，子问题划分的有些问题。最后参考了[文章](http://www.cs.princeton.edu/~wayne/cs423/lectures/dynamic-programming-4up.pdf)，改了划分方法成功了。__失败的代码__：[ActivitySelector](https://github.com/zhuxiuwei/CLRS/blob/master/src/chap16_GreedyAlgorithms/ActivitySelector.java#L82)  
+时间应该是O(NlogN)  
 
 #####16.1-2 不是选择最早结束，而是选择最晚开始时间活动的贪心算法。  
 思路和选择最早结束类似。先把s和f数组，按照s数组倒序排序。然后代码最早结束类似。  
@@ -22,3 +23,9 @@ s: 3 4 1
 f: 4 5 9  
 
 #####16.1-4 假设要用很多个教室对一组活动进行调度。我们希望使用尽可能少的教室来调度所有的活动。请给出一个有效的贪心算法，来确定哪一个活动应使用哪一个教室。(这个问题也被成为区间图着色(interval-graph coloring)问题。我们可作出一个区间图，其顶点为已知的活动，其边连接着不兼容的活动。为使任两个相邻结点的颜色均不相同，所需的最少颜色对应于找出调度给定的所有活动所需的最少教室数。)  
+
+#####16.1-4 （带权重的活动选择问题）每个活动a[i]除了起止时间，还有一个价值（权重）v[i]。求价值最大的兼容活动子集，要求多项式时间。  
+书中活动选择问题是此问题的所有活动权重=1的特例。此问题是DP可解的。  
+
+
+

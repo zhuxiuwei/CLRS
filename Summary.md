@@ -92,3 +92,7 @@
 
 [LCS最长公共子序列](https://github.com/zhuxiuwei/CLRS/blob/master/src/chap15_DynamicProgramming/LCS.java)  
 使用哨兵可以简化问题。有三个注意点。其中打印solution用到的辅助数组b的思路挺有意思。  
+
+#####第16章 贪心算法  
+活动选择问题的[动态规划算法](https://github.com/zhuxiuwei/CLRS/blob/master/src/chap16_GreedyAlgorithms/ActivitySelector.java#L36)★★★★★  
+开始花了很多时间也写不对，子问题划分的有些问题。最后参考了[文章](http://www.cs.princeton.edu/~wayne/cs423/lectures/dynamic-programming-4up.pdf)，改了划分方法成功了。__失败的代码__：[ActivitySelector](https://github.com/zhuxiuwei/CLRS/blob/master/src/chap16_GreedyAlgorithms/ActivitySelector.java#L82)  

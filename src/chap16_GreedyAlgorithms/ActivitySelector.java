@@ -1,11 +1,10 @@
 package chap16_GreedyAlgorithms;
 
-import java.util.Arrays;
-
 /**
  * 活动选择问题
  * @author xiuzhu
  * 160810
+ * ！！注意1： DP memorized 写法，开始花了很多时间也写不对，子问题划分的有些问题。最后参考了网上文章，改了划分方法成功了。
  */
 public class ActivitySelector {
 
@@ -26,26 +25,61 @@ public class ActivitySelector {
 				solution.append(i);
 			}
 		}
-		System.out.println("Max compatibile solution: " + solution.toString());
+		System.out.println("Max compatibile solution GREEDY: " + solution.toString());
 	}
 	
 	/**
-	 * 活动选择问题的动态规划算法.UpBottom. 16.1-1。 ！！！！ NOT WORKING@ 结果不对！！。
+	 * dynamic programming ActivitySelector - .UpBottom memorized. 16.1-1
 	 * @param s 活动开始时间
 	 * @param f 活动结束时间
 	 */
-	public static int selector_dynamicProgramming(int[] s, int f[]){
-		int c[][] = new int[s.length][s.length];
+	public static int selector_DP_memorized(int[] s, int f[]){
+		int c[] = new int[s.length];
 		for (int i = 0; i < c.length; i++) {
-			for (int j = 0; j < c.length; j++) {
-				c[i][j] = Integer.MIN_VALUE;
-			}
+			c[i]= Integer.MIN_VALUE;
 		}
-		int res = selector_dynamicProgramming_helper(s, f, 0, c.length - 1, c);
-		System.out.println(Arrays.deepToString(c));
+		int res = selector_DP_memorized_helper(s, f, c.length - 1, c);
+		//System.out.println(Arrays.toString(c));
+		printSolution(c);
 		return res;
 	}
-	private static int selector_dynamicProgramming_helper(int[] s, int f[], int start, int end, int[][] c){
+	private static int selector_DP_memorized_helper(int[] s, int[] f, int end, int[] c){
+		if(end == 0)
+			c[end] = 0;
+		else
+		{
+			int left = 0;
+			if(c[end] == Integer.MIN_VALUE){
+				//find the biggest compatible index j, where j < end;
+				for (int i = end - 1; i >= 0; i--) {
+					if(f[i] <= s[end]){
+						left = i;
+						break;
+					}
+				}
+				int temp1 = selector_DP_memorized_helper(s, f, left, c) + 1;
+				int temp2 = selector_DP_memorized_helper(s, f, end - 1, c);
+				c[end] = Math.max(temp1, temp2);
+				//System.out.println("c " + end + "=" + c[end] + " " + temp1 + " " + temp2);
+			}
+		}
+		return c[end];
+	}
+	private static void printSolution(int c[]){
+		StringBuilder solution = new StringBuilder();
+		for (int i = 1; i < c.length; i++) {
+			if(c[i] > c[i-1]){
+				if(solution.length() != 0) solution.append(",");
+				solution.append(i);
+			}
+		}
+		System.out.println("Max compatibile solution DP memorized: " + solution.toString());
+	}
+	
+	/**
+	 * Below function does not work correctly, just for record purpose.
+	 */
+	private static int selector_DP_memorized_helper_NoWork(int[] s, int f[], int start, int end, int[][] c){
 		if(c[start][end] != Integer.MIN_VALUE)
 			return c[start][end];
 		else{
@@ -71,7 +105,7 @@ public class ActivitySelector {
 						break;
 					}
 				}
-				int l = selector_dynamicProgramming_helper(s, f, start, left, c);
+				int l = selector_DP_memorized_helper_NoWork(s, f, start, left, c);
 				
 				//calculate right
 				for (int i = k + 1; i <= end; i++) {
@@ -80,7 +114,7 @@ public class ActivitySelector {
 						break;
 					}
 				}
-				int r = selector_dynamicProgramming_helper(s, f, right, end, c);
+				int r = selector_DP_memorized_helper_NoWork(s, f, right, end, c);
 				int temp = l + r + 1;
 				if(temp > c[start][end])
 					c[start][end] = temp;
@@ -90,10 +124,12 @@ public class ActivitySelector {
 	}
 	
 	public static void main(String[] args) {
-		int s[] = {0,1,3,0,5,3,5,6,8,8,2,12};	//开始的0是虚拟活动，类似哨兵的作用。
-		int f[] = {0,4,5,6,7,9,9,10,11,12,14,16};
+		int s[] = {0,1,3,0,5,3,5,6,8,8,2,12,1};	//开始的0是虚拟活动，类似哨兵的作用。
+		int f[] = {0,4,5,6,7,9,9,10,11,12,14,16,19};
+//		int s[] = {0,1,12};	//开始的0是虚拟活动，类似哨兵的作用。
+//		int f[] = {0,4,16};
 		ActivitySelector.selector_greedy(s, f);
-		System.out.println(selector_dynamicProgramming(s, f));
+		selector_DP_memorized(s, f);
 	}
 
 }
