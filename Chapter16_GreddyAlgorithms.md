@@ -25,4 +25,4 @@ f: 4 5 9
 #####16.1-4 假设要用很多个教室对一组活动进行调度。我们希望使用尽可能少的教室来调度所有的活动。请给出一个有效的贪心算法，来确定哪一个活动应使用哪一个教室。(这个问题也被成为区间图着色(interval-graph coloring)问题。我们可作出一个区间图，其顶点为已知的活动，其边连接着不兼容的活动。为使任两个相邻结点的颜色均不相同，所需的最少颜色对应于找出调度给定的所有活动所需的最少教室数。)  
 
 #####16.1-5 （带权重的活动选择问题）每个活动a[i]除了起止时间，还有一个价值（权重）v[i]。求价值最大的兼容活动子集，要求多项式时间。  
-书中活动选择问题是此问题的所有活动权重=1的特例。此问题是DP可解的。[代码]()和16.1-1中的方案类似。代码见：[ActivitySelector](https://github.com/zhuxiuwei/CLRS/blob/master/src/chap16_GreedyAlgorithms/ActivitySelectorWeighted.java#L21)  
+书中活动选择问题是此问题的所有活动权重=1的特例。此问题是DP可解的。和16.1-1中的方案类似。代码见：[ActivitySelector](https://github.com/zhuxiuwei/CLRS/blob/master/src/chap16_GreedyAlgorithms/ActivitySelectorWeighted.java#L21)  

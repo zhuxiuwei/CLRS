@@ -62,8 +62,8 @@ public class ActivitySelectorWeighted {
 					last = last - values[i];
 				}
 			}
-			System.out.println("Max value: " + c[c.length - 1]);
-			System.out.println("Max compatibile solution DP memorized: " + solution.toString() + "\r\n");
+			System.out.print("Max value: " + c[c.length - 1]);
+			System.out.println(", solution: " + solution.toString());
 		}
 	}
 	
@@ -72,13 +72,13 @@ public class ActivitySelectorWeighted {
 		int f[] = {0,4,5,6,7,9,9,10,11,12,14,16,17};
         
 		int[] values = new int[]{0,3,2,4,8,2,5,6,10,7,4,5,2};  
-		ActivitySelectorWeighted.selector_DP_memorized(s, f, values);	//[1, 4, 8, 11]
+		ActivitySelectorWeighted.selector_DP_memorized(s, f, values);	//Max value: 26, solution: [1, 4, 8, 11]
 		
 		values = new int[]{0,3,2,4,8,2,5,6,10,7,4,5,100};  
-		ActivitySelectorWeighted.selector_DP_memorized(s, f, values);	//[12]
+		ActivitySelectorWeighted.selector_DP_memorized(s, f, values);	//Max value: 100, solution: [12]
 		
 		values = new int[]{0,1,1,1,1,1,1,1,1,1,1,1,1};  //Normal active selector problem
-		ActivitySelectorWeighted.selector_DP_memorized(s, f, values);	//[1, 4, 8, 11]
+		ActivitySelectorWeighted.selector_DP_memorized(s, f, values);	//Max value: 4, solution: [1, 4, 8, 11]
 	}
 
 }
