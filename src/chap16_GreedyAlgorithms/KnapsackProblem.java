@@ -2,7 +2,7 @@ package chap16_GreedyAlgorithms;
 
 import java.util.Arrays;
 /**
- * @author xiuzhu
+ * @author Xiuwei Zhu
  *	160819
  */
 public class KnapsackProblem {
@@ -10,10 +10,10 @@ public class KnapsackProblem {
 	static boolean debug = false;
 	/**
 	 * 16.2-2: 0-1 Knapsack Problem, using DP solution. 
-	 * Note: Assumption of Precondition: v is already ordered. 
 	 * @param w	weight
 	 * @param v value
 	 * @param W Knapsack available size
+	 * @return Max value in knapsack
 	 */
 	public static int zeroOneKnapsackProblem(int[] w, int[] v, int W){
 		int c[][] = new int[w.length][W + 1];
@@ -24,16 +24,19 @@ public class KnapsackProblem {
 		int res = zeroOneKnapsackProblem_helper(w, v, c, w.length - 1, W);
 		if(debug)	
 			System.out.println(Arrays.deepToString(c));
+		
+		//print result
 		System.out.print("Max value: " + c[w.length - 1][W]);
 		System.out.print(". Included item index: ");
 		printSolution(w, v, c, w.length - 1, W);
 		System.out.println();
+		
 		return res;
 	}
 	/**
 	 * @param c Table to store results. c[i][j] means, max value in knapsack when consider first i items while knapsack available size=j.
 	 * @param j When only consider first j items
-	 * @return
+	 * @return Max value in knapsack when consider first j items while knapsack available size=W.
 	 */
 	private static int zeroOneKnapsackProblem_helper(int[] w, int[] v, int c[][], int j, int W){
 		if(W <= 0 || j <= 0)
@@ -51,6 +54,7 @@ public class KnapsackProblem {
 			return c[j][W];
 		}
 	}
+	//print solution helper.
 	private static void printSolution(int[] w, int[] v, int c[][], int j, int W){
 		if(W - w[j] < 0 || j < 1)
 			return;
