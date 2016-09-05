@@ -96,3 +96,6 @@
 #####第16章 贪心算法  
 活动选择问题的[动态规划算法](https://github.com/zhuxiuwei/CLRS/blob/master/src/chap16_GreedyAlgorithms/ActivitySelector.java#L36) ★★★★★  
 开始花了很多时间也写不对，子问题划分的有些问题。最后参考了[文章](http://www.cs.princeton.edu/~wayne/cs423/lectures/dynamic-programming-4up.pdf)，改了划分方法成功了。__失败的代码__：[ActivitySelector](https://github.com/zhuxiuwei/CLRS/blob/master/src/chap16_GreedyAlgorithms/ActivitySelector.java#L82)  
+
+[0-1背包问题动态规划算法](https://github.com/zhuxiuwei/CLRS/blob/master/src/chap16_GreedyAlgorithms/KnapsackProblem.java) ★★★★★  
+花的时间也多。调试很多次。  

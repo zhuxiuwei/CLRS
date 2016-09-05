@@ -26,3 +26,7 @@ f: 4 5 9
 
 #####16.1-5 （带权重的活动选择问题）每个活动a[i]除了起止时间，还有一个价值（权重）v[i]。求价值最大的兼容活动子集，要求多项式时间。  
 书中活动选择问题是此问题的所有活动权重=1的特例。此问题是DP可解的。和16.1-1中的方案类似。代码见：[ActivitySelector](https://github.com/zhuxiuwei/CLRS/blob/master/src/chap16_GreedyAlgorithms/ActivitySelectorWeighted.java#L21)  
+
+##16.1 贪心算法原理  
+16.2-2 动态规划算法求解0-1背包问题。  
+代码见[0-1背包问题的动态规划算法](https://github.com/zhuxiuwei/CLRS/blob/master/src/chap16_GreedyAlgorithms/KnapsackProblem.java)  
