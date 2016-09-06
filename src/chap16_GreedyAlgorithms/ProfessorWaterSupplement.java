@@ -1,6 +1,7 @@
 package chap16_GreedyAlgorithms;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 /**
  * 16.2-4 Professor Water supplement problem. 
@@ -36,11 +37,12 @@ public class ProfessorWaterSupplement {
 		for (int i = 0; i < map.length; i++) 
 			if(map[i] < totalDistance)
 				a.add(map[i]);
-		a.add(this.totalDistance);	//end point
+		System.out.println(a);
 		
-		System.out.print("Supply water at: ");
+		System.out.print(Arrays.toString(map));
+		System.out.print(".  Supply water at: ");
 		int nextMaxDisance = m;	//Next max instance professor can travel to with current water.
-		for (int i = 0; i < a.size() - 1; i++) {
+		for (int i = 0; i <= a.size() - 1; i++) {
 			if(a.get(i) == nextMaxDisance){
 				System.out.print(a.get(i) + " ");
 				nextMaxDisance = a.get(i) + m;
@@ -74,5 +76,7 @@ public class ProfessorWaterSupplement {
 		p.solution(map5);
 		int[] map6 = {2, 3, 10, 15, 26};	//10 15
 		p.solution(map6);
+		int[] map7 = {2, 3, 10, 26};	//10 15
+		p.solution(map7);
 	}
 }
