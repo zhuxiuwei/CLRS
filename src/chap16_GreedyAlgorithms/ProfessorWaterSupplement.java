@@ -28,10 +28,9 @@ public class ProfessorWaterSupplement {
 	
 	
 	/**
-	 * @param map Distances between two WaterSuppliment points
+	 * @param map Distances between two a WaterSuppliment points and start point.
 	 */
 	public void solution(int map[]){
-		//first, turn map array to distance from start point array.
 		ArrayList<Integer> a = new ArrayList<Integer>(map.length + 2);
 		a.add(0);	//start point
 		for (int i = 0; i < map.length; i++) 
