@@ -8,7 +8,7 @@ import java.util.Arrays;
  * @author Xiuwei Zhu
  * ！！！！注意点： 处理到最后一个点后，要有特殊处理。 
  */
-public class ProfessorWaterSupplement {
+public class ProfessorWaterSupplement { 
 	
 	/**
 	 * constructor
