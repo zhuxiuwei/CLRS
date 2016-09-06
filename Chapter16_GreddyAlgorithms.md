@@ -36,5 +36,6 @@ f: 4 5 9
 
 16.2-4 Professor Midas drives an automobile from Newark to Reno along Interstate 80. His car's gas tank, when full, holds enough gas to travel n miles, and his map gives the distances between gas stations on his route. The professor wishes to make as few gas stops as possible along the way. Give an efficient method by which Professor Midas can determine at which gas stations he should stop, and prove that your strategy yields an optimal solution.  
 走到2L水能到达的最远的补水点补水。[代码](https://github.com/zhuxiuwei/CLRS/blob/master/src/chap16_GreedyAlgorithms/ProfessorWaterSupplement.java)  
-__注意点__：注意某个补给点距离，正好等于totalDistance时的edge case。  
+__注意点__：处理到最后一个点后，要有特殊处理。 
 
+16.2-5 

@@ -99,3 +99,7 @@
 
 [0-1背包问题动态规划算法](https://github.com/zhuxiuwei/CLRS/blob/master/src/chap16_GreedyAlgorithms/KnapsackProblem.java) ★★★★★  
 花的时间也多。调试很多次。  
+
+[Professor Water supplement problem](https://github.com/zhuxiuwei/CLRS/blob/master/src/chap16_GreedyAlgorithms/ProfessorWaterSupplement.java) ★★  
+本身思路不难，但是在处理最后一个节点的时候（edge case）开始没想好就写，浪费了差不多1小时才都调对。。。。。  
+
