@@ -27,8 +27,8 @@ in-degree:O(V+E)
 2. 遍历旧表的每个顶点a的Adj[a]。  
 3. 每遍历到一个顶点b，往Adj[b]的尾部插入a，如果a!=b且a不在Adj[b]里出现过。  
 
-### 22.1-5 The **square** of a directed graph G=(V,E) is the graph G2 =(V,E2) such that (u,w) in E2 if and only if for some v in V, both(u,v) in E and(v,w) in E.That is,G2 contains an edge between u and w whenever G contains a path with exactly two edges between u and w. Describe efficient algorithms for computing G2 from G for both the adjacency-list and adjacency-matrix representations of G. Analyze the running times of your algorithms.  
-
+### 22.1-5 有向图G = (V, E)的**平方图**是图G2 = (V, E2)，该图满足下列条件：(u, w)属于E2当且仅当v属于V，有(u, v)属于E，且(v, w)属于E。亦即，如果图G中顶点u和w之间存在着一条恰包含两条边的路径时，则G2必包含该边(u, w)。针对图G邻接表和邻接矩阵两种表示，分别写出根据G产生G2的有效算法，并分析所给出算法的运行时间。  
+见[代码](https://github.com/zhuxiuwei/CLRS/blob/master/src/chap22_ElementaryGraphAlgo/Prac22_1_5_SquareGraph.java)  
 
 
 
