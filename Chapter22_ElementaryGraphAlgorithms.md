@@ -32,5 +32,5 @@ in-degree:O(V+E)
 
 ### 22.1-6 如果我们用邻接矩阵来存储图，那么绝大多数图算法的运行时间都是Ω(|V|^2)（V为一个图的顶点集），但还是有些例外。比如，给定一个有向图Ｇ的邻接矩阵Ａ，我们可以在Ο(|V|)时间内判断图G是否包含一个**通用汇点(universal sink)**，即一个入度为|V|-1出度为0的顶点。请给出这样的算法。  
 **O(V)思路不好想**：从Matrix[1,1]开始,如果当前位置是0,则往右走一步;如果是1,则往下走一步;一直走到最后一行或者最后一列再停下.再检查该位置是否满足universal sink的定义.  
-代码见：[Prac22_1_6_UniversalSink.java](https://github.com/zhuxiuwei/CLRS/blob/master/src/chap22_ElementaryGraphAlgo/Prac22_1_5_SquareGraph.java)  
+代码见：[Prac22_1_6_UniversalSink.java](https://github.com/zhuxiuwei/CLRS/blob/master/src/chap22_ElementaryGraphAlgo/Prac22_1_6_UniversalSink.java)  
 

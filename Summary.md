@@ -104,6 +104,6 @@
 本身思路不难，但是在处理最后一个节点的时候（edge case）开始没想好就写，浪费了差不多1小时才都调对。。。。。  
 
 #####第22章 基本的图算法  
-[图通用汇点的O(V)算法](https://github.com/zhuxiuwei/CLRS/blob/master/src/chap22_ElementaryGraphAlgo/Prac22_1_5_SquareGraph.java) ★★  
+[图通用汇点的O(V)算法](https://github.com/zhuxiuwei/CLRS/blob/master/src/chap22_ElementaryGraphAlgo/Prac22_1_6_UniversalSink.java) ★★  
 O(V^2)的算法非常简单， 但是**O(V)**算法的思路还是挺有意思的，不好想。[参考](https://github.com/zhuxiuwei/CLRS-1/blob/master/C22-Elementary-Graph-Algorithms/22.1.md)  
 
