@@ -37,7 +37,7 @@ public class Prac22_1_5_SquareGraph {
 	}
 	
 	/**
-	 * @param g 有向图G的邻接表表示
+	 * @param g 有向图G的邻接表表示. O(V^3)
 	 * @return 平方图G2的邻接表表示
 	 */
 	public Map<Integer, Set<Integer>> transform(Map<Integer, Set<Integer>> g){
