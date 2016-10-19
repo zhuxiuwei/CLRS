@@ -34,3 +34,15 @@ in-degree:O(V+E)
 **O(V)思路不好想**：从Matrix[1,1]开始,如果当前位置是0,则往右走一步;如果是1,则往下走一步;一直走到最后一行或者最后一列再停下.再检查该位置是否满足universal sink的定义.  
 代码见：[Prac22_1_6_UniversalSink.java](https://github.com/zhuxiuwei/CLRS/blob/master/src/chap22_ElementaryGraphAlgo/Prac22_1_6_UniversalSink.java)  
 
+#####22.1-7 The incidence matrix of a directed graph G = (V, E) is a |V| × |E| matrix B = (bij) such that bij=-1 if edge j leaves vertex i， bij=1 if edge j enters vertex i, bij=0 otherwise. Describe what the entries of the matrix product BBT represent, where BT is the transpose of B.  
+以图{2<-1, 3<-1}为例。 B为：{1,1}{-1,0}{0,-1}, BT为{1,-1,0}{1,0,-1}, BxBT为{2,-1,-1}{-1,1,0}{-1,0,1}。则BBT[i,j]矩阵的含义为：  
+* i=j时，表示Vertex i的degree；  
+* i!=j时，表示顶点i和顶点j之间边的数量的负数。  
+
+#####22.1-8 Suppose that instead of a linked list, each array entry Adj[u] is a hash table containing the vertices v for which (u, v) in E. If all edge lookups are equally likely, what is the expected time to determine whether an edge is in the graph? What disadvantages does this scheme have? Suggest an alternate data structure for each edge list that solves these problems. Does your alternative have disadvantages compared to the hash table?  
+我习题[22.1-5的代码](https://github.com/zhuxiuwei/CLRS/blob/master/src/chap22_ElementaryGraphAlgo/Prac22_1_5_SquareGraph.java#L43)就是用的HashTable.  
+1. 时间是O(1)。  
+2. 缺点是HashTable更占空间？以及需要需要解决散列冲突问题？  
+3. 用搜索树替代，缺点是搜索时间效率降低。  
+
+##22.1  广度优先搜索  
