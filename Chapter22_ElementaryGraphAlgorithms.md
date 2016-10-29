@@ -45,4 +45,45 @@ in-degree:O(V+E)
 2. 缺点是HashTable更占空间？以及需要需要解决散列冲突问题？  
 3. 用搜索树替代，缺点是搜索时间效率降低。  
 
-##22.1  广度优先搜索  
+##22.1  广度优先搜索(BFS)  
+#####22.2-1 Show the d and π values that result from running breadth-first search on the directed graph of Figure 22.2(a), using vertex 3 as the source.  
+Vertex: 1, π: null, d:0  
+Vertex: 2, π:4, d:3  
+Vertex: 3, π: null, d:0  
+Vertex: 4, π:5, d:2  
+Vertex: 5, π:3, d:1  
+Vertex: 6, π:3, d:1  
+见[代码](https://github.com/zhuxiuwei/CLRS/blob/master/src/chap22_ElementaryGraphAlgo/BFS.java#L19)  
+
+#####22.2-2 Show the d and π values that result from running breadth-first search on the undirected graph of Figure 22.3, using vertex u as the source.  
+Vertex: r, d:1, π:s  
+Vertex: s, d:0, π: null  
+Vertex: t, d:2, π:w  
+Vertex: u, d:3, π:t  
+Vertex: v, d:2, π:r  
+Vertex: w, d:1, π:s  
+Vertex: x, d:2, π:w  
+Vertex: y, d:3, π:x  
+见[代码](https://github.com/zhuxiuwei/CLRS/blob/master/src/chap22_ElementaryGraphAlgo/BFS.java#L39)  
+
+#####22.2-4 What is the running time of BFS if its input graph is represented by an adjacency matrix and the algorithm is modified to handle this form of input?  
+从邻接表的O(V+E)变成O(v + v^2)，因为扫描所有邻居的时间从O(E)变成O(V^2)。  
+
+#####22.2-5 Argue that in a breadth-first search, the value d[u] assigned to a vertex u is independent of the order in which the vertices in each adjacency list are given. Using Figure 22.3 as an example, show that the breadth-first tree computed by BFS can depend on the ordering within adjacency lists.  
+见[代码](https://github.com/zhuxiuwei/CLRS/blob/master/src/chap22_ElementaryGraphAlgo/BFS.java#L61)  
+The order in adjacency list is different from [practice 22.2-2](https://github.com/zhuxiuwei/CLRS/blob/master/src/chap22_ElementaryGraphAlgo/BFS.java#L39), but the d in output are the same. π can be changed.  
+Output:  
+Vertex: r, d:1, π:s  
+Vertex: s, d:0, π: null  
+Vertex: t, d:2, π:w  
+Vertex: u, d:3, π:x <- π here is different from 22.2-2 output, but d not remains the same.  
+Vertex: v, d:2, π:r  
+Vertex: w, d:1, π:s  
+Vertex: x, d:2, π:w  
+Vertex: y, d:3, π:x  
+
+
+
+
+
+
