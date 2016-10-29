@@ -47,13 +47,13 @@ in-degree:O(V+E)
 
 ##22.1  广度优先搜索(BFS)  
 #####22.2-1 Show the d and π values that result from running breadth-first search on the directed graph of Figure 22.2(a), using vertex 3 as the source.  
-Vertex: 1, π: null, d:0  
-Vertex: 2, π:4, d:3  
-Vertex: 3, π: null, d:0  
-Vertex: 4, π:5, d:2  
-Vertex: 5, π:3, d:1  
-Vertex: 6, π:3, d:1  
-见[代码](https://github.com/zhuxiuwei/CLRS/blob/master/src/chap22_ElementaryGraphAlgo/BFS.java#L19)  
+Vertex: 1, d:∞, π:bull  
+Vertex: 2, d:3, π:4  
+Vertex: 3, d:0, π:bull  
+Vertex: 4, d:2, π:5  
+Vertex: 5, d:1, π:3  
+Vertex: 6, d:1, π:3  
+See [Code](https://github.com/zhuxiuwei/CLRS/blob/master/src/chap22_ElementaryGraphAlgo/BFS.java#L20)  
 
 #####22.2-2 Show the d and π values that result from running breadth-first search on the undirected graph of Figure 22.3, using vertex u as the source.  
 Vertex: r, d:1, π:s  
@@ -64,25 +64,26 @@ Vertex: v, d:2, π:r
 Vertex: w, d:1, π:s  
 Vertex: x, d:2, π:w  
 Vertex: y, d:3, π:x  
-见[代码](https://github.com/zhuxiuwei/CLRS/blob/master/src/chap22_ElementaryGraphAlgo/BFS.java#L39)  
+See [Code](https://github.com/zhuxiuwei/CLRS/blob/master/src/chap22_ElementaryGraphAlgo/BFS.java#L40)  
 
 #####22.2-4 What is the running time of BFS if its input graph is represented by an adjacency matrix and the algorithm is modified to handle this form of input?  
 从邻接表的O(V+E)变成O(v + v^2)，因为扫描所有邻居的时间从O(E)变成O(V^2)。  
 
 #####22.2-5 Argue that in a breadth-first search, the value d[u] assigned to a vertex u is independent of the order in which the vertices in each adjacency list are given. Using Figure 22.3 as an example, show that the breadth-first tree computed by BFS can depend on the ordering within adjacency lists.  
-见[代码](https://github.com/zhuxiuwei/CLRS/blob/master/src/chap22_ElementaryGraphAlgo/BFS.java#L61)  
+See [Code](https://github.com/zhuxiuwei/CLRS/blob/master/src/chap22_ElementaryGraphAlgo/BFS.java#L62)  
 The order in adjacency list is different from [practice 22.2-2](https://github.com/zhuxiuwei/CLRS/blob/master/src/chap22_ElementaryGraphAlgo/BFS.java#L39), but the d in output are the same. π can be changed.  
 Output:  
 Vertex: r, d:1, π:s  
 Vertex: s, d:0, π: null  
 Vertex: t, d:2, π:w  
-Vertex: u, d:3, π:x <- π here is different from 22.2-2 output, but d not remains the same.  
+Vertex: u, d:3, π:x <- π here is different from 22.2-2 output, but d still remains the same.  
 Vertex: v, d:2, π:r  
 Vertex: w, d:1, π:s  
 Vertex: x, d:2, π:w  
 Vertex: y, d:3, π:x  
 
-
+#####22.2-8 The diameter of a tree T =(V, E) is given by max d(u,v), that is, the diameter is the largest of all shortest-path distances in the tree. Give an efficient algorithm to compute the diameter of a tree, and analyze the running time of your algorithm.  
+See [Code](https://github.com/zhuxiuwei/CLRS/blob/master/src/chap22_ElementaryGraphAlgo/BFS.java#L85). O(V x (V + E))  
 
 
 

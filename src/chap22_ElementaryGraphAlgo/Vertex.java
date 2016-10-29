@@ -12,16 +12,15 @@ public class Vertex<T> {
 	public Vertex(T value){
 		this.value = value;
 		this.π = null;
-		this.d = 0;
+		this.d = Integer.MAX_VALUE;
 		this.color = COLOR.WHITE;
 	}
 	
 	@Override
 	public String toString(){
-		if(π != null)
-			return "Vertex: " + value + ", d:" + d + ", π:" + π.value;
-		else
-			return "Vertex: " + value + ", d:" + d + ", π: null";
+		String dString = d == Integer.MAX_VALUE ? "∞": d + "";
+		String πString = π == null ? "null": π.value.toString();
+		return "Vertex: " + value + ", d:" + dString + ", π:" + πString;
 
 	}
 	
