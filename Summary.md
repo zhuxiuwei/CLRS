@@ -108,4 +108,4 @@
 O(V^2)的算法非常简单， 但是**O(V)**算法的思路还是挺有意思的，不好想。[参考](https://github.com/zhuxiuwei/CLRS-1/blob/master/C22-Elementary-Graph-Algorithms/22.1.md)  
 
 [BFS](https://github.com/zhuxiuwei/CLRS/blob/master/src/chap22_ElementaryGraphAlgo/BFS.java) ★★  
-需要注意BFS在初始化顶点的时候，顶点d的初始值应该是无穷大，而不是0.  
+需要注意BFS在初始化顶点的时候，顶点的d的值（除了源顶点）应该初始化为无穷大，而不是0.  
