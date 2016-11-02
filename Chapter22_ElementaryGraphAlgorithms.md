@@ -82,6 +82,9 @@ Vertex: w, d:1, π:s
 Vertex: x, d:2, π:w  
 Vertex: y, d:3, π:x  
 
+#####22.2-7 There are two types of professional wrestlers: "good guys" and "bad guys." Between any pair of professional wrestlers, there may or may not be a rivalry. Suppose we have n professional wrestlers and we have a list of r pairs of wrestlers for which there are rivalries. Give an O(n + r)-time algorithm that determines whether it is possible to designate some of the wrestlers as good guys and the remainder as bad guys such that each rivalry is between a good guy and a bad guy. If is it possible to perform such a designation, your algorithm should produce it.  
+代码见[Prac22_2_7_WrestlersPartition摔跤手分组](https://github.com/zhuxiuwei/CLRS/blob/master/src/chap22_ElementaryGraphAlgo/Prac22_2_7_WrestlersPartition.java)，有一个注意点。  
+
 #####22.2-8 The diameter of a tree T =(V, E) is given by max d(u,v), that is, the diameter is the largest of all shortest-path distances in the tree. Give an efficient algorithm to compute the diameter of a tree, and analyze the running time of your algorithm.  
 See [Code](https://github.com/zhuxiuwei/CLRS/blob/master/src/chap22_ElementaryGraphAlgo/BFS.java#L85). O(V x (V + E))  
 
