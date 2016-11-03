@@ -45,7 +45,7 @@ in-degree:O(V+E)
 2. 缺点是HashTable更占空间？以及需要需要解决散列冲突问题？  
 3. 用搜索树替代，缺点是搜索时间效率降低。  
 
-##22.1  广度优先搜索(BFS)  
+##22.2  广度优先搜索(BFS)  
 #####22.2-1 Show the d and π values that result from running breadth-first search on the directed graph of Figure 22.2(a), using vertex 3 as the source.  
 Vertex: 1, d:∞, π:bull  
 Vertex: 2, d:3, π:4  
@@ -88,6 +88,6 @@ Vertex: y, d:3, π:x
 #####22.2-8 The diameter of a tree T =(V, E) is given by max d(u,v), that is, the diameter is the largest of all shortest-path distances in the tree. Give an efficient algorithm to compute the diameter of a tree, and analyze the running time of your algorithm.  
 See [Code](https://github.com/zhuxiuwei/CLRS/blob/master/src/chap22_ElementaryGraphAlgo/BFS.java#L85). O(V x (V + E))  
 
-
+##22.3  深度优先搜索(DFS)  
 
 
