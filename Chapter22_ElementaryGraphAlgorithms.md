@@ -89,5 +89,40 @@ Vertex: y, d:3, π:x
 See [Code](https://github.com/zhuxiuwei/CLRS/blob/master/src/chap22_ElementaryGraphAlgo/BFS.java#L85). O(V x (V + E))  
 
 ##22.3  深度优先搜索(DFS)  
+#####22.3-1 Show how depth-first search works on the graph of Figure 22.6. Assume that the for loop of lines 5-7 of the DFS procedure considers the vertices in alphabetical order, and assume that each adjacency list is ordered alphabetically. Show the discovery and finishing times for each vertex, and show the classification of each edge.  
+有向图：  
+![](https://github.com/zhuxiuwei/CLRS/blob/master/Images/22.3-1a.png)  
+无向图：  
+![](https://github.com/zhuxiuwei/CLRS/blob/master/Images/22.3-1b.png)  
+* 有向图，无向图均不可能存在black到white的边，因为一个点必须所有邻居都处理完才能变成black。  
+* 有向图没有C和F（定理22.10）。  
+* B的出现，在图形成环的时候才会出现。  
 
+#####22.3-1 Show how depth-first search works on the graph of Figure 22.6. Assume that the for loop of lines 5-7 of the DFS procedure considers the vertices in alphabetical order, and assume that each adjacency list is ordered alphabetically. Show the discovery and finishing times for each vertex, and show the classification of each edge.  
+For d and t，see [code](https://github.com/zhuxiuwei/CLRS/blob/master/src/chap22_ElementaryGraphAlgo/DFS.java#L53):  
+Vertex:  q, π: null, d:  1, t: 16  
+Vertex:  r, π: null, d: 17, t: 20  
+Vertex:  s, π:    q, d:  2, t:  7  
+Vertex:  t, π:    q, d:  8, t: 15  
+Vertex:  u, π:    r, d: 18, t: 19  
+Vertex:  v, π:    s, d:  3, t:  6  
+Vertex:  w, π:    v, d:  4, t:  5  
+Vertex:  x, π:    t, d:  9, t: 12  
+Vertex:  y, π:    t, d: 13, t: 14  
+Vertex:  z, π:    x, d: 10, t: 11  
+For edge types, see [code](https://github.com/zhuxiuwei/CLRS/blob/master/src/chap22_ElementaryGraphAlgo/DFS.java#L86):  
+q -> s, T  
+q -> t, T  
+q -> w, F  
+r -> u, T  
+r -> y, C  
+s -> v, T  
+t -> x, T  
+t -> y, T  
+u -> y, C  
+v -> w, T  
+w -> s, B  
+x -> z, T  
+y -> q, B  
+z -> x, B  
 
