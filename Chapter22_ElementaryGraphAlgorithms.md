@@ -129,7 +129,7 @@ z -> x, B
 #####22.3-7 Rewrite the procedure DFS, using a stack to eliminate recursion.  
 See [Code](https://github.com/zhuxiuwei/CLRS/blob/master/src/chap22_ElementaryGraphAlgo/DFS.java#L160).  
 
-#####22.3-8 Give a counterexample to the conjecture that if there is a path from u to v in a directed graph G, then any depth-first search must result in d[v] < f[u].  
+#####22.3-8 请给出如下猜想的一个反例：如果有向图 G 包含一条从结点 u 到结点 v 的路径，并且在对图 G 进行深度优先搜索时有 u.d ＜ v.d，则结点 v 是结点 u 在深度优先森林中的一个后代。  
 反例如图：  
 ![](https://github.com/zhuxiuwei/CLRS/blob/master/Images/22.3-8.png)  
 
