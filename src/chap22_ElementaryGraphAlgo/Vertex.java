@@ -7,23 +7,23 @@ public class Vertex<T> {
 	public T value;
 	public Vertex<T> π;
 	public int d;	//for BFS means depth, for DFS means start time.
-	public int t;	//
+	public int f;	//
 	public COLOR color;
 	
 	public Vertex(T value){
 		this.value = value;
 		this.π = null;
 		this.d = Integer.MAX_VALUE;
-		this.t = Integer.MAX_VALUE;
+		this.f = Integer.MAX_VALUE;
 		this.color = COLOR.WHITE;
 	}
 	
 	@Override
 	public String toString(){
 		String dString = d == Integer.MAX_VALUE ? "∞": d + "";
-		String tString = t == Integer.MAX_VALUE ? "∞": t + "";
+		String tString = f == Integer.MAX_VALUE ? "∞": f + "";
 		String πString = π == null ? "null": π.value.toString();
-		return String.format("Vertex: %2s, π: %4s, d: %2s, t: %2s", value, πString, dString, tString);
+		return String.format("Vertex: %2s, π: %4s, d: %2s, f: %2s", value, πString, dString, tString);
 
 	}
 	

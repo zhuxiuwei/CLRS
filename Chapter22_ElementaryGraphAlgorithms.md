@@ -98,8 +98,8 @@ See [Code](https://github.com/zhuxiuwei/CLRS/blob/master/src/chap22_ElementaryGr
 * 有向图没有C和F（定理22.10）。  
 * B的出现，在图形成环的时候才会出现。  
 
-#####22.3-1 Show how depth-first search works on the graph of Figure 22.6. Assume that the for loop of lines 5-7 of the DFS procedure considers the vertices in alphabetical order, and assume that each adjacency list is ordered alphabetically. Show the discovery and finishing times for each vertex, and show the classification of each edge.  
-For d and t，see [code](https://github.com/zhuxiuwei/CLRS/blob/master/src/chap22_ElementaryGraphAlgo/DFS.java#L53):  
+#####22.3-2 Show how depth-first search works on the graph of Figure 22.6. Assume that the for loop of lines 5-7 of the DFS procedure considers the vertices in alphabetical order, and assume that each adjacency list is ordered alphabetically. Show the discovery and finishing times for each vertex, and show the classification of each edge.  
+For d and t，see [code](https://github.com/zhuxiuwei/CLRS/blob/master/src/chap22_ElementaryGraphAlgo/DFS.java#L52):  
 Vertex:  q, π: null, d:  1, t: 16  
 Vertex:  r, π: null, d: 17, t: 20  
 Vertex:  s, π:    q, d:  2, t:  7  
@@ -110,7 +110,7 @@ Vertex:  w, π:    v, d:  4, t:  5
 Vertex:  x, π:    t, d:  9, t: 12  
 Vertex:  y, π:    t, d: 13, t: 14  
 Vertex:  z, π:    x, d: 10, t: 11  
-For edge types, see [code](https://github.com/zhuxiuwei/CLRS/blob/master/src/chap22_ElementaryGraphAlgo/DFS.java#L86):  
+For edge types, see [code](https://github.com/zhuxiuwei/CLRS/blob/master/src/chap22_ElementaryGraphAlgo/DFS.java#L85):  
 q -> s, T  
 q -> t, T  
 q -> w, F  
@@ -125,4 +125,20 @@ w -> s, B
 x -> z, T  
 y -> q, B  
 z -> x, B  
+
+#####22.3-7 Rewrite the procedure DFS, using a stack to eliminate recursion.  
+See [Code](https://github.com/zhuxiuwei/CLRS/blob/master/src/chap22_ElementaryGraphAlgo/DFS.java#L160).  
+
+#####22.3-8 Give a counterexample to the conjecture that if there is a path from u to v in a directed graph G, then any depth-first search must result in d[v] < f[u].  
+反例如图：  
+![](https://github.com/zhuxiuwei/CLRS/blob/master/Images/22.3-8.png)  
+
+#####22.3-9 请给出如下猜想的一个反例：如果有向图 G 包含一条从结点 u 到结点 v 的路径，则任何对图 G 的深度优先搜索都将导致 v.d ≤ u.f。  
+Same example as 22.3-8: 
+![](https://github.com/zhuxiuwei/CLRS/blob/master/Images/22.3-8.png)  
+
+#####22.3-10 Modify the pseudocode for depth-first search so that it prints out every edge in the directed graph G, together with its type. Show what modifications, if any, must be made if G is undirected.有向图和无向图如何打印每条边的分类。  
+For directed graph, [Code](https://github.com/zhuxiuwei/CLRS/blob/master/src/chap22_ElementaryGraphAlgo/DFS.java#L88).  
+For directed graph, it's even easier as it only has T and B type edges, No C nor F edges. [Code](https://github.com/zhuxiuwei/CLRS/blob/master/src/chap22_ElementaryGraphAlgo/DFS.java#L104).  
+
 
