@@ -99,7 +99,7 @@ See [Code](https://github.com/zhuxiuwei/CLRS/blob/master/src/chap22_ElementaryGr
 * B的出现，在图形成环的时候才会出现。  
 
 #####22.3-2 Show how depth-first search works on the graph of Figure 22.6. Assume that the for loop of lines 5-7 of the DFS procedure considers the vertices in alphabetical order, and assume that each adjacency list is ordered alphabetically. Show the discovery and finishing times for each vertex, and show the classification of each edge.  
-For d and t，see [code](https://github.com/zhuxiuwei/CLRS/blob/master/src/chap22_ElementaryGraphAlgo/DFS.java#L52):  
+For d and t，Example see [code](https://github.com/zhuxiuwei/CLRS/blob/master/src/chap22_ElementaryGraphAlgo/DFS.java#L52):  
 Vertex:  q, π: null, d:  1, t: 16  
 Vertex:  r, π: null, d: 17, t: 20  
 Vertex:  s, π:    q, d:  2, t:  7  
@@ -110,7 +110,7 @@ Vertex:  w, π:    v, d:  4, t:  5
 Vertex:  x, π:    t, d:  9, t: 12  
 Vertex:  y, π:    t, d: 13, t: 14  
 Vertex:  z, π:    x, d: 10, t: 11  
-For edge types, see [code](https://github.com/zhuxiuwei/CLRS/blob/master/src/chap22_ElementaryGraphAlgo/DFS.java#L85):  
+For how to judge edge types, see [code](https://github.com/zhuxiuwei/CLRS/blob/master/src/chap22_ElementaryGraphAlgo/DFS.java#L88):  
 q -> s, T  
 q -> t, T  
 q -> w, F  
@@ -139,6 +139,11 @@ Same example as 22.3-8:
 
 #####22.3-10 Modify the pseudocode for depth-first search so that it prints out every edge in the directed graph G, together with its type. Show what modifications, if any, must be made if G is undirected.有向图和无向图如何打印每条边的分类。  
 For directed graph, [Code](https://github.com/zhuxiuwei/CLRS/blob/master/src/chap22_ElementaryGraphAlgo/DFS.java#L88).  
-For directed graph, it's even easier as it only has T and B type edges, No C nor F edges. [Code](https://github.com/zhuxiuwei/CLRS/blob/master/src/chap22_ElementaryGraphAlgo/DFS.java#L104).  
+For directed graph, it's even easier as it only has T and B type edges, No C nor F edges. [Code](https://github.com/zhuxiuwei/CLRS/blob/master/src/chap22_ElementaryGraphAlgo/DFS.java#L104). An [example](https://github.com/zhuxiuwei/CLRS/blob/master/src/chap22_ElementaryGraphAlgo/DFS.java#L113).  
 
+#####22.3-12 证明：我们可以在无向图 F 上使用深度优先搜索来获得图 G 的连通分量，并且深度优先森林所包含的树的棵数与 G 的连通分量数量相同。更准确地说，请给出如何修改深度优先搜索来让其每个结点赋予一个介于 1 和 k 之间的整数值 v.cc，这里 k 是 G 的连通分量数，使得 u.cc = v.cc 当且仅当结点 u 和结点 v 处于同一个连通分量中。  
+Update DFS at line 7, each time the code runs DFS-VISIT, cc + 1.  
+
+#####22.3-13 对于有向图 G = (V, E) 来说，如果 u ~ v意味着图 G 至多包含一条从 u 到 v 的简单路径，则图 G 是单连通图(singly connected)。请给出一个有效算法来判断一个有向图是否单连通图。  
+For singly connected, means there is no F,B edges, only contains T, C edge. So run DFS, then print all edges types, if only contains T or C edge then it's singly connected, otherwise not.  
 
