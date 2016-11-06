@@ -45,7 +45,7 @@ in-degree:O(V+E)
 2. 缺点是HashTable更占空间？以及需要需要解决散列冲突问题？  
 3. 用搜索树替代，缺点是搜索时间效率降低。  
 
-##22.2  广度优先搜索(BFS)  
+##22.2 广度优先搜索(BFS)  
 #####22.2-1 Show the d and π values that result from running breadth-first search on the directed graph of Figure 22.2(a), using vertex 3 as the source.  
 Vertex: 1, d:∞, π:bull  
 Vertex: 2, d:3, π:4  
@@ -88,7 +88,7 @@ Vertex: y, d:3, π:x
 #####22.2-8 The diameter of a tree T =(V, E) is given by max d(u,v), that is, the diameter is the largest of all shortest-path distances in the tree. Give an efficient algorithm to compute the diameter of a tree, and analyze the running time of your algorithm.  
 See [Code](https://github.com/zhuxiuwei/CLRS/blob/master/src/chap22_ElementaryGraphAlgo/BFS.java#L85). O(V x (V + E))  
 
-##22.3  深度优先搜索(DFS)  
+##22.3 深度优先搜索(DFS)  
 #####22.3-1 Show how depth-first search works on the graph of Figure 22.6. Assume that the for loop of lines 5-7 of the DFS procedure considers the vertices in alphabetical order, and assume that each adjacency list is ordered alphabetically. Show the discovery and finishing times for each vertex, and show the classification of each edge.  
 有向图：  
 ![](https://github.com/zhuxiuwei/CLRS/blob/master/Images/22.3-1a.png)  
@@ -146,4 +146,13 @@ Update DFS at line 7, each time the code runs DFS-VISIT, cc + 1.
 
 #####22.3-13 对于有向图 G = (V, E) 来说，如果 u ~ v意味着图 G 至多包含一条从 u 到 v 的简单路径，则图 G 是单连通图(singly connected)。请给出一个有效算法来判断一个有向图是否单连通图。  
 For singly connected, means there is no F,B edges, only contains T, C edge. So run DFS, then print all edges types, if only contains T or C edge then it's singly connected, otherwise not.  
+
+##22.4 拓扑排序(topological sort)  
+#####22.4-1 Show the ordering of vertices produced by TOPOLOGICAL-SORT when it is run on the dag of Figure 22.8, under the assumption of Exercise 22.3-2.  
+[Code](https://github.com/zhuxiuwei/CLRS/blob/master/src/chap22_ElementaryGraphAlgo/Topological_sort.java#L60): p (27, 28) ->n (21, 26) ->o (22, 25) ->s (23, 24) ->m (1, 20) ->r (6, 19) ->y (9, 18) ->v (10, 17) ->x (15, 16) ->w (11, 14) ->z (12, 13) ->u (7, 8) ->q (2, 5) ->t (3, 4)  
+![](https://github.com/zhuxiuwei/CLRS/blob/master/Images/22.4-1.png)  
+
+#####22.4-2 有向无环图G = (V, E) 两个节点s,t间简单路径的数量（不要求将简单路径列举出来）。For example, in the directed acyclic graph of Figure 22.8, there are exactly four paths from vertex p to vertex v: pov, por yv, posr yv, and psr yv.  
+
+
 
