@@ -46,6 +46,13 @@ public class Vertex<T> {
 		res = res * 31 + value.hashCode();
 		return res;
 	}
+	
+	public void reset(){
+		this.π = null;
+		this.d = Integer.MAX_VALUE;
+		this.f = Integer.MAX_VALUE;
+		this.color = COLOR.WHITE;
+	}
 }
 
 enum COLOR{WHITE, GREY, BLACK}

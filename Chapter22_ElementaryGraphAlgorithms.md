@@ -153,6 +153,8 @@ For singly connected, means there is no F,B edges, only contains T, C edge. So r
 ![](https://github.com/zhuxiuwei/CLRS/blob/master/Images/22.4-1.png)  
 
 #####22.4-2 有向无环图G = (V, E) 两个节点s,t间简单路径的数量（不要求将简单路径列举出来）。For example, in the directed acyclic graph of Figure 22.8, there are exactly four paths from vertex p to vertex v: pov, por yv, posr yv, and psr yv.  
-
+General idea: Leverage DFS process. When meet a node, if it is T, or it has a path to T, the count + 1. Need two sets and one map as extra assistant space.  
+[Code](https://github.com/zhuxiuwei/CLRS/blob/master/src/chap22_ElementaryGraphAlgo/CountOfPaths.java)。
+花费了比较长的时间，感觉自己写的方案并不简洁，希望能有更好的方案。  
 
 
