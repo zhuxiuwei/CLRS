@@ -114,3 +114,7 @@ O(V^2)的算法非常简单， 但是**O(V)**算法的思路还是挺有意思�
 三个注意点.  
 两个是[关于DFS](https://github.com/zhuxiuwei/CLRS/blob/master/src/chap22_ElementaryGraphAlgo/DFS.java#L39)的。对一个顶点是否调用递归函数，要先判断是否是WHITE(BFS处理一个节点时也要判断)； 另一个是timer累加的时机注意一下。  
 一个是[关于打印节点类型](https://github.com/zhuxiuwei/CLRS/blob/master/src/chap22_ElementaryGraphAlgo/DFS.java#L87)的。  
+
+[有向无环图两个节点间简单路径的数量](https://github.com/zhuxiuwei/CLRS/blob/master/src/chap22_ElementaryGraphAlgo/CountOfPaths.java)。★★★★  
+花费了比较长的时间才获取正确结果，感觉自己写的方案并不简洁，希望能有更好的方案。  
+
