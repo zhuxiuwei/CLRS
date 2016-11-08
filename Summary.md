@@ -117,4 +117,5 @@ O(V^2)的算法非常简单， 但是**O(V)**算法的思路还是挺有意思�
 
 [有向无环图两个节点间简单路径的数量](https://github.com/zhuxiuwei/CLRS/blob/master/src/chap22_ElementaryGraphAlgo/CountOfPaths.java)。★★★★  
 花费了比较长的时间才获取正确结果，感觉自己写的方案并不简洁，希望能有更好的方案。  
+注意如何记录一个结点已经访问过的邻居结点的 - 用一个map [Map<Vertex<E>, Integer> neighborsHasCheckedIndex](https://github.com/zhuxiuwei/CLRS/blob/master/src/chap22_ElementaryGraphAlgo/CountOfPaths.java)。__最开始我这个map的value是Set<Vertex<E>>，后来发现用Integer记录访问过的index__，能达到同样的效果，而且比Set<Vertex<E>>更省空间。  
 

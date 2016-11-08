@@ -156,5 +156,5 @@ For singly connected, means there is no F,B edges, only contains T, C edge. So r
 General idea: Leverage DFS process. When meet a node, if it is T, or it has a path to T, the count + 1. Need two sets and one map as extra assistant space.  
 [Code](https://github.com/zhuxiuwei/CLRS/blob/master/src/chap22_ElementaryGraphAlgo/CountOfPaths.java)。
 花费了比较长的时间，感觉自己写的方案并不简洁，希望能有更好的方案。  
-
+注意如何记录一个结点已经访问过的邻居结点的 - 用一个map [Map<Vertex<E>, Integer> neighborsHasCheckedIndex](https://github.com/zhuxiuwei/CLRS/blob/master/src/chap22_ElementaryGraphAlgo/CountOfPaths.java)。__最开始我这个map的value是Set<Vertex<E>>，后来发现用Integer记录访问过的index__，能达到同样的效果，而且比Set<Vertex<E>>更省空间。  
 
