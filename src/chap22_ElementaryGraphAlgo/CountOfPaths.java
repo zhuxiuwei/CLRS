@@ -10,9 +10,9 @@ import java.util.Set;
 import java.util.Stack;
 
 /**
- * 161107 Practice 22.4-2 两个结点之间简单路径的数量。
+ * 161107 Practice 22.4-2 有向无环图，两个结点之间简单路径的数量。
  * @author xiuzhu
- * !!!! Note: 花了比较多的时间。关键是在扫描邻居的时候，为了不要扫描已经扫描过的，需要加一个map neighborsHasChecked 来记录。
+ * !!!! Note: 花了比较多的时间。关键是在扫描邻居的时候，为了不要扫描已经扫描过的，需要加一个map neighborsHasCheckedIndex 来记录。
  */
 public class CountOfPaths {
 	
@@ -30,32 +30,35 @@ public class CountOfPaths {
 		Stack<Vertex<E>> stack = new Stack<Vertex<E>>();
 		Set<Vertex<E>> visiting = new HashSet<Vertex<E>>();
 		Set<Vertex<E>> hasPathToT = new HashSet<Vertex<E>>();
-		Map<Vertex<E>, Set<Vertex<E>>> neighborsHasChecked = new HashMap<Vertex<E>, Set<Vertex<E>>>();	//Note, need add this to avoid go back and double counted.
+		Map<Vertex<E>, Integer> neighborsHasCheckedIndex = new HashMap<Vertex<E>, Integer>();	//Note, need add this to avoid go back and double counted.
 		//initialize neighborsHasChecked map
 		for (Vertex<E> ver: graph.keySet()) {
 			ver.reset();
-			neighborsHasChecked.put(ver, new HashSet<Vertex<E>>());
+			neighborsHasCheckedIndex.put(ver, 0);
 		}
 		s.color = COLOR.GREY;
 		stack.push(s);
 		while(s.color != COLOR.BLACK){
 			Vertex<E> next = null;
-			for (Vertex<E> neighbor: graph.get(stack.peek())){
+			
+			int neighborIndex = neighborsHasCheckedIndex.get(stack.peek());
+			while(neighborIndex < graph.get(stack.peek()).size()){
+				Vertex<E> neighbor = graph.get(stack.peek()).get(neighborIndex);
 				if(neighbor.color == COLOR.WHITE){
-					neighborsHasChecked.get(stack.peek()).add(neighbor);	//!!!Note when to add to neighborsHasChecked
+					neighborsHasCheckedIndex.put(stack.peek(), ++ neighborIndex);
 					next = neighbor;
 					break;
 				}
 				else{
-					if(!neighborsHasChecked.get(stack.peek()).contains(neighbor)){	//Each neighbor just check once, to avoid go back and double counted.
-						if(neighbor.equals(t) || hasPathToT.contains(neighbor)){
-							hasPathToT.addAll(visiting);
-							count ++;	//when T is already grey.
-						}
+					if(neighbor.equals(t) || hasPathToT.contains(neighbor)){
+						hasPathToT.addAll(visiting);
+						count ++;	//when T is already grey.
 					}
-					neighborsHasChecked.get(stack.peek()).add(neighbor);	//!!!Note when to add to neighborsHasChecked
 				}
+				neighborsHasCheckedIndex.put(stack.peek(), ++ neighborIndex);
 			}
+			
+			
 			if(next != null && !next.equals(t)){
 				next.π = stack.peek();
 				next.color = COLOR.GREY;

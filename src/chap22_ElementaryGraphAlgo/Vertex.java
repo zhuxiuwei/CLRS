@@ -20,11 +20,15 @@ public class Vertex<T> {
 	
 	@Override
 	public String toString(){
+		return value.toString();
+
+	}
+	
+	public String formatString(){
 		String dString = d == Integer.MAX_VALUE ? "∞": d + "";
 		String tString = f == Integer.MAX_VALUE ? "∞": f + "";
 		String πString = π == null ? "null": π.value.toString();
 		return String.format("Vertex: %2s, π: %4s, d: %2s, f: %2s", value, πString, dString, tString);
-
 	}
 	
 	@Override

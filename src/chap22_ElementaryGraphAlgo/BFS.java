@@ -31,7 +31,7 @@ public class BFS {
 		System.out.println("=========== prac_22_2_1: After BFS: ==============");
 		bfs(g, v3);
 		for(Vertex<Integer> key: g.keySet())
-			System.out.println(key);
+			System.out.println(key.formatString());
 	}
 	
 	/**
@@ -53,7 +53,7 @@ public class BFS {
 		System.out.println("=========== prac_22_2_2: After BFS: ==============");
 		bfs(g, s);
 		for(Vertex<Character> key: g.keySet())
-			System.out.println(key);
+			System.out.println(key.formatString());
 	}
 	
 	/**
@@ -75,7 +75,7 @@ public class BFS {
 		System.out.println("=========== prac_22_2_5: After BFS: ==============");
 		bfs(g, s);
 		for(Vertex<Character> key: g.keySet())
-			System.out.println(key);
+			System.out.println(key.formatString());
 	}
 	
 	/**

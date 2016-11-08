@@ -70,7 +70,7 @@ public class DFS<T> {
 		
 		//print d and t.
 		for (Vertex<Character> ver: g.keySet()) {
-			System.out.println(ver);
+			System.out.println(ver.formatString());
 		}
 		
 		//print edge types
@@ -125,7 +125,7 @@ public class DFS<T> {
 		dfs(g);
 		//print d and t.
 		for (Vertex<Character> ver: g.keySet()) {
-			System.out.println(ver);
+			System.out.println(ver.formatString());
 		}
 		//print edge types
 		for (Vertex<Character> uu: g.keySet()) {
