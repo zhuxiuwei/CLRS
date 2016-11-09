@@ -15,7 +15,7 @@ import java.util.Stack;
 public class IsUndirectedGraphCyclic {
 	
 	/**
-	 * judge if a Undirected Graph is acyclic
+	 * judge if a Undirected Graph is cyclic
 	 * @param graph
 	 * @return true if cyclic, false if acyclic.
 	 */
@@ -46,7 +46,7 @@ public class IsUndirectedGraphCyclic {
 						else{
 							if(stack.peek().equals(neighbor) //special case: when there is an edge point to self.
 									|| ! stack.peek().π.equals(neighbor))	//Not an edge connect descendant to ancestor
-								return true;	//got a NEW neighbor which is grey, Graph is acyclic.
+								return true;	//got a NEW neighbor which is grey, Graph is cyclic.
 							neighborsHasCheckedIndex.put(stack.peek(), ++ neighborIndex);
 						}
 					}
@@ -73,11 +73,11 @@ public class IsUndirectedGraphCyclic {
 		List<Vertex<Character>> ol = new LinkedList<Vertex<Character>>(); ol.add(m); ol.add(n);
 		Map<Vertex<Character>, List<Vertex<Character>>> g1 = new LinkedHashMap<Vertex<Character>, List<Vertex<Character>>>();
 		g1.put(m, ml); g1.put(n, nl); g1.put(o, ol);
-		//System.out.println(judge(g1));	//true
+		System.out.println(judge(g1));	//true
 
 		List<Vertex<Character>> pl = new LinkedList<Vertex<Character>>(); pl.add(q); pl.add(r);
 		List<Vertex<Character>> ql = new LinkedList<Vertex<Character>>(); ql.add(p);
-		List<Vertex<Character>> rl = new LinkedList<Vertex<Character>>(); rl.add(p); rl.add(r); 
+		List<Vertex<Character>> rl = new LinkedList<Vertex<Character>>(); rl.add(p);
 		Map<Vertex<Character>, List<Vertex<Character>>> g2 = new LinkedHashMap<Vertex<Character>, List<Vertex<Character>>>();
 		g2.put(p, pl); g2.put(q, ql); g2.put(r, rl);
 		System.out.println(judge(g2));	//false
