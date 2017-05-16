@@ -163,4 +163,8 @@ No cycle, means during DFS, when check a NEW neighbors of a vertex, the neighbor
 Or, during BFS, there should be no back edges.  
 Time usage in this DFS scenario is O(V), not O(V+E) as: (1) If there is no cycle, the DFS will be finished in O(V); (2). If there is cycle, DFS must be completed before we see the Nth vertex.  
 
-
+#####22.4-5 (拓扑排序的另外一种实现方式)Another way to perform topological sorting on a directed acyclic graph G = (V, E) is to repeatedly find a vertex of in-degree 0, output it, and remove it and all of its outgoing edges from the graph. Explain how to implement this idea so that it runs in time O(V + E). What happens to this algorithm if G has cycles?  
+General idea:  
+* Run BFS or DFS to calculate in-degree of each vertex. O(V+E)  
+* For each vertex that in-degree is 0, print it and update the in-degree of its neighbors accordingly, then there will be new in-degree=0 vertexes. Repeat this step until all vertex got printed. The entire process is also O(V+E)  
+If G has cycles, then after several iterations there will be no in-degree=0 vertexes. But original topological sorting algorithm is also only applied to **directed acyclic graph**.  

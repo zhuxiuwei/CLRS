@@ -7,7 +7,7 @@ import java.util.Map;
 import java.util.Stack;
 
 /**
- * 161106 CLRS 22.4 - Topological sort
+ * 161106 CLRS 22.4 - Topological sort - for directed acyclic graph. 
  * @author Zhu Xiuwei
  */
 public class Topological_sort<T> {
@@ -15,21 +15,21 @@ public class Topological_sort<T> {
 	private static int time = 0;
 	/**
 	 * topologicalSort
-	 * @param grahp The graph
-	 * @return grahp after topological sort
+	 * @param graph The graph
+	 * @return graph after topological sort
 	 */
-	public static <E> List<Vertex<E>> topologicalSort(Map<Vertex<E>, List<Vertex<E>>> grahp){
+	public static <E> List<Vertex<E>> topologicalSort(Map<Vertex<E>, List<Vertex<E>>> graph){
 		List<Vertex<E>> res = new LinkedList<Vertex<E>>();
 		time = 0;
 		Stack<Vertex<E>> stack = new Stack<Vertex<E>>();
-		for (Vertex<E> u: grahp.keySet()) {
+		for (Vertex<E> u: graph.keySet()) {
 			stack.clear();
 			if(u.color == COLOR.WHITE){
 				u.color = COLOR.GREY;
 				u.d = ++ time;
 				stack.push(u);
 				while(!stack.isEmpty()){
-					Vertex<E> next = getAWhiteNeighbor(grahp, stack.peek());
+					Vertex<E> next = getAWhiteNeighbor(graph, stack.peek());
 					if(next != null){	//keep on search Neighbor.
 						next.π = stack.peek();
 						next.d = ++ time;
