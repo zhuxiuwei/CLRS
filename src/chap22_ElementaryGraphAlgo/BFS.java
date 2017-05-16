@@ -105,9 +105,9 @@ public class BFS {
 			v.d = Integer.MAX_VALUE;	//!!!!!! Note: BFS每次初始化的时候，d的值要设置为∞，而不是0.
 			v.π = null;
 		}
-		s.d = 0;
 		
 		Queue<Vertex<E>> q = new LinkedList<Vertex<E>>();
+		s.d = 0;
 		s.color = COLOR.GREY;
 		q.offer(s);
 		while(!q.isEmpty()){
