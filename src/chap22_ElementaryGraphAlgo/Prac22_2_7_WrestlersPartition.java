@@ -139,7 +139,7 @@ public class Prac22_2_7_WrestlersPartition {
 class ResultSets<T>{
 	public Set<Vertex<T>> goodGuys = new HashSet<Vertex<T>>();	//good guys set
 	public Set<Vertex<T>> badGuys = new HashSet<Vertex<T>>();	//bad guys set
-	public boolean canBePartitioned = true;	//True if can be partitioned, else false. Default false.
+	public boolean canBePartitioned = true;	//True if can be partitioned, else false. Default true.
 	
 	/**
 	 * 判断给定的选手被划分到哪个组。
