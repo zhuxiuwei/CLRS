@@ -50,7 +50,7 @@
 注意*泛型*，*继承*，*内部类*的语法。  
 
 [链表反转](https://github.com/zhuxiuwei/CLRS/blob/master/src/chap10_ElementaryDataStructures/LinkedList.java)的revert方法 ★★  
-有两个边界值的注意点。__如果手写，还是做不到完全不出错__，郁闷~~~~！！！！  
+有两个边界值的注意点。**如果手写，还是做不到完全不出错**，郁闷~~~~！！！！  
 
 [用单数组表示法实现双向链表](https://github.com/zhuxiuwei/CLRS/blob/master/src/chap10_ElementaryDataStructures/ObjectImplBySingleArray.java) ★★★  
 算法思路挺有意思。不算难，稍微有点复杂。  
@@ -60,9 +60,9 @@
 ## 第11章 哈希表  
 [直接寻址表的实现](https://github.com/zhuxiuwei/CLRS/blob/master/src/chap11_HashTables/DirectAddressTable.java) ★  
 题不难，但是从Java语法角度，有些有意思的东西要注意：  
-1. Java不支持泛型数组。如果直接写 a = new E[array_size]会报错：'Cannot create a generic array of E'。 注意是如何实现一个__泛型数组__的。参考http://stackoverflow.com/questions/529085/how-to-create-a-generic-array-in-java  
-2. 用元素的__hashcode__做key，来做该元素的插入和删除。  
-3. 有意思的一点。从直接寻址表删除时，我模仿HashSet的行为。__Set判断两个元素是否相同，即要判断俩元素是否equals，又要判断hashcode是否相等！__  
+1. Java不支持泛型数组。如果直接写 a = new E[array_size]会报错：'Cannot create a generic array of E'。 注意是如何实现一个**泛型数组**的。参考http://stackoverflow.com/questions/529085/how-to-create-a-generic-array-in-java  
+2. 用元素的**hashcode**做key，来做该元素的插入和删除。  
+3. 有意思的一点。从直接寻址表删除时，我模仿HashSet的行为。**Set判断两个元素是否相同，即要判断俩元素是否equals，又要判断hashcode是否相等！**  
  	因为是用hashcode做key，如果元素1和元素2有一样的hashcode,如果直接寻址表中存储的是m1，但是执行delete(m2)，那么：  
  		如果m1.equals(m2)，那么应该m1也被删除。（从集合的视角看，这俩元素相同）  
  		如果m1 not equals m2，那么m1不应该被删除。（从集合的视角看，这俩元素不同）  
@@ -71,13 +71,13 @@
 [BinaryTree非递归算法](https://github.com/zhuxiuwei/CLRS/blob/master/src/chap12_BinarySearchTree/BinaryTree.java)★★★★  
 1. 中序遍历的非递归，debug写的，纸上写肯定还是不熟练。其中有一个额外需要注意的地方，需要加一个判断条件防止算法走“回头路”。回头路指的是一个节点的左孩子已经遍历过了，别回过头来又遍历，导致死循环。  
 2. 先序遍历的非递归的一个bug：退出循环的条件，需要加上node.left != null的判断条件。否则当树的root只有左孩子时，除了root，左孩子都遍历不到。
-3. 后续遍历的非递归，是三者之中__最复杂__的。和中序遍历一样，后序遍历要记录已经访问过的节点，避免走“回头路”。而这里的逻辑比中序遍历更复杂，是主要的难点。 
+3. 后续遍历的非递归，是三者之中**最复杂**的。和中序遍历一样，后序遍历要记录已经访问过的节点，避免走“回头路”。而这里的逻辑比中序遍历更复杂，是主要的难点。 
 后序遍历记录节点的访问，需要两个flag分别记录左右子树的访问情况。这里引出了三个另外的注意点。  
 
 [二叉搜索树的插入和删除](https://github.com/zhuxiuwei/CLRS/blob/master/src/chap12_BinarySearchTree/BinarySearchTree_InsertAndDelete.java)★★  
 有两个注意点，其中第二个更需要注意：  
 1：插入节点递归算法，找到要插入的地方的条件开始写错了，写成了currentNode.left == null && currentNode.right == null，浪费不少时间。需要先仔细想想。  
-2： 删除结点时，__如果被删除的结点是root，需要特殊考虑！__ （比如它没有parent，因此不能直接修改parent的指针，会NullPointerException；它的parent可以理解成tree的root指针）为此抽象出来了updateParentPointToNewChild()方法。  
+2： 删除结点时，**如果被删除的结点是root，需要特殊考虑！** （比如它没有parent，因此不能直接修改parent的指针，会NullPointerException；它的parent可以理解成tree的root指针）为此抽象出来了updateParentPointToNewChild()方法。  
 
 [有successor没有parent指针的二叉搜索树](https://github.com/zhuxiuwei/CLRS/blob/master/src/chap12_BinarySearchTree/BinarySearchTree_NodeHasSuccessorPointerButNoParentPointer.java)★★  
  注意点：  
@@ -88,14 +88,14 @@
 ## 第15章 动态规划  
 [钢管切割的bottom oUp方法](https://github.com/zhuxiuwei/CLRS/blob/master/src/chap15_DynamicProgramming/CutRod.java),
 [斐波那契数列](https://github.com/zhuxiuwei/CLRS/blob/master/src/chap15_DynamicProgramming/FibonacciDynamicProgramming.java)  
-两者有一个共同点：用__辅助数组r记录各个子问题结果，然后n的最优解返回r[n]__。看起来用动态规划Bottom Up算法这是一个很好用的思路！  
+两者有一个共同点：用**辅助数组r记录各个子问题结果，然后n的最优解返回r[n]**。看起来用动态规划Bottom Up算法这是一个很好用的思路！  
 
 [LCS最长公共子序列](https://github.com/zhuxiuwei/CLRS/blob/master/src/chap15_DynamicProgramming/LCS.java)  
 使用哨兵可以简化问题。有三个注意点。其中打印solution用到的辅助数组b的思路挺有意思。  
 
 ## 第16章 贪心算法  
 活动选择问题的[动态规划算法](https://github.com/zhuxiuwei/CLRS/blob/master/src/chap16_GreedyAlgorithms/ActivitySelector.java#L36) ★★★★★  
-开始花了很多时间也写不对，子问题划分的有些问题。最后参考了[文章](http://www.cs.princeton.edu/~wayne/cs423/lectures/dynamic-programming-4up.pdf)，改了划分方法成功了。__失败的代码__：[ActivitySelector](https://github.com/zhuxiuwei/CLRS/blob/master/src/chap16_GreedyAlgorithms/ActivitySelector.java#L82)  
+开始花了很多时间也写不对，子问题划分的有些问题。最后参考了[文章](http://www.cs.princeton.edu/~wayne/cs423/lectures/dynamic-programming-4up.pdf)，改了划分方法成功了。**失败的代码**：[ActivitySelector](https://github.com/zhuxiuwei/CLRS/blob/master/src/chap16_GreedyAlgorithms/ActivitySelector.java#L82)  
 
 [0-1背包问题动态规划算法](https://github.com/zhuxiuwei/CLRS/blob/master/src/chap16_GreedyAlgorithms/KnapsackProblem.java) ★★★★★  
 花的时间也多。调试很多次。  
@@ -117,5 +117,5 @@ O(V^2)的算法非常简单， 但是**O(V)**算法的思路还是挺有意思�
 
 [有向无环图两个节点间简单路径的数量](https://github.com/zhuxiuwei/CLRS/blob/master/src/chap22_ElementaryGraphAlgo/CountOfPaths.java)。★★★★  
 花费了比较长的时间才获取正确结果，感觉自己写的方案并不简洁，希望能有更好的方案。  
-注意如何记录一个结点已经访问过的邻居结点的 - 用一个map [key=Vertex, value=Integer> neighborsHasCheckedIndex](https://github.com/zhuxiuwei/CLRS/blob/master/src/chap22_ElementaryGraphAlgo/CountOfPaths.java#L33)。__最开始我这个map的value是Set of Vertex，后来发现用Integer记录访问过的index__，能达到同样的效果，而且比Set of Vertex更省空间。  
+注意如何记录一个结点已经访问过的邻居结点的 - 用一个map [key=Vertex, value=Integer> neighborsHasCheckedIndex](https://github.com/zhuxiuwei/CLRS/blob/master/src/chap22_ElementaryGraphAlgo/CountOfPaths.java#L33)。**最开始我这个map的value是Set of Vertex，后来发现用Integer记录访问过的index**，能达到同样的效果，而且比Set of Vertex更省空间。  
 
