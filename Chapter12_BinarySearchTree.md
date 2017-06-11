@@ -53,7 +53,7 @@ Give a smallest possible counterexample to the professors claim.
 
 #### 12.3-1 给出TREE-INSERT过程的一个递归版本。  
 代码见[BinarySearchTree_InsertAndDelete](https://github.com/zhuxiuwei/CLRS/blob/master/src/chap12_BinarySearchTree/BinarySearchTree_InsertAndDelete.java)的insert_recursive方法。  
-一个__注意点__：插入节点递归算法，找到要插入的地方的条件开始写错了，写成了currentNode.left == null && currentNode.right == null，浪费不少时间。需要先仔细想想。  
+一个**注意点**：插入节点递归算法，找到要插入的地方的条件开始写错了，写成了currentNode.left == null && currentNode.right == null，浪费不少时间。需要先仔细想想。  
 
 #### 12.3-2 Suppose that we construct a binary search tree by repeatedly inserting distinct values into the tree. Argue that the number of nodes examined in searching for a value in the tree is one plus the number of nodes examined when the value was first inserted into the tree.  
 插入和查找，都是从root向下走到target结点的过程。插入，最后一次比较是和待插入结点的父结点；而查找，最后一次比较的是待查找的结点。查找的比较次数比插入时加一。  
@@ -63,7 +63,7 @@ Give a smallest possible counterexample to the professors claim.
 最坏：树只有一个分支，O(n^2)。  
 
 #### 12.3-4 delete操作是否是“可交换”的，即先删除x后删除y，和先删除y后删除x，树长得一样？  
-（__看的答案。最初我以为是可交换的。__）不是可交换的，如下图：  
+（**看的答案。最初我以为是可交换的。**）不是可交换的，如下图：  
 ![](https://github.com/zhuxiuwei/CLRS/blob/master/Images/12.3-4.png)  
 
 ####  12.3-5 假设为每个结点换一种设计，没有指向x的双亲的属性x.p，而有指向x的后继的属性x.succ。试给出使用这种表示法的二叉搜索树T上SEARCH,INSERT和DELETE操作的伪代码。这些伪代码应在O(h)时间内执行完，其中h为T的高度。(提示：应该设计一个返回某个结点的双亲的子过程。)  

@@ -42,7 +42,7 @@ O(1)的removeLast()在我的[LinkedList](https://github.com/zhuxiuwei/CLRS/blob/
 #### 10.2-6 链表反转。非递归。只用固定的额外存储空间。  
 代码见[LinkedList.java](https://github.com/zhuxiuwei/CLRS/blob/master/src/chap10_ElementaryDataStructures/LinkedList.java#L127)  
 
-#### 10.3-1 画图表示序列{13,4,8,19,5,1}的__多数组__表现形式和__单数组__表现形式。
+#### 10.3-1 画图表示序列{13,4,8,19,5,1}的多数组表现形式和单数组表现形式。
 假设数组能容纳10个元素。见下图（元素在数组中方的位置我是随机选的）    
 ![](https://github.com/zhuxiuwei/CLRS/blob/master/Images/10.3-1.png)  
 
@@ -59,6 +59,6 @@ O(1)的removeLast()在我的[LinkedList](https://github.com/zhuxiuwei/CLRS/blob/
 思路是，增加的时候总是往数组能用的最小下标增加（类似stack push）；  
 删除时，如果删除的是最大的数组下标，啥也不用动；如果不是，删除后，可以把最大数组下表的元素移动到被删除空出来的数组位置。这涉及到一些指针的操作而已。  
 
-#### 10.4-4 __左孩子右兄弟表示法__的n个节点的树，写出O(n)的输出所有元素的过程。  
+#### 10.4-4 左孩子右兄弟表示法的n个节点的树，写出O(n)的输出所有元素的过程。  
  代码见[Tree_LefrChildRightSibling](https://github.com/zhuxiuwei/CLRS/blob/master/src/chap10_ElementaryDataStructures/Tree_LefrChildRightSibling.java)  
  实现了先根遍历，中根遍历，后根遍历和层次遍历。注意怎么快速建立一棵树的。  

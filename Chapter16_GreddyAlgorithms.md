@@ -3,7 +3,7 @@
 ## 16.1 活动选择问题  
 #### 16.1-1 活动选择问题的动态规划算法以及运行时间。  
 DP memorized版本的代码见：[ActivitySelector](https://github.com/zhuxiuwei/CLRS/blob/master/src/chap16_GreedyAlgorithms/ActivitySelector.java#L36)  
-开始花了很多时间也写不对，子问题划分的有些问题。最后参考了[文章](http://www.cs.princeton.edu/~wayne/cs423/lectures/dynamic-programming-4up.pdf)，改了划分方法成功了。__失败的代码__：[ActivitySelector](https://github.com/zhuxiuwei/CLRS/blob/master/src/chap16_GreedyAlgorithms/ActivitySelector.java#L82)  
+开始花了很多时间也写不对，子问题划分的有些问题。最后参考了[文章](http://www.cs.princeton.edu/~wayne/cs423/lectures/dynamic-programming-4up.pdf)，改了划分方法成功了。**失败的代码**：[ActivitySelector](https://github.com/zhuxiuwei/CLRS/blob/master/src/chap16_GreedyAlgorithms/ActivitySelector.java#L82)  
 时间应该是O(NlogN)  
 
 #### 16.1-2 不是选择最早结束，而是选择最晚开始时间活动的贪心算法。  
@@ -36,9 +36,9 @@ f: 4 5 9
 
 #### 16.2-4 Professor Midas drives an automobile from Newark to Reno along Interstate 80. His car's gas tank, when full, holds enough gas to travel n miles, and his map gives the distances between gas stations on his route. The professor wishes to make as few gas stops as possible along the way. Give an efficient method by which Professor Midas can determine at which gas stations he should stop, and prove that your strategy yields an optimal solution.  
 走到2L水能到达的最远的补水点补水。[代码](https://github.com/zhuxiuwei/CLRS/blob/master/src/chap16_GreedyAlgorithms/ProfessorWaterSupplement.java)  
-__注意点__：处理到最后一个点后，要有特殊处理。 
+**注意点**：处理到最后一个点后，要有特殊处理。 
 
-#### 16.2-5(此题目的中文翻译不清楚。括号里为注释。) 设计一个高效算法，对实数线上给定的点集合{x1, x2, ...,xn}(实数，即浮点型，不是整数)，求一个__数量最少__的单位长度闭区间（即长度=1的区间）集合，使得这些集合能覆盖所有给定的点。证明你的算法正确。  
+#### 16.2-5(此题目的中文翻译不清楚。括号里为注释。) 设计一个高效算法，对实数线上给定的点集合{x1, x2, ...,xn}(实数，即浮点型，不是整数)，求一个数量最少的单位长度闭区间（即长度=1的区间）集合，使得这些集合能覆盖所有给定的点。证明你的算法正确。  
 思路：假设点集合{x1, x2, ...,xn}是有序递增（若不是有序的，先排序）的。每次选择最左边的没有被覆盖的点，设xi,取区间{xi, xi + 1}， 如此往复，直到所有点覆盖完为止。  
 
 
