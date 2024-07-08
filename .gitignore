@@ -2,3 +2,9 @@ logs/
 bin/
 target/
 .cache
+.classpath
+.project
+.idea
+*.iml
+classes
+out/
